@@ -1,7 +1,7 @@
 ---
 name: Historia de usuário
 about: Template para criação de histórias de usuário.
-title: História de usuário
+title: US-00
 labels: historia de usuario
 assignees: ''
 

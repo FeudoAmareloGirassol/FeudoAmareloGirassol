@@ -18,3 +18,4 @@ Para instala-lo é só usar o comando **angular npm install -g @angular/cli**
 * O .gitignore está ignorando o `node_modules` por ser muito grande, então ao tentar rodar o servidor do Angular `ng serve -o`, não irá funcionar.
 * Para instalar o Build do Angular, no arquivo onde está o projeto do Angular, use o seguinte código: `npm install --save-dev @angular-devkit/build-angular`
 * Este irá instalar todas as dependências necessárias do **Node** e o Angular voltará a funcionar.
+* Uma forma alternativa de resolver o problema da falta de módulos e dependências é usando o comando `npm i`.

@@ -7,3 +7,6 @@
 
 # ❗ AVISO ❗
 * Para conseguir rodar o angular existe mais um passo que está explicado no README dentro da pasta do frontend.
+
+## TestPr
+By Andre

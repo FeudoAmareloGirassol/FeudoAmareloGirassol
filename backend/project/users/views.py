@@ -69,3 +69,9 @@ def isAuthenticated(token):
 
     user = User.objects.filter(id=payload['id']).first()
     return user
+
+def validateUserType(token, isSeller):
+    user = isAuthenticated(token)
+    if user.isSeller == isSeller:
+        return user
+    raise AuthenticationFailed('Unauthorized')

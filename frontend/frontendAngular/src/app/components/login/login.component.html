@@ -1,0 +1,13 @@
+<div>
+    <form [formGroup]="form">
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Senha</mat-label>
+            <input matInput formControlName="password" />
+        </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="submit()" color="primary">Criar</button>
+</div>

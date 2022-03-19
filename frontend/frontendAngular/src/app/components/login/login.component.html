@@ -1,13 +1,16 @@
 <div>
-    <form [formGroup]="form">
-        <mat-form-field>
-            <mat-label>Email</mat-label>
-            <input matInput formControlName="email" />
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Senha</mat-label>
-            <input matInput formControlName="password" />
-        </mat-form-field>
-    </form>
-    <button mat-raised-button (click)="submit()" color="primary">Criar</button>
+  <form [formGroup]="form">
+      <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" />
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+          <mat-label>Senha</mat-label>
+          <input matInput type="password" formControlName="password" />
+      </mat-form-field>
+      <br>
+  </form>
+  <button mat-raised-button (click)="submit()" color="primary">Entrar</button>
 </div>
+

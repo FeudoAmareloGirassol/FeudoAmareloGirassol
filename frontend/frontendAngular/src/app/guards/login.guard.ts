@@ -6,7 +6,7 @@ import { LocalStorageLoginService } from '../services/local-storage-login.servic
 @Injectable({
   providedIn: 'root'
 })
-export class LoginGuardGuard implements CanActivate {
+export class LoginGuard implements CanActivate {
   constructor(public localStorage: LocalStorageLoginService, private router: Router){}
 
   canActivate(

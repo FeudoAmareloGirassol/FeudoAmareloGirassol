@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CompanyModel, CompanyRequest } from '../../api/company';
 import { CompanyRegisterService } from '../../services/company-register.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MessageService } from '../../services/message-service.service';
 
 @Component({
   selector: 'app-register-company',
@@ -14,7 +14,7 @@ export class RegisterCompanyComponent implements OnInit {
   isLoading: boolean = false;
 
   constructor(public fb: FormBuilder, public companyRegisterService: CompanyRegisterService,
-    private _snackBar: MatSnackBar) {
+    private snackBService:MessageService) {
     this.form = this.fb.group({
       name: ['', [Validators.required]],
       cnpj: ['', [Validators.required]],
@@ -39,9 +39,19 @@ export class RegisterCompanyComponent implements OnInit {
     }
 
     if (this.form.controls['password'].value != this.form.controls['confirm_password'].value) {
-      this._snackBar.open("Senhas diferentes", "Ok")
+      this.snackBService.showError("Senhas diferentes", "Ok");
       return;
     }
+
+    let senha1 = <String>this.form.controls['password'].value;
+    let senha2 = <String>this.form.controls['confirm_password'].value;
+
+    if (
+      this.form.controls['password'].value == this.form.controls['confirm_password'].value &&
+      senha1.length < 5 && senha2.length < 5) {
+        this.snackBService.showWarning("Senhas muito curtas!", "Ok");
+        return;
+      }
 
     let request: CompanyRequest = {
       user: {
@@ -62,7 +72,7 @@ export class RegisterCompanyComponent implements OnInit {
 
     this.isLoading = true;
     this.companyRegisterService.registerCompany(request).subscribe((response: CompanyModel) => {
-      console.log("registered", response);
+      this.snackBService.showError("Registrado com sucesso", "Ok");
       this.isLoading = false;
     }, _ => this.isLoading = false);
   }

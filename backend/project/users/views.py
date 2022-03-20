@@ -26,7 +26,6 @@ class RegisterCustomerView(APIView):
         userSerializer = UserSerializer(data=request.data['user'])
         userSerializer.is_valid(raise_exception=True)
         userSerializer.save()
-        # userSerializer.create(userSerializer.validated_data)
         return Response({
             "User": userSerializer.data
         })
@@ -39,56 +38,3 @@ class RegisterCustomerView(APIView):
         except IntegrityError:
             raise ValidationError(
                 'Product with this Name and User already exists.')
-
-# # É SÓ PARA MOSTRAR AS INFOS DO USUARIO!!
-
-# class CompanyView(APIView):
-#     def get(self, request):
-#         token = request.COOKIES.get('jwt')
-#         user = isCompanyAuthenticated(token)
-#         serializer = CompanySerializer(user)
-#         return Response(serializer.data)
-
-# class CustomerView(APIView):
-#     def get(self, request):
-#         token = request.COOKIES.get('jwt')
-#         user = isCustomerAuthenticated(token)
-#         serializer = CustomerSerializer(user)
-#         return Response(serializer.data)
-
-# class LogoutView(APIView):
-#     def post(self, request):
-#         response = Response()
-#         response.delete_cookie('jwt')
-#         response.data={'message': 'sucess' }
-#         return response
-
-# def isCompanyAuthenticated(token):
-#     if not token:
-#         raise AuthenticationFailed('Unauthenticated!')
-
-#     try:
-#         payload = jwt.decode(token, 'secret', algorithms=['HS256'])
-#     except jwt.ExpiredSignatureError:
-#         raise AuthenticationFailed('Unauthenticated!')
-
-#     user = Company.objects.filter(id=payload['id']).first()
-#     return user
-
-# def isCustomerAuthenticated(token):
-#     if not token:
-#         raise AuthenticationFailed('Unauthenticated!')
-
-#     try:
-#         payload = jwt.decode(token, 'secret', algorithms=['HS256'])
-#     except jwt.ExpiredSignatureError:
-#         raise AuthenticationFailed('Unauthenticated!')
-
-#     user = Customer.objects.filter(id=payload['id']).first()
-#     return user
-
-# def validateUserType(token, isSeller):
-#     user = isAuthenticated(token)
-#     if user.isSeller == isSeller:
-#         return user
-#     raise AuthenticationFailed('Unauthorized')

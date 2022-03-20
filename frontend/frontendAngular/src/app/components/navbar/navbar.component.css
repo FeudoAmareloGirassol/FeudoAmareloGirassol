@@ -1,0 +1,17 @@
+.header{
+    display: flex;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+.settings{
+    justify-content: flex-end;
+    
+}
+
+.settings:hover{
+    cursor: pointer;
+}

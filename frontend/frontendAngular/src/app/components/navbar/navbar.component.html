@@ -1,8 +1,12 @@
 <p>
-  <mat-toolbar color="primary">
-    <!-- Mark.it ser clicavel <a> se logado -> aba de logado se nao tela de login -->
-    <span>Mark.it</span>
-    <!-- Armazenar usuario em algum lugar???? qual melhor lugar???? pesquisar como armazenar user no front -->
+  <mat-toolbar color="primary" class="header">
+    <span><a href="/user-view">Mark.it</a></span>
+    <span></span>
+    <ng-container *ngIf="router.routerState.snapshot.url == '/user-view'">
+      <span style="margin-left: 1250px;">
+        <mat-icon class="settings" (click)="showUser()">settings</mat-icon>
+      </span>
+    </ng-container>
     <!-- se logado apenas -> ENGRENAGEM -> (click)->console.log(user) -->
   </mat-toolbar>
 </p>

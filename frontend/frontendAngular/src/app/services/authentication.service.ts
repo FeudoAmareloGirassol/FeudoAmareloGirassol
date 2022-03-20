@@ -12,6 +12,6 @@ export class AuthenticationService {
   constructor(public http: HttpClient) { }
 
   login(request: LoginRequest){
-    return this.http.post(`${apiUrl}`, request);
+    return this.http.post(`${apiUrl}`, request)
   }
 }

@@ -8,26 +8,27 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ExampleComponent } from './components/example/example.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterCompanyComponent } from './components/register-company/register-company.component';
 import { RegisterCustomerComponent } from './components/register-customer/register-customer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './components/home/home.component';
+import { UserViewComponent } from './components/user-view/user-view.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ExampleComponent,
     LoginComponent,
     RegisterCompanyComponent,
     RegisterCustomerComponent,
     NavbarComponent,
-    FooterComponent,
+    HomeComponent,
+    UserViewComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -41,6 +42,7 @@ import { FooterComponent } from './components/footer/footer.component';
     MatButtonModule,
     MatSnackBarModule,
     MatToolbarModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

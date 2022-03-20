@@ -1,6 +1,7 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MessageService } from '../../services/message-service.service';
 import { CustomerModel, CustomerRequest } from '../../api/customer';
 import { CustomerRegisterService } from '../../services/customer-register.service';
 
@@ -16,10 +17,9 @@ export class RegisterCustomerComponent implements OnInit {
   constructor(
     public fb: FormBuilder,
     public customerRegisterService: CustomerRegisterService,
-    private _snackBar: MatSnackBar
+    private snackBService:MessageService
   ) {
     this.form = this.fb.group({
-      // name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
       confirm_password: ['', [Validators.required]],
@@ -37,19 +37,22 @@ export class RegisterCustomerComponent implements OnInit {
     }
 
     if (this.form.controls['password'].value != this.form.controls['confirm_password'].value) {
-      // TODO criar um messageService com
-      // showSuccess
-      // showError
-      // showWarning
-      // personalizar pra aparecer no superior direito
-      //this.messageService.showError("Senhas diferentes");
-      this._snackBar.open("Senhas diferentes", "Ok");
+      this.snackBService.showError("Senhas diferentes", "Ok");
+      return;
+    }
+    
+    let senha1 = <String>this.form.controls['password'].value;
+    let senha2 = <String>this.form.controls['confirm_password'].value;
+
+    if (
+    this.form.controls['password'].value == this.form.controls['confirm_password'].value &&
+    senha1.length < 5 && senha2.length < 5) {
+      this.snackBService.showWarning("Senhas muito curtas!", "Ok");
       return;
     }
 
     let request: CustomerRequest = {
       user: {
-        // name: this.registerCustomerForm.controls['name'].value,
         email:this.form.controls['email'].value,
         password:this.form.controls['password'].value
       }
@@ -57,7 +60,7 @@ export class RegisterCustomerComponent implements OnInit {
 
     this.isLoading = true;
     this.customerRegisterService.registerCustomer(request).subscribe((response: CustomerModel) => {
-      console.log("registered", response);
+      this.snackBService.showError("Registrado com sucesso", "Ok");
       this.isLoading = false;
     }, _ => this.isLoading = false);
   }

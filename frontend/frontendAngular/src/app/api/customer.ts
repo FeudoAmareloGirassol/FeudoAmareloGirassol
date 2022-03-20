@@ -7,8 +7,6 @@ export interface CustomerRequest{
 }
 
 export interface CustomerBase{
-
-    // name: string;
     email: string;
     password: string;
 }

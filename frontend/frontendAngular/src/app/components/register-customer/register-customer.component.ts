@@ -7,12 +7,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register-customer.component.css']
 })
 export class RegisterCustomerComponent implements OnInit {
-  registerCustomerForm: FormGroup;
+  form: FormGroup;
 
   constructor(fb: FormBuilder) {
-    this.registerCustomerForm = fb.group({
+    this.form = fb.group({
       name: ['', [Validators.required]],
-      LastName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
       cpf: ['', [Validators.required]],
       address: ['', [Validators.required]],
       cep: ['', [Validators.required]],

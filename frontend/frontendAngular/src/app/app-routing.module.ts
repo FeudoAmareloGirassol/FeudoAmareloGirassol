@@ -17,12 +17,12 @@ const routes: Routes = [
       
     },
     {
-      path: 'cadastro/empresa',
+      path: 'register/company',
       component: RegisterCompanyComponent
       
     },
     {
-      path: 'cadastro/usuario',
+      path: 'register/customer',
       component: RegisterCustomerComponent
       
     }

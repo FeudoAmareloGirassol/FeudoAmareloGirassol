@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageService } from '../../services/message-service.service';
 import { CustomerModel, CustomerRequest } from '../../api/customer';
 import { CustomerRegisterService } from '../../services/customer-register.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-customer',
@@ -17,7 +18,8 @@ export class RegisterCustomerComponent implements OnInit {
   constructor(
     public fb: FormBuilder,
     public customerRegisterService: CustomerRegisterService,
-    private snackBService:MessageService
+    private messageService:MessageService,
+    private router: Router
   ) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -37,31 +39,33 @@ export class RegisterCustomerComponent implements OnInit {
     }
 
     if (this.form.controls['password'].value != this.form.controls['confirm_password'].value) {
-      this.snackBService.showError("Senhas diferentes", "Ok");
+      this.messageService.showError("Senhas diferentes", "Ok", 'error-snackbar');
       return;
     }
     
-    let senha1 = <String>this.form.controls['password'].value;
-    let senha2 = <String>this.form.controls['confirm_password'].value;
+    let senha1 = this.form.controls['password'].value;
+    let senha2 = this.form.controls['confirm_password'].value;
 
     if (
     this.form.controls['password'].value == this.form.controls['confirm_password'].value &&
     senha1.length < 5 && senha2.length < 5) {
-      this.snackBService.showWarning("Senhas muito curtas!", "Ok");
+      this.messageService.showWarning("Senhas muito curtas!", "Ok", 'warning-snackbar');
       return;
     }
 
     let request: CustomerRequest = {
       user: {
         email:this.form.controls['email'].value,
-        password:this.form.controls['password'].value
+        password:this.form.controls['password'].value,
+        confirm_password:this.form.controls['password'].value,
       }
     };
 
     this.isLoading = true;
     this.customerRegisterService.registerCustomer(request).subscribe((response: CustomerModel) => {
-      this.snackBService.showError("Registrado com sucesso", "Ok");
+      this.messageService.showSuccess("Registrado com sucesso", "Ok", 'success-snackbar');
       this.isLoading = false;
+      this.router.navigate(['/login']);
     }, _ => this.isLoading = false);
   }
 

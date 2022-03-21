@@ -37,8 +37,5 @@ export class LocalStorageLoginService {
     }
     return false;
   }
-
-  get logged(): boolean{
-    return this.storage.getItem('token') ? true : false
-  }
+  
 }

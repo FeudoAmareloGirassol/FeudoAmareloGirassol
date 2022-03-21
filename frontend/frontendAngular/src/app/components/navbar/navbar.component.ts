@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; 
-import { LocalStorageLoginService } from 'src/app/services/local-storage-login.service';
+import { LocalStorageLoginService } from '../../services/local-storage-login.service';
+import { MessageService } from '../../services/message-service.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,13 +10,17 @@ import { LocalStorageLoginService } from 'src/app/services/local-storage-login.s
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(public router: Router, private localStorage: LocalStorageLoginService) { }
+  constructor(
+    public router: Router, 
+    private messageService: MessageService, 
+    public localStorage: LocalStorageLoginService
+    ) { }
 
   ngOnInit(): void {
   }
 
   showUser(){
-    console.log(this.localStorage.get('token'))
+    this.messageService.showSuccess("Registrado com sucesso", "Ok", 'success-snackbar');
   }
 
 }

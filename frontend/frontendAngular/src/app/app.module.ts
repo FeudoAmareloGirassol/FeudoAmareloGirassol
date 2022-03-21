@@ -8,7 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +17,7 @@ import { RegisterCompanyComponent } from './components/register-company/register
 import { RegisterCustomerComponent } from './components/register-customer/register-customer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
-import { UserViewComponent } from './components/user-view/user-view.component';
+import { UserHomeComponent } from './components/user-home/user-home.component';
 
 
 @NgModule({
@@ -28,7 +28,7 @@ import { UserViewComponent } from './components/user-view/user-view.component';
     RegisterCustomerComponent,
     NavbarComponent,
     HomeComponent,
-    UserViewComponent,
+    UserHomeComponent,
   ],
   imports: [
     ReactiveFormsModule,

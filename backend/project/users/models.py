@@ -15,6 +15,7 @@ class Company(models.Model):
 class User(AbstractUser):
     email = models.EmailField(max_length=255, unique=True)
     password = models.CharField(max_length=255)
+    confirm_password = models.CharField(max_length=255)
     username = models.CharField(max_length=255)
 
     company = models.OneToOneField(

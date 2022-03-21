@@ -4,8 +4,8 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterCompanyComponent } from './components/register-company/register-company.component';
 import { RegisterCustomerComponent } from './components/register-customer/register-customer.component';
-import { UserViewComponent } from './components/user-view/user-view.component';
-import { LoginGuard } from './guards/login.guard';
+import { UserHomeComponent } from './components/user-home/user-home.component';
+import { AuthenticatedGuard } from './guards/authenticated.guard';
 
 const routes: Routes = [
     {
@@ -25,9 +25,9 @@ const routes: Routes = [
       component: RegisterCustomerComponent
     },
     {
-      path: 'user-view',
-      component: UserViewComponent,
-      canActivate: [LoginGuard]
+      path: 'user/home',
+      component: UserHomeComponent,
+      canActivate: [AuthenticatedGuard]
     },
 ];
 

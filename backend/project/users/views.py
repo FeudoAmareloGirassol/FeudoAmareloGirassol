@@ -1,6 +1,4 @@
-from sqlite3 import IntegrityError
 from rest_framework.permissions import AllowAny
-from django.forms import ValidationError
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import CompanySerializer, UserSerializer
@@ -29,12 +27,3 @@ class RegisterCustomerView(APIView):
         return Response({
             "User": userSerializer.data
         })
-
-    # Gambiarra funcional.
-    def perform_create(self, serializer):
-        user = self.request.user
-        try:
-            serializer.save(user=user)
-        except IntegrityError:
-            raise ValidationError(
-                'Product with this Name and User already exists.')

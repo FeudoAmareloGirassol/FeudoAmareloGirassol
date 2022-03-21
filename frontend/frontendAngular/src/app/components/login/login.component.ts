@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginRequest } from '../../api/authentication';
 import { LocalStorageLoginService } from '../../services/local-storage-login.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,7 +16,12 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
   isLoading: boolean = false;
   
-  constructor(public fb: FormBuilder, public loginService: AuthenticationService, private localStorage: LocalStorageLoginService) {
+  constructor(
+    public fb: FormBuilder, 
+    public loginService: AuthenticationService, 
+    private localStorage: LocalStorageLoginService, 
+    private router: Router
+    ) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
@@ -39,11 +45,9 @@ export class LoginComponent implements OnInit {
     this.isLoading = true;
 
     this.loginService.login(request).subscribe((response) => {
-      console.log("Logged", response);
-      var obj = JSON.stringify(response, ['access']);
-      console.log(obj.slice(11, -2));
-      localStorage.setItem("token", JSON.stringify(response));
+      localStorage.setItem("token", response.access);
       this.isLoading = false;
+      this.router.navigate(['/user/home']);
     }, _ => this.isLoading = false);
   }
 }

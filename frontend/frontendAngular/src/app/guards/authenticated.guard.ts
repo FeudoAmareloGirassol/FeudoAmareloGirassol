@@ -6,13 +6,16 @@ import { LocalStorageLoginService } from '../services/local-storage-login.servic
 @Injectable({
   providedIn: 'root'
 })
-export class LoginGuard implements CanActivate {
-  constructor(public localStorage: LocalStorageLoginService, private router: Router){}
+export class AuthenticatedGuard implements CanActivate {
+  constructor(
+    public localStorage: LocalStorageLoginService,
+    private router: Router
+    ){}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(!this.localStorage.logged){
+    if(this.localStorage.get("token")==null){
       this.router.navigateByUrl('/');
       return false;
     } else{

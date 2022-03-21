@@ -3,10 +3,11 @@ export interface CustomerModel extends CustomerBase{
 }
 
 export interface CustomerRequest{
-    user: CustomerBase
+    user: CustomerBase;
 }
 
 export interface CustomerBase{
     email: string;
     password: string;
+    confirm_password: string;
 }

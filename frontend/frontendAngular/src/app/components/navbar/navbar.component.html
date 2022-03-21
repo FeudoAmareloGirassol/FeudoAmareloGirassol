@@ -1,8 +1,8 @@
 <p>
-  <mat-toolbar color="primary" class="header">
-    <span><a href="/user-view">Mark.it</a></span>
+  <mat-toolbar color="primary">
+    <span><a href="/user/home">Mark.it</a></span>
     <span></span>
-    <ng-container *ngIf="router.routerState.snapshot.url == '/user-view'">
+    <ng-container *ngIf="!((localStorage.get('token'))==null)">
       <span style="margin-left: 1250px;">
         <mat-icon class="settings" (click)="showUser()">settings</mat-icon>
       </span>

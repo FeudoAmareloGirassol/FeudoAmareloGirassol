@@ -8,8 +8,13 @@ class RegisterCompanyView(APIView):
     def post(self, request):
         companySerializer = CompanySerializer(data=request.data['company'])
         userSerializer = UserSerializer(data=request.data['user'])
-        companySerializer.is_valid(raise_exception=True)
-        userSerializer.is_valid(raise_exception=True)
+        errors = {}
+        if not userSerializer.is_valid():
+            errors['user'] = userSerializer.errors
+        if not companySerializer.is_valid():
+            errors['comapny'] = companySerializer.errors
+        if errors:
+            return Response(errors)
         companySerializer.save()
         userSerializer.create(userSerializer.validated_data,
                               companySerializer.instance)
@@ -22,7 +27,11 @@ class RegisterCustomerView(APIView):
     permission_classes = [AllowAny]
     def post(self, request):
         userSerializer = UserSerializer(data=request.data['user'])
-        userSerializer.is_valid(raise_exception=True)
+        errors = {}
+        if not userSerializer.is_valid():
+            errors['user'] = userSerializer.errors
+        if errors:
+            return Response(errors)
         userSerializer.save()
         return Response({
             "User": userSerializer.data

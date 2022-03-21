@@ -1,9 +1,9 @@
 <div class="row justify-content-around">
   <mat-card class="mx-5 my-5">
     <form [formGroup]="form">
-      <mat-form-field class="col mt-5" appearance="fill">
+      <mat-form-field class="col my-4 mt-5" appearance="fill">
         <mat-label>Email</mat-label>
-        <input type="email" matInput formControlName="email" placeholder="Ex. example@email.com">
+        <input type="email" matInput formControlName="email">
         <mat-error>
           Insira um endereço de email válido
         </mat-error>
@@ -14,11 +14,11 @@
         <input type="password" classtype="password" formControlName="password" matInput>
       </mat-form-field>
 
-      <div class="row justify-content-around">
-        <button color="primary" mat-raised-button>Entrar</button>
+      <div class="row justify-content-around my-2">
+        <button class="my-2" color="primary" mat-raised-button>Entrar</button>
       </div>
-      <div class="row justify-content-around m-3">
-        <a href="https://www.google.com">Esqueceu a senha?</a>
+      <div class="row justify-content-around my-2">
+        <a href="">Esqueceu a senha?</a>
       </div>
 
       <div class="row justify-content-around m-3">

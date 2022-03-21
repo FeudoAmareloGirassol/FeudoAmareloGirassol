@@ -11,14 +11,6 @@ export class RegisterCustomerComponent implements OnInit {
 
   constructor(fb: FormBuilder) {
     this.form = fb.group({
-      name: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
-      cpf: ['', [Validators.required]],
-      address: ['', [Validators.required]],
-      cep: ['', [Validators.required]],
-      city: ['', [Validators.required]],
-      uf: ['', [Validators.required]],
-      phone: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
       confirmPassword: ['', [Validators.required]],

@@ -12,7 +12,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ExampleComponent } from './components/example/example.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterCompanyComponent } from './components/register-company/register-company.component';
 import { RegisterCustomerComponent } from './components/register-customer/register-customer.component';
@@ -20,7 +19,6 @@ import { RegisterCustomerComponent } from './components/register-customer/regist
 @NgModule({
   declarations: [
     AppComponent,
-    ExampleComponent,
     LoginComponent,
     RegisterCompanyComponent,
     RegisterCustomerComponent

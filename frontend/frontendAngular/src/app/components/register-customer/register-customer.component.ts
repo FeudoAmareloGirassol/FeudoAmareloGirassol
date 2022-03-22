@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-register-customer',
   templateUrl: './register-customer.component.html',
-  styleUrls: ['./register-customer.component.css']
+  styleUrls: ['./register-customer.component.scss']
 })
 export class RegisterCustomerComponent implements OnInit {
   form: FormGroup;

@@ -1,0 +1,34 @@
+<div class="row justify-content-around">
+  <mat-card class="mx-5 my-5">
+    <form [formGroup]="form">
+      <mat-form-field class="col mt-5" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email">
+        <mat-error>
+          Insira um endereço de email válido
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="col" appearance="fill">
+        <mat-label>Senha</mat-label>
+        <input type="password" classtype="password" formControlName="password" matInput>
+      </mat-form-field>
+
+      <div class="row justify-content-around">
+        <button color="primary" mat-raised-button>Entrar</button>
+      </div>
+      <div class="row justify-content-around my-2">
+        <a routerLink="">Esqueceu a senha?</a>
+      </div>
+
+      <div class="row justify-content-around m-3">
+        <button routerLink="/register/customer" color="primary" mat-raised-button>Criar conta</button>
+        <button routerLink="/register/company" color="primary" mat-raised-button>Criar conta empresarial</button>
+      </div>
+    </form>
+  </mat-card>
+  <div>
+    <img src="assets/SVGLogin.svg" alt="SVGLogin">
+  </div>
+</div>
+

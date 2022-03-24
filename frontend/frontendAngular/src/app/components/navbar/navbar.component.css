@@ -1,0 +1,8 @@
+.logo{
+    color: white;
+    text-decoration: none;
+}
+
+.settings:hover{
+    cursor: pointer;
+}

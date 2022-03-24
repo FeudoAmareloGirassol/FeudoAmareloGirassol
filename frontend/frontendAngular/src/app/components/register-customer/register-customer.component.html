@@ -13,11 +13,11 @@
 
             <mat-form-field class="col" appearance="fill">
                 <mat-label>Confirme sua senha</mat-label>
-                <input type="password" matInput formControlName ="confirmPassword">
+                <input type="password" matInput formControlName ="confirm_password">
             </mat-form-field>
 
             <div class="row justify-content-around">
-                <button class="col-4" color="primary" mat-raised-button>Cadastrar</button>
+                <button class="col-4" color="primary" mat-raised-button (click)="submit()">Cadastrar</button>
             </div>
 
             <div class="row justify-content-around mt-3">

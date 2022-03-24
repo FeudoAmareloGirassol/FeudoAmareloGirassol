@@ -8,24 +8,24 @@ export class MessageService {
 
   constructor(private _snackBar: MatSnackBar) { }
 
-  showError(message: string, action: string, className:string) {
+  showError(message: string, action: string) {
     this._snackBar.open(message, action, {
-       duration: 2000,
-       panelClass: [className]
+      duration: 2000,
+      panelClass: ["error-snackbar"]
     });
   }
 
-  showSuccess(message: string, action: string, className:string) {
+  showSuccess(message: string, action: string) {
     this._snackBar.open(message, action, {
-       duration: 2000,
-       panelClass: [className]
+      duration: 2000,
+      panelClass: ['success-snackbar']
     });
   }
 
-  showWarning(message: string, action: string, className:string) {
+  showWarning(message: string, action: string) {
     this._snackBar.open(message, action, {
-       duration: 2000,
-       panelClass: [className]
+      duration: 2000,
+      panelClass: ['warning-snackbar']
     });
   }
 }

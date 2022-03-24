@@ -12,7 +12,7 @@ class RegisterCompanyView(APIView):
         if not userSerializer.is_valid():
             errors['user'] = userSerializer.errors
         if not companySerializer.is_valid():
-            errors['comapny'] = companySerializer.errors
+            errors['company'] = companySerializer.errors
         if errors:
             return Response(errors)
         companySerializer.save()

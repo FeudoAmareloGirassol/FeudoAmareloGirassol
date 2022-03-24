@@ -44,26 +44,21 @@ export class RegisterCompanyComponent implements OnInit {
       return;
     }
 
-    if (this.form.controls['password'].value != this.form.controls['confirm_password'].value) {
-      this.messageService.showError("Senhas diferentes", "Ok", "error-snackbar");
+    let password1 = this.form.controls['password'].value;
+    let password2 = this.form.controls['confirm_password'].value;
+
+    if (password1 != password2) {
+      this.messageService.showError("Senhas diferentes", "Ok");
       return;
-    }
-
-    let senha1 = this.form.controls['password'].value;
-    let senha2 = this.form.controls['confirm_password'].value;
-
-    if (
-      this.form.controls['password'].value == this.form.controls['confirm_password'].value &&
-      senha1.length < 5 && senha2.length < 5) {
-        this.messageService.showWarning("Senhas muito curtas!", "Ok", 'warning-snackbar');
+    } else if (password1.length < 5 && password2.length < 5) {
+        this.messageService.showWarning("Senhas muito curtas!", "Ok");
         return;
       }
 
     let request: CompanyRequest = {
       user: {
         email: this.form.controls['email'].value,
-        password: this.form.controls['password'].value,
-        confirm_password:this.form.controls['password'].value,
+        password: this.form.controls['password'].value
       },
       company: {
         name: this.form.controls['name'].value,
@@ -78,7 +73,7 @@ export class RegisterCompanyComponent implements OnInit {
 
     this.isLoading = true;
     this.companyRegisterService.registerCompany(request).subscribe((response: CompanyModel) => {
-      this.messageService.showSuccess("Registrado com sucesso", "Ok", "success-snackbar");
+      this.messageService.showSuccess("Registrado com sucesso", "Ok");
       this.isLoading = false;
       this.router.navigate(['/login']);
     }, _ => this.isLoading = false);

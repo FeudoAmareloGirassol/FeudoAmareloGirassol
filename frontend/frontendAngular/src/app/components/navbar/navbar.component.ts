@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
   }
 
   showUser(){
-    this.messageService.showSuccess("Registrado com sucesso", "Ok", 'success-snackbar');
+    this.messageService.showSuccess("Registrado com sucesso", "Ok");
   }
 
 }

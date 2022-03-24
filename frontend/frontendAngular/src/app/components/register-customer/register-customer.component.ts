@@ -18,7 +18,7 @@ export class RegisterCustomerComponent implements OnInit {
   constructor(
     public fb: FormBuilder,
     public customerRegisterService: CustomerRegisterService,
-    private messageService:MessageService,
+    private messageService: MessageService,
     private router: Router
   ) {
     this.form = this.fb.group({
@@ -30,40 +30,35 @@ export class RegisterCustomerComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
 
-  submit(){
-    if (this.form.invalid){
+
+  submit() {
+    if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
     }
 
-    if (this.form.controls['password'].value != this.form.controls['confirm_password'].value) {
-      this.messageService.showError("Senhas diferentes", "Ok", 'error-snackbar');
-      return;
-    }
-    
-    let senha1 = this.form.controls['password'].value;
-    let senha2 = this.form.controls['confirm_password'].value;
+    let password1 = this.form.controls['password'].value;
+    let password2 = this.form.controls['confirm_password'].value;
 
-    if (
-    this.form.controls['password'].value == this.form.controls['confirm_password'].value &&
-    senha1.length < 5 && senha2.length < 5) {
-      this.messageService.showWarning("Senhas muito curtas!", "Ok", 'warning-snackbar');
+    if (password1 != password2) {
+      this.messageService.showError("Senhas diferentes", "Ok");
+      return;
+    } else if (password1.length < 5 && password2.length < 5) {
+      this.messageService.showWarning("Senhas muito curtas!", "Ok");
       return;
     }
 
     let request: CustomerRequest = {
       user: {
-        email:this.form.controls['email'].value,
-        password:this.form.controls['password'].value,
-        confirm_password:this.form.controls['password'].value,
+        email: this.form.controls['email'].value,
+        password: this.form.controls['password'].value
       }
     };
 
     this.isLoading = true;
     this.customerRegisterService.registerCustomer(request).subscribe((response: CustomerModel) => {
-      this.messageService.showSuccess("Registrado com sucesso", "Ok", 'success-snackbar');
+      this.messageService.showSuccess("Registrado com sucesso", "Ok");
       this.isLoading = false;
       this.router.navigate(['/login']);
     }, _ => this.isLoading = false);

@@ -1,8 +1,8 @@
-export interface loginResponse extends loginResponseBase{
-    token: loginResponse;
+export interface LoginResponse extends LoginResponseBase{
+    token: LoginResponse;
 }
 
-export interface loginResponseBase{
+export interface LoginResponseBase{
     access: string;
     refresh: string
 }

@@ -9,5 +9,4 @@ export interface CustomerRequest{
 export interface CustomerBase{
     email: string;
     password: string;
-    confirm_password: string;
 }

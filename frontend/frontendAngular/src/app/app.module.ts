@@ -18,7 +18,8 @@ import { RegisterCustomerComponent } from './components/register-customer/regist
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { UserHomeComponent } from './components/user-home/user-home.component';
-
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { UserHomeComponent } from './components/user-home/user-home.component';
     NavbarComponent,
     HomeComponent,
     UserHomeComponent,
+    DialogComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -43,6 +45,7 @@ import { UserHomeComponent } from './components/user-home/user-home.component';
     MatSnackBarModule,
     MatToolbarModule,
     MatIconModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

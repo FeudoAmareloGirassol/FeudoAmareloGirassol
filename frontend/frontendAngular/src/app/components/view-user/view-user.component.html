@@ -1,20 +1,10 @@
-<h2>My Categorias</h2>
-<!--<ul class="categorias">
-  <li *ngFor="let categoria of categorias">
-    <a routerLink="/detail/{{categoria.id}}">
-      <span class="badge">{{categoria.id}}</span> {{categoria.name}}
-    </a>
-  </li>
-</ul>
-
-<app-view-user-detail [categoria]="selectedCategoria"></app-view-user-detail>
--->
-<div>
-  <label for="new-categoria">Categoria name: </label>
-  <input id="new-categoria" #categoriaName />
-
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button type="button" class="add-button" (click)="add(categoriaName.value); categoriaName.value=''">
-    Add categoria
-  </button>
+<h2>Categorias</h2>
+<div class="categorias-menu">
+  <a *ngFor="let categoria of categorias" href="/">
+    {{categoria.name}}
+  </a>
 </div>
+
+<app-search></app-search>
+
+<app-cards-view-user></app-cards-view-user>

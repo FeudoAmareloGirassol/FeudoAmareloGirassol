@@ -15,29 +15,25 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ViewUserComponent } from './components/view-user/view-user.component';
-import { ViewUserDetailComponent } from './components/view-user-detail/view-user-detail.component';
 import { MessageComponent } from './components/message/message.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SearchComponent } from './components/search/search.component';
 import { CardsViewUserComponent } from './components/cards-view-user/cards-view-user.component'; // <-- NgModel lives here
 import { MatCardModule } from '@angular/material/card';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterCompanyComponent } from './components/register-company/register-company.component';
 import { RegisterCustomerComponent } from './components/register-customer/register-customer.component';
+import { ViewUserComponent } from './components/view-user/view-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ViewUserComponent,
-    ViewUserDetailComponent,
     MessageComponent,
-    DashboardComponent,
     SearchComponent,
     CardsViewUserComponent,
     LoginComponent,
     RegisterCompanyComponent,
-    RegisterCustomerComponent
+    RegisterCustomerComponent,
+    ViewUserComponent
   ],
   imports: [
     BrowserModule,

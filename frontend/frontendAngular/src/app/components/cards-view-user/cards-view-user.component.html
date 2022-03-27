@@ -1,50 +1,18 @@
-<div style="max-width: 650px; margin: 10px 20px 30px; margin-left: 30px; padding-top: 180px;" >
-  <mat-card class="example-card">
+<div class="card" *ngFor="let card of cards">
+  <mat-card>
     <mat-card-actions>
       <button>
         <mat-card-content>
-          <h2>Salão de beleza</h2>
+          <h2>{{card.name}}</h2>
           <p>
-            Endereço: joaozinho 123   Cidade: Natal <br />
-            Numero: 99   Uf: RN <br />
-            Bairro: Mariazinha
+            Endereço: {{card.address}} <br>
+            Número: {{card.address_number}} <br>
+            Bairro: {{card.district}} <br>
+            Cidade: {{card.city}} <br>
+            UF: {{card.state}}
           </p>
         </mat-card-content>
       </button>
     </mat-card-actions>
   </mat-card>
-   </div>
-
-   <div style="max-width: 650px; margin: 10px 20px 30px; margin-left: 30px; padding-top: 0px;" >
-    <mat-card class="example-card">
-      <mat-card-actions>
-        <button>
-          <mat-card-content>
-            <h2>Salão de beleza</h2>
-            <p>
-              Endereço: joaozinho 123   Cidade: Natal <br />
-              Numero: 99   Uf: RN <br />
-              Bairro: Mariazinha
-            </p>
-          </mat-card-content>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-     </div>
-
-     <div style="max-width: 650px; margin: 10px 20px 30px; margin-left: 30px; padding-bottom: 100px;" >
-      <mat-card class="example-card">
-        <mat-card-actions>
-          <button>
-            <mat-card-content>
-              <h2>Salão de beleza</h2>
-              <p>
-                Endereço: joaozinho 123   Cidade: Natal <br />
-                Numero: 99   Uf: RN <br />
-                Bairro: Mariazinha
-              </p>
-            </mat-card-content>
-          </button>
-        </mat-card-actions>
-      </mat-card>
-       </div>
+</div>

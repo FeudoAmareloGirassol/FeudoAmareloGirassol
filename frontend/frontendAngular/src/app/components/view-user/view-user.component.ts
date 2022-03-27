@@ -1,42 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { Categoria } from 'src/app/categoria';
-import { CATEGORIAS } from 'src/app/mock-categorias';
-import { ViewUserService } from 'src/app/services/view-user.service';
-import { MessageService } from 'src/app/services/message.service';
+import { Categoria } from '../../api/categoria';
+import { ViewUserService } from '../../services/view-user.service';
 
 @Component({
   selector: 'app-view-user',
   templateUrl: './view-user.component.html',
-  styleUrls: ['./view-user.component.css']
+  styleUrls: ['./view-user.component.scss']
 })
 export class ViewUserComponent implements OnInit {
+  categorias: Categoria[] = [];
 
-  categorias = CATEGORIAS;
-  selectedCategoria?: Categoria;
-
-  constructor(private viewuserService: ViewUserService, private messageService: MessageService) { }
+  constructor(private viewuserService: ViewUserService) { }
 
   ngOnInit(): void {
     this.getCategorias();
   }
 
-
-  onSelect(categoria: Categoria): void {
-    this.selectedCategoria = categoria;
-  }
-
   getCategorias(): void {
     this.viewuserService.getCategorias()
-        .subscribe(categorias => this.categorias = categorias);
+      .subscribe(categorias => this.categorias = categorias.slice(1, 5));
   }
-
-  add(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.viewuserService.addCategoria({ name } as Categoria)
-      .subscribe(categoria => {
-        this.categorias.push(categoria);
-      });
-  }
-
 }

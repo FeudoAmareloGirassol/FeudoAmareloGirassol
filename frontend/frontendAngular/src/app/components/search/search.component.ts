@@ -5,7 +5,7 @@ import {
    debounceTime, distinctUntilChanged, switchMap
  } from 'rxjs/operators';
 
-import { Categoria } from 'src/app/categoria';
+import { Categoria } from 'src/app/api/categoria';
 import { ViewUserService } from 'src/app/services/view-user.service';
 
 @Component({

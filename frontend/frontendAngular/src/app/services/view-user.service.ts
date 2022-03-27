@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Categoria } from '../categoria';
-import { CATEGORIAS } from '../mock-categorias';
+import { Categoria } from '../api/categoria';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
-
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +17,7 @@ export class ViewUserService {
 
   constructor(
     private http: HttpClient,
-  private messageService: MessageService
+    private messageService: MessageService
   ) { }
 
   getCategorias(): Observable<Categoria[]> {
@@ -45,8 +43,8 @@ export class ViewUserService {
     }
     return this.http.get<Categoria[]>(`${this.categoriasUrl}/?name=${term}`).pipe(
       tap(x => x.length ?
-         this.log(`found categorias matching "${term}"`) :
-         this.log(`no categorias matching "${term}"`)),
+        this.log(`found categorias matching "${term}"`) :
+        this.log(`no categorias matching "${term}"`)),
       catchError(this.handleError<Categoria[]>('searchCategorias', []))
     );
   }

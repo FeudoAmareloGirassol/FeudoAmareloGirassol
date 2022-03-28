@@ -19,6 +19,12 @@ import { RegisterCustomerComponent } from './components/register-customer/regist
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { UserHomeComponent } from './components/user-home/user-home.component';
+import { CompanyHomeComponent } from './components/company-home/company-home.component';
+import { UserConfigComponent } from './components/user-config/user-config.component';
+import { CompanyScheduleComponent } from './components/company-schedule/company-schedule.component';
+import { CustomerScheduleComponent } from './components/customer-schedule/customer-schedule.component';
+import { EditCompanyComponent } from './components/edit-company/edit-company.component';
+import { EditCustomerComponent } from './components/edit-customer/edit-customer.component';
 
 
 @NgModule({
@@ -30,6 +36,12 @@ import { UserHomeComponent } from './components/user-home/user-home.component';
     NavbarComponent,
     HomeComponent,
     UserHomeComponent,
+    CompanyHomeComponent,
+    UserConfigComponent,
+    CompanyScheduleComponent,
+    CustomerScheduleComponent,
+    EditCompanyComponent,
+    EditCustomerComponent,
   ],
   imports: [
     ReactiveFormsModule,

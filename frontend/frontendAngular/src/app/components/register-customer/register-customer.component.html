@@ -1,33 +1,35 @@
-<div class="row justify-content-around">
-    <mat-card class="col-md-6 ml-5 mt-5">
-        <form [formGroup]="form">           
-            <mat-form-field class="col" appearance="fill">
-                <mat-label>Email</mat-label>
-                <input type="email" matInput formControlName ="email">
-            </mat-form-field>
+<div class="col-12">
+    <div class="row justify-content-around">
+        <mat-card class="col-md-6 ml-5 mt-5">
+            <form [formGroup]="form">
+                <mat-form-field class="col" appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput formControlName="email">
+                </mat-form-field>
 
-            <mat-form-field class="col" appearance="fill">
-                <mat-label>Senha</mat-label>
-                <input type="password" matInput formControlName ="password">
-            </mat-form-field>
+                <mat-form-field class="col" appearance="fill">
+                    <mat-label>Senha</mat-label>
+                    <input type="password" matInput formControlName="password">
+                </mat-form-field>
 
-            <mat-form-field class="col" appearance="fill">
-                <mat-label>Confirme sua senha</mat-label>
-                <input type="password" matInput formControlName ="confirmPassword">
-            </mat-form-field>
+                <mat-form-field class="col" appearance="fill">
+                    <mat-label>Confirme sua senha</mat-label>
+                    <input type="password" matInput formControlName="confirm_password">
+                </mat-form-field>
 
-            <div class="row justify-content-around">
-                <button class="col-4" color="primary" mat-raised-button>Cadastrar</button>
-            </div>
+                <div class="row justify-content-around">
+                    <button class="col-4" color="primary" mat-raised-button (click)="submit()">Cadastrar</button>
+                </div>
 
-            <div class="row justify-content-around mt-3">
-                <a routerLink="/login">Já possui uma conta?</a>
-            </div>
-        </form>
+                <div class="row justify-content-around mt-3">
+                    <a routerLink="/login">Já possui uma conta?</a>
+                </div>
+            </form>
 
-    </mat-card>
+        </mat-card>
 
-    <div class="mt-5">
-        <img src="assets/SVGCadastroCustomer.svg" alt="SVGCadastroCustomer">
+        <div class="mt-5">
+            <img src="assets/SVGCadastroCustomer.svg" alt="SVGCadastroCustomer">
+        </div>
     </div>
 </div>

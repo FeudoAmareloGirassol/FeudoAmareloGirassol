@@ -1,29 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 
-$primary: mat-palette($mat-pink, 700);
+@include mat-core();
+
+$primary: mat-palette($mat-blue, 700);
 $accent: mat-palette($mat-blue-grey, 500);
 $warn: mat-palette($mat-red, 500);
 
-$theme: mat-light-theme(
-    $primary,
-    $accent,
-    $warn
-);
+$theme: mat-light-theme($primary, $accent, $warn);
 
 @include all-component-themes($theme);
 
-html, body { height: 100%; background-color: lightgrey; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-.warning-snackbar {
-    background: #a09d0d;
+html,
+body {
+  height: 100%;
+  background-color: lightgrey;
 }
-
-.error-snackbar {
-    background: #a00d0d;
-}
-
-.success-snackbar {
-    background: #0da02d;
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

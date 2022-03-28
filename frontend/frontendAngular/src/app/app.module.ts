@@ -20,6 +20,7 @@ import { HomeComponent } from './components/home/home.component';
 import { UserHomeComponent } from './components/user-home/user-home.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { APIGETService } from './services/api-get.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
     MatIconModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [APIGETService, HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

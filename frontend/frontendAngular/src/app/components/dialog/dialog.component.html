@@ -1,10 +1,32 @@
-<h1 mat-dialog-title>Hi</h1>
+<!-- <h1 mat-dialog-title>Hi</h1>
+
 <div mat-dialog-content>
   <p>What's your favorite animal?</p>
   <mat-form-field appearance="fill">
     <mat-label>Favorite Animal</mat-label>
   </mat-form-field>
 </div>
+
+{{ company[1]['company']['adress'] }}
+
+<div *ngFor="let company of companies">
+
+<div *ngIf="company['id'] == 2">AAAAA:  {{company['company'][] }} </div>
+
+</div>
+
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
-</div>
+</div> -->
+
+<h2 mat-dialog-title>Session timeout</h2>
+<mat-dialog-content>You will be logged out due to inactivity</mat-dialog-content>
+
+<mat-dialog-content *ngFor="let get of gets">
+  <div> {{get}} </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close >Keep me logged in</button>
+  <button mat-button mat-dialog-close >Logout</button>
+</mat-dialog-actions>

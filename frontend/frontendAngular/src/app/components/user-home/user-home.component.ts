@@ -1,5 +1,5 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
@@ -14,14 +14,12 @@ export class UserHomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DialogComponent, {
-      width: '500px'
-    });
+  OpenDialog(){
+    let dialogRef = this.dialog.open(DialogComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+    dialogRef.afterClosed().subscribe(result =>{
+      console.log(`The dialog result: ${result}`);
+    })
   }
 
 }

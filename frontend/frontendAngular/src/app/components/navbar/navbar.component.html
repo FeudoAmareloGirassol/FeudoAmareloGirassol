@@ -1,0 +1,10 @@
+<p>
+  <mat-toolbar color="primary">
+    <span><a class="logo" [routerLink]="['/user/home']">Mark.it</a></span>
+    <ng-container *ngIf="!((localStorage.get('token'))==null)">
+      <span style="margin-left: 93%;">
+        <mat-icon class="settings" routerLink="/user/config">settings</mat-icon>
+      </span>
+    </ng-container>
+  </mat-toolbar>
+</p>

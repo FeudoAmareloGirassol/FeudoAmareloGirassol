@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
     this.isLoading = true;
 
     this.loginService.login(request).subscribe((response) => {
-      localStorage.setItem("token", response.access);
+      this.localStorage.set("token", response.access);
       this.isLoading = false;
       this.router.navigate(['/user/home']);
     }, _ => this.isLoading = false);

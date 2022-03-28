@@ -23,6 +23,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterCompanyComponent } from './components/register-company/register-company.component';
 import { RegisterCustomerComponent } from './components/register-customer/register-customer.component';
 import { ViewUserComponent } from './components/view-user/view-user.component';
+import { SearchCardComponent } from './components/search-card/search-card.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ViewUserComponent } from './components/view-user/view-user.component';
     LoginComponent,
     RegisterCompanyComponent,
     RegisterCustomerComponent,
-    ViewUserComponent
+    ViewUserComponent,
+    SearchCardComponent
   ],
   imports: [
     BrowserModule,

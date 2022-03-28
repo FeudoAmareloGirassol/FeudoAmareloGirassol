@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
 import {
-   debounceTime, distinctUntilChanged, switchMap
- } from 'rxjs/operators';
+  debounceTime, distinctUntilChanged, switchMap
+} from 'rxjs/operators';
 
 import { Categoria } from 'src/app/api/categoria';
 import { ViewUserService } from 'src/app/services/view-user.service';
@@ -14,7 +14,7 @@ import { ViewUserService } from 'src/app/services/view-user.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  categorias$!:   Observable<Categoria[]>;
+  categorias$!: Observable<Categoria[]>;
   private searchTerms = new Subject<string>();
 
   constructor(private viewuserService: ViewUserService) { }
@@ -23,14 +23,15 @@ export class SearchComponent implements OnInit {
     this.searchTerms.next(term);
   }
 
-  ngOnInit(): void { this.categorias$ = this.searchTerms.pipe(
+  ngOnInit(): void {
+    this.categorias$ = this.searchTerms.pipe(
 
-    debounceTime(300),
+      debounceTime(300),
 
-    distinctUntilChanged(),
+      distinctUntilChanged(),
 
-    switchMap((term: string) => this.viewuserService.search(term)),
-  );
-}
+      switchMap((term: string) => this.viewuserService.search(term)),
+    );
+  }
 
 }

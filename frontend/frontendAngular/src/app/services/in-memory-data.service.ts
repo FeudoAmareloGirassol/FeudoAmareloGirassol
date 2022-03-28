@@ -13,10 +13,6 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 14, name: 'MANICURE' },
       { id: 15, name: 'DENTISTA' },
       { id: 16, name: 'MECÂNICO' },
-      { id: 13, name: 'BARBEIRO' },
-      { id: 14, name: 'MANICURE' },
-      { id: 15, name: 'DENTISTA' },
-      { id: 16, name: 'MECÂNICO' },
     ];
     
     const cards = [
@@ -32,6 +28,51 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 2,
         name: 'Seu zé seu Mané',
+        address: 'Comercial Sul qs 12',
+        address_number: 224,
+        city: 'Taguatinga',
+        state: 'BSB',
+        district: 'Rodô'
+      },
+      {
+        id: 3,
+        name: 'Pedro na régua',
+        address: 'Comercial Sul qs 12',
+        address_number: 224,
+        city: 'Taguatinga',
+        state: 'BSB',
+        district: 'Rodô'
+      },
+      {
+        id: 4,
+        name: 'Pedrinho Mototaxi',
+        address: 'Comercial Sul qs 12',
+        address_number: 224,
+        city: 'Taguatinga',
+        state: 'BSB',
+        district: 'Rodô'
+      },
+      {
+        id: 5,
+        name: 'Pedrinho Dentista',
+        address: 'Comercial Sul qs 12',
+        address_number: 224,
+        city: 'Taguatinga',
+        state: 'BSB',
+        district: 'Rodô'
+      },
+      {
+        id: 6,
+        name: 'Pedrinho da Massagem',
+        address: 'Comercial Sul qs 12',
+        address_number: 224,
+        city: 'Taguatinga',
+        state: 'BSB',
+        district: 'Rodô'
+      },
+      {
+        id: 7,
+        name: 'Pedrinho faxina',
         address: 'Comercial Sul qs 12',
         address_number: 224,
         city: 'Taguatinga',

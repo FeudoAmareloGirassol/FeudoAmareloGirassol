@@ -10,7 +10,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,16 +25,6 @@ import { SearchCardComponent } from './components/search-card/search-card.compon
 import{ CategoryCarouselComponent } from './components/category-carousel/category-carousel.component';
 
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { HomeComponent } from './components/home/home.component';
-import { UserHomeComponent } from './components/user-home/user-home.component';
-import { CompanyHomeComponent } from './components/company-home/company-home.component';
-import { UserConfigComponent } from './components/user-config/user-config.component';
-import { CompanyScheduleComponent } from './components/company-schedule/company-schedule.component';
-import { CustomerScheduleComponent } from './components/customer-schedule/customer-schedule.component';
-import { EditCompanyComponent } from './components/edit-company/edit-company.component';
-import { EditCustomerComponent } from './components/edit-customer/edit-customer.component';
-
 
 @NgModule({
   declarations: [
@@ -49,19 +38,8 @@ import { EditCustomerComponent } from './components/edit-customer/edit-customer.
     ViewUserComponent,
     SearchCardComponent,
     CategoryCarouselComponent,
-    NavbarComponent,
-    HomeComponent,
-    UserHomeComponent,
-    CompanyHomeComponent,
-    UserConfigComponent,
-    CompanyScheduleComponent,
-    CustomerScheduleComponent,
-    EditCompanyComponent,
-    EditCustomerComponent,
   ],
   imports: [
-    ReactiveFormsModule,
-    FormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -76,10 +54,8 @@ import { EditCustomerComponent } from './components/edit-customer/edit-customer.
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule,
-    MatCardModule,
     MatButtonModule,
-    MatSnackBarModule,
+    MatInputModule,
     MatToolbarModule,
     MatIconModule,
     MatCardModule,

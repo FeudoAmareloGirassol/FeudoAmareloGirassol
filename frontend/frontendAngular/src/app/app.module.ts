@@ -26,6 +26,11 @@ import { CustomerScheduleComponent } from './components/customer-schedule/custom
 import { EditCompanyComponent } from './components/edit-company/edit-company.component';
 import { EditCustomerComponent } from './components/edit-customer/edit-customer.component';
 
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogComponent } from './components/dialog/dialog.component';
+import { APIGETService } from './services/api-get.service';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -42,6 +47,7 @@ import { EditCustomerComponent } from './components/edit-customer/edit-customer.
     CustomerScheduleComponent,
     EditCompanyComponent,
     EditCustomerComponent,
+    DialogComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -59,8 +65,12 @@ import { EditCustomerComponent } from './components/edit-customer/edit-customer.
     MatSnackBarModule,
     MatToolbarModule,
     MatIconModule,
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCardModule,
   ],
-  providers: [],
+  providers: [APIGETService, HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

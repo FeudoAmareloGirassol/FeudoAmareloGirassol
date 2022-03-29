@@ -1,32 +1,33 @@
-<!-- <h1 mat-dialog-title>Hi</h1>
+  <div *ngIf=" get['company']!= null">
 
-<div mat-dialog-content>
-  <p>What's your favorite animal?</p>
-  <mat-form-field appearance="fill">
-    <mat-label>Favorite Animal</mat-label>
-  </mat-form-field>
-</div>
+    <h1 mat-dialog-title > {{get['company']['name']}} </h1>
+    <div>
 
-{{ company[1]['company']['adress'] }}
+      <mat-dialog-content>
+        <div> CNPJ: {{get['company']['cnpj']}} </div>
+        <div>ENDEREÇO: {{get['company']['adress']}}</div>
+        <div>CEP: {{get['company']['cep']}}</div>
+        <div>CIDADE: {{get['company']['city']}}</div>
+        <div>UF: {{get['company']['uf']}}</div>
+        <div>TELEFONE: {{get['company']['telephone_number']}}</div>
+      </mat-dialog-content>
 
-<div *ngFor="let company of companies">
 
-<div *ngIf="company['id'] == 2">AAAAA:  {{company['company'][] }} </div>
+      <mat-form-field appearance="outline">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
 
-</div>
 
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-</div> -->
+    </div>
 
-<h2 mat-dialog-title>Session timeout</h2>
-<mat-dialog-content>You will be logged out due to inactivity</mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close > Enviar</button>
+    </mat-dialog-actions>
 
-<mat-dialog-content *ngFor="let get of gets">
-  <div> {{get}} </div>
-</mat-dialog-content>
+  </div>
 
-<mat-dialog-actions>
-  <button mat-button mat-dialog-close >Keep me logged in</button>
-  <button mat-button mat-dialog-close >Logout</button>
-</mat-dialog-actions>
+
+

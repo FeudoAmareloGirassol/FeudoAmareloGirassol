@@ -1,31 +1,30 @@
-import { HttpClient } from '@angular/common/http';
-import { newArray } from '@angular/compiler/src/util';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { APIGETService } from 'src/app/services/api-get.service';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
-  styleUrls: ['./dialog.component.scss']
+  styleUrls: ['./dialog.component.scss'],
 })
 export class DialogComponent implements OnInit {
 
-  gets :any =[];
+  get :any =[];
 
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
     private APIGET:APIGETService,
+    @Inject(MAT_DIALOG_DATA) public id: any,
   ) { }
 
   ngOnInit(): void {
-  this.listarCompany();
+  this.pegarIDGET();
   }
 
-  listarCompany(){
-    this.APIGET.getCompany().subscribe(apiGet =>{
-      this.gets = apiGet
-      // console.log(this.gets[1]['company']['adress'])
+  pegarIDGET(){
+    this.APIGET.getAPIID(this.id['idPass']).subscribe(apiGet =>{
+      this.get = apiGet
     }, err =>{
       console.log(err)
     })

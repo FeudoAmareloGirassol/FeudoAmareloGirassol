@@ -15,7 +15,7 @@ export class APIGETService {
     private lsls:LocalStorageLoginService
     ) { }
 
-  public getCompany(){
+  public getAPI(){
 
     const token = this.lsls.get("token");
     const header = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
@@ -24,6 +24,17 @@ export class APIGETService {
    };
 
    return this.http.get('http://127.0.0.1:8000/api/auth/get/', {headers:header});
+  }
+
+  public getAPIID(id:string){
+
+    const token = this.lsls.get("token");
+    const header = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
+    const options = {
+      headers: header,
+   };
+
+   return this.http.get(`http://127.0.0.1:8000/api/auth/get/${id}`, {headers:header});
   }
 }
 

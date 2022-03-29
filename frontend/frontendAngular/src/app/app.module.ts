@@ -21,6 +21,9 @@ import { UserHomeComponent } from './components/user-home/user-home.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { APIGETService } from './services/api-get.service';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,10 @@ import { APIGETService } from './services/api-get.service';
     MatSnackBarModule,
     MatToolbarModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCardModule,
   ],
   providers: [APIGETService, HttpClientModule],
   bootstrap: [AppComponent]

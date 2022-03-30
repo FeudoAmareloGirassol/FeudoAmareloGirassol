@@ -19,7 +19,9 @@ export class UserHomeComponent implements OnInit {
 
     let dialogRef = this.dialog.open(DialogComponent,{
       data: { idPass: idPass },
-      width:'30%',
+      width:'70%',
+      height:'70%',
+      panelClass: 'custom-dialog-container',
     });
 
     dialogRef.afterClosed().subscribe(result =>{

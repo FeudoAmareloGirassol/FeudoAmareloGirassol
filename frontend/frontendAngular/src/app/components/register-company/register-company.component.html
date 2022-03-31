@@ -4,52 +4,83 @@
             <form clas="col" [formGroup]="form">
                 <mat-form-field class="col" appearance="fill">
                     <mat-label>Nome</mat-label>
-                    <input type="text" matInput formControlName ="name">
+                    <input type="text" matInput formControlName="name">
                 </mat-form-field>
 
                 <mat-form-field class="col" appearance="fill">
                     <mat-label>CNPJ</mat-label>
-                    <input type="text" matInput formControlName ="cnpj">
+                    <input type="text" matInput formControlName="cnpj">
+                </mat-form-field>
+
+                <mat-form-field class="col" appearance="fill">
+                    <mat-label>Endereço</mat-label>
+                    <input type="text" matInput formControlName="adress">
                 </mat-form-field>
 
                 <mat-form-field class="col-6" appearance="fill">
-                    <mat-label>Endereço</mat-label>
-                    <input type="text" matInput formControlName ="adress">
+                    <mat-label>Categoria</mat-label>
+                    <mat-select formControlName="category" required>
+                        <mat-option>--</mat-option>
+                        <mat-option value="ADVOCACIA">
+                            Advocacia
+                        </mat-option>
+                        <mat-option value="SAUDE">
+                            Saúde
+                        </mat-option>
+                        <mat-option value="ASSISTENCIA_TECNICA">
+                            Assistência Técnica
+                        </mat-option>
+                        <mat-option value="CONSTRUCAO_CIVIL">
+                            Construção Civil
+                        </mat-option>
+                        <mat-option value="BELEZA">
+                            Beleza
+                        </mat-option>
+                        <mat-option value="EDUCACAO">
+                            Educação
+                        </mat-option>
+                        <mat-option value="SERVICOS_DOMESTICOS">
+                            Serviços Domésticos
+                        </mat-option>
+                        <mat-option value="DESIGN">
+                            Design
+                        </mat-option>
+                    </mat-select>
                 </mat-form-field>
 
                 <mat-form-field class="col-6" appearance="fill">
                     <mat-label>CEP</mat-label>
-                    <input type="text" matInput formControlName ="cep">
+                    <input type="text" matInput formControlName="cep">
                 </mat-form-field>
 
                 <mat-form-field class="col-6" appearance="fill">
                     <mat-label>Cidade</mat-label>
-                    <input type="text" matInput formControlName ="city">
+                    <input type="text" matInput formControlName="city">
                 </mat-form-field>
 
                 <mat-form-field class="col-6" appearance="fill">
                     <mat-label>UF</mat-label>
-                    <input type="text" matInput formControlName ="uf">
+                    <input type="text" matInput formControlName="uf">
                 </mat-form-field>
 
                 <mat-form-field class="col-6" appearance="fill">
                     <mat-label>Telefone</mat-label>
-                    <input type="text" matInput formControlName ="telephone_number">
+                    <input type="text" matInput formControlName="telephone_number">
                 </mat-form-field>
 
                 <mat-form-field class="col-6" appearance="fill">
                     <mat-label>Email</mat-label>
-                    <input type="email" matInput formControlName ="email">
+                    <input type="email" matInput formControlName="email">
                 </mat-form-field>
 
                 <mat-form-field class="col-6" appearance="fill">
                     <mat-label>Senha</mat-label>
-                    <input type="password" matInput formControlName ="password">
+                    <input type="password" matInput formControlName="password">
                 </mat-form-field>
 
                 <mat-form-field class="col-6" appearance="fill">
                     <mat-label>Confirme sua senha</mat-label>
-                    <input type="password" matInput formControlName ="confirm_password">
+                    <input type="password" matInput formControlName="confirm_password">
                 </mat-form-field>
 
                 <div class="row justify-content-around">
@@ -61,7 +92,7 @@
                 </div>
             </form>
         </mat-card>
-        <div class="m-5" >
+        <div class="m-5">
             <img src="assets/SVGCadastroCompany.svg" alt="SVGCadastroCompany">
         </div>
     </div>

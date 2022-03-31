@@ -9,6 +9,9 @@ import { MessageService } from '../../services/message-service.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  public url1!: string;
+  name = 'Get Current Url Route Demo';
+  currentRoute!: string;
 
   constructor(
     public router: Router, 
@@ -22,5 +25,4 @@ export class NavbarComponent implements OnInit {
   showUser(){
     this.messageService.showSuccess("Registrado com sucesso", "Ok");
   }
-
 }

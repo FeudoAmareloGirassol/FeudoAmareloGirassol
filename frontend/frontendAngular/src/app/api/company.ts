@@ -13,6 +13,7 @@ export interface CompanyBase{
     name: string;
     cnpj: string;
     adress: string;
+    category: string;
     cep: string;
     city: string;
     uf: string;

@@ -10,9 +10,9 @@ img{
     margin-bottom: 0.5em;
     border-radius: 10px;
     height: 9em;
-    box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.5);
 }
 
 img:hover{
     transform: scale(1.06);
+    cursor: pointer;
 }

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './services/in-memory-data.service';
+// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+// import { InMemoryDataService } from './services/in-memory-data.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSelectModule} from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,8 +25,6 @@ import { RegisterCustomerComponent } from './components/register-customer/regist
 import { ViewUserComponent } from './components/view-user/view-user.component';
 import { SearchCardComponent } from './components/search-card/search-card.component';
 import{ CategoryCarouselComponent } from './components/category-carousel/category-carousel.component';
-
-import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { UserHomeComponent } from './components/user-home/user-home.component';
@@ -36,6 +35,8 @@ import { CustomerScheduleComponent } from './components/customer-schedule/custom
 import { EditCompanyComponent } from './components/edit-company/edit-company.component';
 import { EditCustomerComponent } from './components/edit-customer/edit-customer.component';
 
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -67,9 +68,9 @@ import { EditCustomerComponent } from './components/edit-customer/edit-customer.
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    ),
+    // HttpClientInMemoryWebApiModule.forRoot(
+    //   InMemoryDataService, { dataEncapsulation: false }
+    // ),
     MatCardModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -83,7 +84,9 @@ import { EditCustomerComponent } from './components/edit-customer/edit-customer.
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-    CarouselModule
+    CarouselModule,
+    Ng2SearchPipeModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

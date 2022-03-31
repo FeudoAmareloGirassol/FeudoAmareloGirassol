@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'; 
 import { Categoria } from '../../api/categoria';
 import { ViewUserService } from '../../services/view-user.service';
 
@@ -9,8 +10,11 @@ import { ViewUserService } from '../../services/view-user.service';
 })
 export class ViewUserComponent implements OnInit {
   categorias: Categoria[] = [];
-
-  constructor(private viewuserService: ViewUserService) { }
+  
+  constructor(
+    private viewuserService: ViewUserService,
+    public router: Router,
+    ) { }
 
   ngOnInit(): void {
     this.getCategorias();

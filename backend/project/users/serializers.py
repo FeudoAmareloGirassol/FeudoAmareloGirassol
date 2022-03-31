@@ -26,4 +26,11 @@ class UserSerializer(serializers.ModelSerializer):
 class CompanySerializer(serializers.ModelSerializer):
     class Meta:
         model = Company
-        fields = ['id', 'name', 'cnpj', 'adress', 'cep', 'city', 'uf', 'telephone_number']
+        fields = ['id', 'name', 'cnpj', 'adress', 'cep', 'city', 'uf', 'telephone_number', 'category']
+
+class GetSerializer(serializers.ModelSerializer):
+    company = CompanySerializer(read_only = True)
+
+    class Meta:
+        model = User
+        fields = ('id', 'email', 'company')

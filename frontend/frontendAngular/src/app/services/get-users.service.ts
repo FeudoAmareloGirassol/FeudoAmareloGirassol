@@ -24,4 +24,5 @@ export class GetUsersService {
     };
     return this.http.get<CompanyModel[]>(`${apiUrl}`, options)
   }
+  
 }

@@ -12,7 +12,7 @@ export interface CompanyRequest{
 export interface CompanyBase{
     name: string;
     cnpj: string;
-    adress: string;
+    address: string;
     category: string;
     cep: string;
     city: string;

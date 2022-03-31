@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocalStorageLoginService } from '../../services/local-storage-login.service';
 import { Router } from '@angular/router';
 import { GetUsersService } from 'src/app/services/get-users.service';
+import { GetCompanyService } from 'src/app/services/get-companies.service';
 
 @Component({
   selector: 'app-user-config',
@@ -14,7 +15,8 @@ export class UserConfigComponent implements OnInit {
   constructor(
     private localStorage: LocalStorageLoginService,
     private router: Router,
-    private getUsers: GetUsersService
+    private getUsers: GetUsersService,
+    private getCompany: GetCompanyService,
     ) { }
 
   ngOnInit(): void {
@@ -25,8 +27,17 @@ export class UserConfigComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  teste(){
+  testeUsers(){
     this.getUsers.getUsers().subscribe(apiGet =>{
+      this.get = apiGet
+      console.log(apiGet)
+    }, err =>{
+      console.log(err)
+    })
+  }
+
+  testeCompany(){
+    this.getCompany.getCompanies().subscribe(apiGet =>{
       this.get = apiGet
       console.log(apiGet)
     }, err =>{

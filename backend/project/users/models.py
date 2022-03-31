@@ -15,7 +15,7 @@ CATEGORY_CHOICES = [
 class Company(models.Model):
     name = models.CharField(max_length=255)
     cnpj = models.CharField(max_length=18)
-    adress = models.CharField(max_length=255)
+    address = models.CharField(max_length=255)
     cep = models.CharField(max_length=10)
     city = models.CharField(max_length=255)
     uf = models.CharField(max_length=2)

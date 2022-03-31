@@ -36,7 +36,7 @@ export class RegisterCompanyComponent implements OnInit {
     this.form = this.fb.group({
       name: ['', [Validators.required]],
       cnpj: ['', [Validators.required]],
-      adress: ['', [Validators.required]],
+      address: ['', [Validators.required]],
       category: ['', [Validators.required]],
       cep: ['', [Validators.required]],
       city: ['', [Validators.required]],
@@ -76,7 +76,7 @@ export class RegisterCompanyComponent implements OnInit {
       company: {
         name: this.form.controls['name'].value,
         cnpj: this.form.controls['cnpj'].value,
-        adress: this.form.controls['adress'].value,
+        address: this.form.controls['address'].value,
         category: this.form.controls['category'].value,
         cep: this.form.controls['cep'].value,
         city: this.form.controls['city'].value,
@@ -89,7 +89,7 @@ export class RegisterCompanyComponent implements OnInit {
     this.companyRegisterService.registerCompany(request).subscribe((response: CompanyModel) => {
       this.messageService.showSuccess("Registrado com sucesso", "Ok");
       this.isLoading = false;
-      // this.router.navigate(['/login']);
+      this.router.navigate(['/login']);
     }, _ => this.isLoading = false);
   }
 

@@ -1,22 +1,22 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { LocalStorageLoginService } from './local-storage-login.service';
-import { CompanyModel } from '../api/company';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { CompanyModel } from '../api/company';
+import { LocalStorageLoginService } from './local-storage-login.service';
 
-const apiUrl = 'http://127.0.0.1:8000/api/auth/get/users';
+const apiUrl = 'http://127.0.0.1:8000/api/auth/get/company';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GetUsersService {
+export class GetCompanyService {
 
   constructor(
     public http: HttpClient,
     public localStorage: LocalStorageLoginService
   ) { }
 
-  getUsers(): Observable<CompanyModel[]> {
+  getCompanies(): Observable<CompanyModel[]> {
     const token = this.localStorage.get("token");
     const header = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
     const options = {
@@ -24,4 +24,5 @@ export class GetUsersService {
     };
     return this.http.get<CompanyModel[]>(`${apiUrl}`, options)
   }
+
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Card } from '../../api/card';
-import { CardService } from '../../services/card.service';
+import { CompanyModel } from 'src/app/api/company';
+import { GetCompanyService } from 'src/app/services/get-companies.service';
 
 @Component({
   selector: 'app-cards-view-user',
@@ -8,16 +8,16 @@ import { CardService } from '../../services/card.service';
   styleUrls: ['./cards-view-user.component.scss']
 })
 export class CardsViewUserComponent implements OnInit {
-  cards: Card[] = [];
+  cards: CompanyModel[] = [];
 
-  constructor(private cardService: CardService) { }
+  constructor(private getCompanyService: GetCompanyService) { }
 
   ngOnInit(): void {
     this.getCards();
   }
 
   getCards(): void {
-    this.cardService.getCards()
-      .subscribe(cards => this.cards = cards.slice());
+    this.getCompanyService.getCompanies()
+      .subscribe(cards => this.cards = cards.slice(1, 5));
   }
 }

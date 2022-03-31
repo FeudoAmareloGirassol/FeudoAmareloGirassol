@@ -4,6 +4,10 @@ from rest_framework.response import Response
 from rest_framework import viewsets
 from .serializers import CompanySerializer, UserSerializer
 from . import models, serializers
+from rest_framework import generics
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters
+
 
 class RegisterCompanyView(APIView):
     permission_classes = [AllowAny]
@@ -39,6 +43,22 @@ class RegisterCustomerView(APIView):
             "User": userSerializer.data
         })
 
-class GetViewset(viewsets.ModelViewSet):
+class GetUsersViewset(viewsets.ModelViewSet):
     queryset = models.User.objects.all()
     serializer_class = serializers.GetSerializer
+
+class GetCompanyViewset(viewsets.ModelViewSet):
+    queryset = models.Company.objects.all()
+    serializer_class = serializers.CompanySerializer
+
+class CompanyFilterView(generics.ListAPIView):
+    queryset = models.Company.objects.all()
+    serializer_class = CompanySerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['cnpj', 'address', 'category', 'uf']
+
+class CompanySearchView(generics.ListAPIView):
+    queryset = models.Company.objects.all()
+    serializer_class = CompanySerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['category', 'cnpj','name']

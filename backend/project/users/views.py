@@ -1,10 +1,11 @@
 from rest_framework.permissions import AllowAny
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import CompanySerializer, UserSerializer
+from .serializers import CompanySerializer, MyTokenObtainPairSerializer, UserSerializer
 from rest_framework import viewsets
 from . import models
 from . import serializers
+from rest_framework_simplejwt.views import TokenObtainPairView
 
 class RegisterCompanyView(APIView):
     permission_classes = [AllowAny]
@@ -43,3 +44,6 @@ class RegisterCustomerView(APIView):
 class GetViewset(viewsets.ModelViewSet):
     queryset = models.User.objects.all()
     serializer_class = serializers.GetSerializer
+
+class MyTokenObtainPairView(TokenObtainPairView):
+    serializer_class = MyTokenObtainPairSerializer

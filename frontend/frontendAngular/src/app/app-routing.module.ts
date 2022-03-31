@@ -12,6 +12,8 @@ import { RegisterCustomerComponent } from './components/register-customer/regist
 import { UserConfigComponent } from './components/user-config/user-config.component';
 import { UserHomeComponent } from './components/user-home/user-home.component';
 import { AuthenticatedGuard } from './guards/authenticated.guard';
+import { PayloadCompanyGuard } from './guards/payload-company.guard';
+import { PayloadCustomerGuard } from './guards/payload-customer.guard';
 
 const routes: Routes = [
     {
@@ -33,37 +35,37 @@ const routes: Routes = [
     {
       path: 'user/home',
       component: UserHomeComponent,
-      canActivate: [AuthenticatedGuard]
-    },
-    {
-      path: 'company/home',
-      component: CompanyHomeComponent,
-      canActivate: [AuthenticatedGuard]
+      canActivate: [AuthenticatedGuard, PayloadCustomerGuard]
     },
     {
       path: 'user/config',
       component: UserConfigComponent,
-      canActivate: [AuthenticatedGuard]
-    },
-    {
-      path: 'company/schedule',
-      component: CompanyScheduleComponent,
-      canActivate: [AuthenticatedGuard]
+      canActivate: [AuthenticatedGuard, PayloadCustomerGuard]
     },
     {
       path: 'customer/schedule',
       component: CustomerScheduleComponent,
-      canActivate: [AuthenticatedGuard]
-    },
-    {
-      path: 'company/edit',
-      component: EditCompanyComponent,
-      canActivate: [AuthenticatedGuard]
+      canActivate: [AuthenticatedGuard, PayloadCustomerGuard]
     },
     {
       path: 'customer/edit',
       component: EditCustomerComponent,
-      canActivate: [AuthenticatedGuard]
+      canActivate: [AuthenticatedGuard, PayloadCustomerGuard]
+    },
+    {
+      path: 'company/home',
+      component: CompanyHomeComponent,
+      canActivate: [AuthenticatedGuard, PayloadCompanyGuard]
+    },
+    {
+      path: 'company/schedule',
+      component: CompanyScheduleComponent,
+      canActivate: [AuthenticatedGuard, PayloadCompanyGuard]
+    },
+    {
+      path: 'company/edit',
+      component: EditCompanyComponent,
+      canActivate: [AuthenticatedGuard, PayloadCompanyGuard]
     },
 ];
 

@@ -4,8 +4,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginRequest } from '../../api/authentication';
 import { LocalStorageLoginService } from '../../services/local-storage-login.service';
 import { Router } from '@angular/router';
-import { CompanyModel } from 'src/app/api/company';
-import UserTypeVerificationService from 'src/app/services/user-type-verification.service';
 
 
 @Component({
@@ -14,7 +12,6 @@ import UserTypeVerificationService from 'src/app/services/user-type-verification
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  //company!: CompanyModel;
   form: FormGroup;
   isLoading: boolean = false;
   
@@ -23,13 +20,11 @@ export class LoginComponent implements OnInit {
     public loginService: AuthenticationService, 
     private localStorage: LocalStorageLoginService, 
     private router: Router,
-    //private userTypeVerificationService: UserTypeVerificationService
     ) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
     });
-    //this.getter();
   }
 
   ngOnInit(): void {
@@ -51,19 +46,11 @@ export class LoginComponent implements OnInit {
     this.loginService.login(request).subscribe((response) => {
       this.localStorage.set("token", response.access);
       this.isLoading = false;
-      // if(company.id ==null){
-      //   this.router.navigate(['/user/home']);
-      // } else{
-      //   this.router.navigate(['/company/home']);
-      // }
-      this.router.navigate(['/user/home']);
+      if (this.localStorage.decodePayloadJWT().cnpj != null){
+        this.router.navigate(['/company/home']);
+      } else{
+        this.router.navigate(['/user/home']);
+      }
     }, _ => this.isLoading = false);
   }
-
-  //possivel adição
- // getter(){
-    //this.userTypeVerificationService.verification().subscribe((data:CompanyModel) => {
-     // this.company = data;
-   // })
-  //}
 }

@@ -6,7 +6,8 @@ import { LocalStorageLoginService } from '../services/local-storage-login.servic
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenticatedGuard implements CanActivate {
+export class PayloadCustomerGuard implements CanActivate {
+
   constructor(
     public localStorage: LocalStorageLoginService,
     private router: Router
@@ -15,25 +16,12 @@ export class AuthenticatedGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.localStorage.get("token") == null) {
-      this.router.navigateByUrl('/');
-      return false;
-    } else {
-      return true;
-    }
-  }
-
-  canActivateCompany(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.localStorage.decodePayloadJWT().cnpj != null) {
+    if (this.localStorage.decodePayloadJWT().cnpj == null) {
       return true;
     } else {
-      this.router.navigateByUrl('/user/home');
+      this.router.navigateByUrl('/company/home');
       return false;
     }
   }
-
-
-
+  
 }

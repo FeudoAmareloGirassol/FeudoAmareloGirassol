@@ -20,5 +20,4 @@ export class CompanyHomeComponent implements OnInit {
     this.localStorage.remove('token');
     this.router.navigate(['/login']);
   }
-
 }

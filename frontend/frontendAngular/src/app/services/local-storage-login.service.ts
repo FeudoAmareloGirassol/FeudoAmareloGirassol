@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import jwt_decode  from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +37,14 @@ export class LocalStorageLoginService {
       return true;
     }
     return false;
+  }
+
+  public decodePayloadJWT(): any {
+    try {
+      return jwt_decode(this.get("token"));
+    } catch (Error) {
+      return null;
+    }
   }
   
 }

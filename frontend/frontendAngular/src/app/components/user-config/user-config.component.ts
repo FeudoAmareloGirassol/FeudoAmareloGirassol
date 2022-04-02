@@ -26,23 +26,4 @@ export class UserConfigComponent implements OnInit {
     this.localStorage.remove('token');
     this.router.navigate(['/login']);
   }
-
-  testeUsers(){
-    this.getUsers.getUsers().subscribe(apiGet =>{
-      this.get = apiGet
-      console.log(apiGet)
-    }, err =>{
-      console.log(err)
-    })
-  }
-
-  testeCompany(){
-    this.getCompany.getCompanies().subscribe(apiGet =>{
-      this.get = apiGet
-      console.log(apiGet)
-    }, err =>{
-      console.log(err)
-    })
-  }
-
 }

@@ -21,7 +21,8 @@ import { AuthenticatedGuard } from './guards/authenticated.guard';
     },
     { 
       path: 'view-user', 
-      component: ViewUserComponent 
+      component: ViewUserComponent,
+      canActivate: [AuthenticatedGuard]
     },
     {
       path: 'login',

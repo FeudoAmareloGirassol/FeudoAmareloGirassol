@@ -7,15 +7,15 @@ mat-label {
   color: #000000;
 }
 .mat-input-element {
-  color: black;
+  color: rgb(0, 0, 0);
 }
 .container {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
   overflow-y: hidden;
-  background-color: #0a4478;
-  color: white;
+  background-color: #828282;
+  color: rgb(255, 255, 255);
   padding: 2%;
   display: flex;
   justify-content: center;
@@ -52,7 +52,7 @@ mat-label {
 }
 
 .conteudo {
-  background-color: #0785f2;
+  background-color: #3f3f3f;
   text-transform: uppercase;
   font-size: 14px;
   font-weight: bold;
@@ -62,7 +62,7 @@ mat-label {
 }
 
 .button {
-  background-color: #ffffff;
+  background-color: #2e82d0;
   color: black;
   border-radius: 5%;
   margin: auto;

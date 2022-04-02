@@ -51,6 +51,10 @@ class GetCompanyViewset(viewsets.ModelViewSet):
     queryset = models.Company.objects.all()
     serializer_class = serializers.CompanySerializer
 
+class GetCompanyFOOViewset(viewsets.ModelViewSet):
+    queryset = models.Company.objects.all()
+    serializer_class = serializers.GetFOODisplaySerializer
+
 class CompanyFilterView(generics.ListAPIView):
     queryset = models.Company.objects.all()
     serializer_class = CompanySerializer

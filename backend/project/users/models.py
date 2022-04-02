@@ -1,18 +1,17 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
-CATEGORY_CHOICES = [
-    ('ADVOCACIA', 'Advocacia'),
-    ('SAUDE', 'Saúde'),
-    ('ASSISTENCIA_TECNICA', 'Assistência Técnica'),
-    ('CONSTRUCAO_CIVIL', 'Construção Civil'),
-    ('BELEZA', 'Beleza'),
-    ('EDUCACAO', 'Educação'),
-    ('SERVICOS_DOMESTICOS', 'Serviços Domésticos'),
-    ('DESIGN', 'Design'),
-]
-
 class Company(models.Model):
+    CATEGORY_CHOICES  = (
+        ('ADVOCACIA', 'Advocacia'),
+        ('SAUDE', 'Saúde'),
+        ('ASSISTENCIA_TECNICA', 'Assistência Técnica'),
+        ('CONSTRUCAO_CIVIL', 'Construção Civil'),
+        ('BELEZA', 'Beleza'),
+        ('EDUCACAO', 'Educação'),
+        ('SERVICOS_DOMESTICOS', 'Serviços Domésticos'),
+        ('DESIGN', 'Design'),
+    )
     name = models.CharField(max_length=255)
     cnpj = models.CharField(max_length=18)
     address = models.CharField(max_length=255)

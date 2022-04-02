@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { CompanyModel } from '../api/company';
 import { LocalStorageLoginService } from './local-storage-login.service';
 
-const apiUrl = 'http://127.0.0.1:8000/api/auth/get/company';
+const apiUrl = 'http://127.0.0.1:8000/api/auth/get/companyfoo';
 
 @Injectable({
   providedIn: 'root'

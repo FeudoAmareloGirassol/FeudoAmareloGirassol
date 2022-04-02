@@ -1,3 +1,5 @@
+from importlib.machinery import SourceFileLoader
+from numpy import source
 from rest_framework import serializers
 from .models import Company, User
 
@@ -35,7 +37,8 @@ class GetSerializer(serializers.ModelSerializer):
         model = User
         fields = ('id', 'email', 'company')
 
-# class GetSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Company
-#         fields = ('id', 'email', 'company')
+class GetFOODisplaySerializer(serializers.ModelSerializer):
+    category = serializers.CharField(source='get_category_display')
+    class Meta:
+        model = Company
+        fields = ['id', 'name', 'cnpj', 'address', 'cep', 'city', 'uf', 'telephone_number', 'category']

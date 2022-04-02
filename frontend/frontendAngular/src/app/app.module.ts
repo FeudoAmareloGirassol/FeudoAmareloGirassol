@@ -34,9 +34,6 @@ import { CustomerScheduleComponent } from './components/customer-schedule/custom
 import { EditCompanyComponent } from './components/edit-company/edit-company.component';
 import { EditCustomerComponent } from './components/edit-customer/edit-customer.component';
 
-import { CarouselModule } from 'ngx-owl-carousel-o';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,8 +77,6 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-    CarouselModule,
-    Ng2SearchPipeModule,
     MatSelectModule,
     MatAutocompleteModule
   ],

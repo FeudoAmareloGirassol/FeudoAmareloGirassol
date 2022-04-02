@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CompanyModel, CompanyRequest } from '../../api/company';
 import { CompanyRegisterService } from '../../services/company-register.service';
 import { MessageService } from '../../services/message-service.service';
+import { CategoryModel } from '../../api/category';
 
 @Component({
   selector: 'app-register-company',
@@ -16,16 +17,16 @@ export class RegisterCompanyComponent implements OnInit {
   form: FormGroup;
   isLoading: boolean = false;
 
-  categories = [
-    'ADVOCACIA',
-    'SAUDE',
-    'ASSISTENCIA_TECNICA',
-    'CONSTRUCAO_CIVIL',
-    'BELEZA',
-    'EDUCACAO',
-    'SERVICOS_DOMESTICOS',
-    'DESIGN',
-  ];
+  categories: CategoryModel[] = [
+    {value: 'ADVOCACIA', viewValue: 'Advocacia'},
+    {value: 'SAUDE', viewValue: 'Saúde'},
+    {value: 'ASSISTENCIA_TECNICA', viewValue: 'Assistência Técnica'},
+    {value: 'CONSTRUCAO_CIVIL', viewValue: 'Construção Civil'},
+    {value: 'BELEZA', viewValue: 'Beleza'},
+    {value: 'EDUCACAO', viewValue: 'Educação'},
+    {value: 'SERVICOS_DOMESTICOS', viewValue: 'Serviços Domésticos'},
+    {value: 'DESIGN', viewValue: 'Design'},
+  ]
 
   constructor(
     public fb: FormBuilder,

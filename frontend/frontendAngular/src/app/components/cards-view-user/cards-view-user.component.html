@@ -1,45 +1,54 @@
-<div id="search-component" class="my-5 ml-5">
-  <label for="search-box">Pesquisar</label>
-  <input #searchBox id="search-box" [(ngModel)]="result" (input)="search(searchBox.value)"/>
-  <ul class="search-result">
-    <li *ngFor="let card of cards$ | async">
-      <a routerLink="/detail/{{card.id}}">
-        {{card.name}}
-      </a>
-    </li>
-  </ul>
-  <button mat-icon-button (click)="updateCards()">
-    <mat-icon>search</mat-icon>
-  </button>
-</div>
+<div class="col-12">
+  <div class="row justify-content-between my-5 mx-5">
+    <div class="row justify-content-start ml-3">
+      <div class="col-10">
+        <input #searchBox [(ngModel)]="result" (input)="search(searchBox.value)" placeholder="Pesquisar">
+        <ul class="search-result">
+          <li *ngFor="let card of cards$ | async">
+            <a routerLink="/detail/{{card.id}}">
+              {{card.name}}
+            </a>
+          </li>
+        </ul>
+      </div>
 
-<h4>Basic mat-select</h4>
-<mat-form-field appearance="fill">
-  <mat-label>Categorias</mat-label>
-  <mat-select [(ngModel)]="category">
-    <mat-option value="" (click)="updateCategory()">Categorias</mat-option>
-    <mat-option *ngFor="let category of categories" [value]="category.value" (click)="updateCategory()">
-      {{category.viewValue}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
+      <div class="col-2">
+        <button id="search" mat-icon-button class="search-button" (click)="updateCards()">
+          <mat-icon>search</mat-icon>
+        </button>
+      </div>
+    </div>
+    
+    <div class="justify-content-end mr-5">
+      <mat-form-field appearance="fill">
+        <mat-label>Categorias</mat-label>
+        <mat-select [(ngModel)]="category">
+          <mat-option value="" (click)="updateCategory()">Geral</mat-option>
+          <mat-option *ngFor="let category of categories" [value]="category.value" (click)="updateCategory()">
+            {{category.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
 
-<div class="col-11">
-  <div class="row justify-content-around">
-    <div class="col-6 my-3" *ngFor="let card of cards">
-      <button class="col-12 ml-5">
-        <img src="assets/SVGEmpresa_1.svg">
-        <h2>{{card.name}}</h2>
-        <h3>Serviço: {{card.category}}</h3>
-        <p>
-          Cidade: {{card.city}} <br>
-          UF: {{card.uf}} <br>
-          Endereço: {{card.address}} <br>
-          CEP: {{card.cep}} <br>
-          CNPJ: {{card.cnpj}} <br>
-          Telefone: {{card.telephone_number}}
-        </p>
-      </button>
+  <div class="col-11">
+    <div class="row justify-content-around">
+      <div class="col-6 my-3" *ngFor="let card of cards">
+        <button class="col-12 ml-5 card-button">
+          <img src="assets/SVGEmpresa_1.svg">
+          <h2>{{card.name}}</h2>
+          <h3>Serviço: {{card.category}}</h3>
+          <p>
+            Cidade: {{card.city}} <br>
+            UF: {{card.uf}} <br>
+            Endereço: {{card.address}} <br>
+            CEP: {{card.cep}} <br>
+            CNPJ: {{card.cnpj}} <br>
+            Telefone: {{card.telephone_number}}
+          </p>
+        </button>
+      </div>
     </div>
   </div>
 </div>

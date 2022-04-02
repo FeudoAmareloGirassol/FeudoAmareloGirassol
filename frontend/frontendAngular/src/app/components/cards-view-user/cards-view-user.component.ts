@@ -4,11 +4,7 @@ import { CompanyModel } from 'src/app/api/company';
 import { CategoryFilterService } from 'src/app/services/category-filter.service';
 import { GetCompanyService } from 'src/app/services/get-companies.service';
 import { SearchService } from 'src/app/services/search.service';
-
-interface Category {
-  value: string;
-  viewValue: string;
-}
+import { CategoryModel } from '../../api/category';
 
 @Component({
   selector: 'app-cards-view-user',
@@ -18,7 +14,7 @@ interface Category {
 export class CardsViewUserComponent implements OnInit {
   result = '';
   category = '';
-  categories: Category[] = [
+  categories: CategoryModel[] = [
     {value: 'ADVOCACIA', viewValue: 'Advocacia'},
     {value: 'SAUDE', viewValue: 'Saúde'},
     {value: 'ASSISTENCIA_TECNICA', viewValue: 'Assistência Técnica'},

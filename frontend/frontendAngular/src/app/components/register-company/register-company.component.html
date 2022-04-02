@@ -20,30 +20,8 @@
                 <mat-form-field class="col-6" appearance="fill">
                     <mat-label>Categoria</mat-label>
                     <mat-select formControlName="category" required>
-                        <mat-option>--</mat-option>
-                        <mat-option value="ADVOCACIA">
-                            Advocacia
-                        </mat-option>
-                        <mat-option value="SAUDE">
-                            Saúde
-                        </mat-option>
-                        <mat-option value="ASSISTENCIA_TECNICA">
-                            Assistência Técnica
-                        </mat-option>
-                        <mat-option value="CONSTRUCAO_CIVIL">
-                            Construção Civil
-                        </mat-option>
-                        <mat-option value="BELEZA">
-                            Beleza
-                        </mat-option>
-                        <mat-option value="EDUCACAO">
-                            Educação
-                        </mat-option>
-                        <mat-option value="SERVICOS_DOMESTICOS">
-                            Serviços Domésticos
-                        </mat-option>
-                        <mat-option value="DESIGN">
-                            Design
+                        <mat-option *ngFor="let category of categories" [value]="category.value">
+                            {{category.viewValue}}
                         </mat-option>
                     </mat-select>
                 </mat-form-field>

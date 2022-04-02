@@ -16,14 +16,11 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MessageComponent } from './components/message/message.component';
-import { SearchComponent } from './components/search/search.component';
-import { CardsViewUserComponent } from './components/cards-view-user/cards-view-user.component';
+// import { CardsViewUserComponent } from './components/cards-view-user/cards-view-user.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterCompanyComponent } from './components/register-company/register-company.component';
 import { RegisterCustomerComponent } from './components/register-customer/register-customer.component';
 import { ViewUserComponent } from './components/view-user/view-user.component';
-import { SearchCardComponent } from './components/search-card/search-card.component';
-import{ CategoryCarouselComponent } from './components/category-carousel/category-carousel.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { UserHomeComponent } from './components/user-home/user-home.component';
@@ -38,14 +35,11 @@ import { EditCustomerComponent } from './components/edit-customer/edit-customer.
   declarations: [
     AppComponent,
     MessageComponent,
-    SearchComponent,
-    CardsViewUserComponent,
+    // CardsViewUserComponent,
     LoginComponent,
     RegisterCompanyComponent,
     RegisterCustomerComponent,
     ViewUserComponent,
-    SearchCardComponent,
-    CategoryCarouselComponent,
     NavbarComponent,
     HomeComponent,
     UserHomeComponent,

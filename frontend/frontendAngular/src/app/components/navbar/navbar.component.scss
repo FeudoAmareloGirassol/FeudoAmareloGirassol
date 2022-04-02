@@ -1,8 +1,10 @@
 .logo{
     color: white;
     text-decoration: none;
+    cursor: pointer;
 }
 
-.settings:hover{
+.settings{
+    margin-top: 10px;
     cursor: pointer;
 }

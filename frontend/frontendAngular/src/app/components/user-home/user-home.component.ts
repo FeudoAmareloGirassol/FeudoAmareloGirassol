@@ -5,7 +5,7 @@ import { DialogComponent } from '../dialog/dialog.component';
 @Component({
   selector: 'app-user-home',
   templateUrl: './user-home.component.html',
-  styleUrls: ['./user-home.component.css']
+  styleUrls: ['./user-home.component.scss']
 })
 export class UserHomeComponent implements OnInit {
 
@@ -19,9 +19,8 @@ export class UserHomeComponent implements OnInit {
 
     let dialogRef = this.dialog.open(DialogComponent,{
       data: { idPass: idPass },
-      width:'70%',
-      height:'70%',
-      panelClass: 'custom-dialog-container',
+      width:'800px',
+      height:'400px',
     });
 
     dialogRef.afterClosed().subscribe(result =>{

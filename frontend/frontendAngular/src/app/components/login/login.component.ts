@@ -9,10 +9,9 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
   form: FormGroup;
   isLoading: boolean = false;
   
@@ -20,7 +19,7 @@ export class LoginComponent implements OnInit {
     public fb: FormBuilder, 
     public loginService: AuthenticationService, 
     private localStorage: LocalStorageLoginService, 
-    private router: Router
+    private router: Router,
     ) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -45,9 +44,13 @@ export class LoginComponent implements OnInit {
     this.isLoading = true;
 
     this.loginService.login(request).subscribe((response) => {
-      localStorage.setItem("token", response.access);
+      this.localStorage.set("token", response.access);
       this.isLoading = false;
-      this.router.navigate(['/user/home']);
+      if (this.localStorage.decodePayloadJWT().cnpj != null){
+        this.router.navigate(['/company/home']);
+      } else{
+        this.router.navigate(['/user/home']);
+      }
     }, _ => this.isLoading = false);
   }
 }

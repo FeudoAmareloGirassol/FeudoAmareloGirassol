@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { Observable, Subject, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { CompanyModel } from 'src/app/api/company';
+import { CategoryFilterService } from 'src/app/services/category-filter.service';
 import { GetCompanyService } from 'src/app/services/get-companies.service';
 import { SearchService } from 'src/app/services/search.service';
+
+interface Category {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-cards-view-user',
@@ -11,8 +16,18 @@ import { SearchService } from 'src/app/services/search.service';
   styleUrls: ['./cards-view-user.component.scss']
 })
 export class CardsViewUserComponent implements OnInit {
-  myControl = new FormControl();
   result = '';
+  category = '';
+  categories: Category[] = [
+    {value: 'ADVOCACIA', viewValue: 'Advocacia'},
+    {value: 'SAUDE', viewValue: 'Saúde'},
+    {value: 'ASSISTENCIA_TECNICA', viewValue: 'Assistência Técnica'},
+    {value: 'CONSTRUCAO_CIVIL', viewValue: 'Construção Civil'},
+    {value: 'BELEZA', viewValue: 'Beleza'},
+    {value: 'EDUCACAO', viewValue: 'Educação'},
+    {value: 'SERVICOS_DOMESTICOS', viewValue: 'Serviços Domésticos'},
+    {value: 'DESIGN', viewValue: 'Design'},
+  ]
   cards: CompanyModel[] = [];
   cards$!:   Observable<CompanyModel[]>;
   private searchTerms = new Subject<string>();
@@ -20,6 +35,7 @@ export class CardsViewUserComponent implements OnInit {
   constructor(
     private getCompanyService: GetCompanyService,
     private searchService: SearchService,
+    private categoryFilter: CategoryFilterService,
   ) { }
 
   ngOnInit(): void {
@@ -36,8 +52,12 @@ export class CardsViewUserComponent implements OnInit {
   }
   updateCards(): void {
     this.searchService.search(this.result)
-    .subscribe(cards => this.cards = cards.slice());
-    console.log(this.result)
+      .subscribe(cards => this.cards = cards.slice());
+  }
+
+  updateCategory(): void {
+    this.categoryFilter.filter(this.category)
+      .subscribe(cards => this.cards = cards.slice());
   }
 
   search(term: string): void {

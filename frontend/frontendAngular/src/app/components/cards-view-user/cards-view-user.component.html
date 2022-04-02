@@ -13,6 +13,17 @@
   </button>
 </div>
 
+<h4>Basic mat-select</h4>
+<mat-form-field appearance="fill">
+  <mat-label>Categorias</mat-label>
+  <mat-select [(ngModel)]="category">
+    <mat-option value="" (click)="updateCategory()">Categorias</mat-option>
+    <mat-option *ngFor="let category of categories" [value]="category.value" (click)="updateCategory()">
+      {{category.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
 <div class="col-11">
   <div class="row justify-content-around">
     <div class="col-6 my-3" *ngFor="let card of cards">

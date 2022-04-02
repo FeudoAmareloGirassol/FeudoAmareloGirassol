@@ -61,4 +61,4 @@ class CompanySearchView(generics.ListAPIView):
     queryset = models.Company.objects.all()
     serializer_class = CompanySerializer
     filter_backends = [filters.SearchFilter]
-    search_fields = ['category', 'cnpj','name']
+    search_fields = ['category','name']

@@ -36,7 +36,6 @@ export class ViewUserService {
     );
   }
 
-
   search(term: string): Observable<Categoria[]> {
     if (!term.trim()) {
       return of([]);
@@ -48,7 +47,6 @@ export class ViewUserService {
       catchError(this.handleError<Categoria[]>('searchCategorias', []))
     );
   }
-
 
   addCategoria(categoria: Categoria): Observable<Categoria> {
     return this.http.post<Categoria>(this.categoriasUrl, categoria, this.httpOptions).pipe(
@@ -64,7 +62,6 @@ export class ViewUserService {
       catchError(this.handleError<any>('updateCategoria'))
     );
   }
-
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

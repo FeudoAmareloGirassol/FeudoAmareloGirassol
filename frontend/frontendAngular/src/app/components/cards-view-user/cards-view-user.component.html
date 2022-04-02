@@ -1,3 +1,18 @@
+<div id="search-component" class="my-5 ml-5">
+  <label for="search-box">Pesquisar</label>
+  <input #searchBox id="search-box" [(ngModel)]="result" (input)="search(searchBox.value)"/>
+  <ul class="search-result">
+    <li *ngFor="let card of cards$ | async">
+      <a routerLink="/detail/{{card.id}}">
+        {{card.name}}
+      </a>
+    </li>
+  </ul>
+  <button mat-icon-button (click)="updateCards()">
+    <mat-icon>search</mat-icon>
+  </button>
+</div>
+
 <div class="col-11">
   <div class="row justify-content-around">
     <div class="col-6 my-3" *ngFor="let card of cards">

@@ -11,7 +11,6 @@ import { SearchService } from 'src/app/services/search.service';
   styleUrls: ['./cards-view-user.component.scss']
 })
 export class CardsViewUserComponent implements OnInit {
-  options: string[] = ['One', 'Two', 'Three'];
   myControl = new FormControl();
   result = '';
   cards: CompanyModel[] = [];

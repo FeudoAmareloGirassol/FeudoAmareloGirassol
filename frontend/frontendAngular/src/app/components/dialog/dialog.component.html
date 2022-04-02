@@ -1,0 +1,33 @@
+  <div *ngIf=" get['company']!= null">
+
+    <h1 mat-dialog-title > {{get['company']['name']}} </h1>
+    <div>
+
+      <mat-dialog-content>
+        <div> CNPJ: {{get['company']['cnpj']}} </div>
+        <div>ENDEREÇO: {{get['company']['adress']}}</div>
+        <div>CEP: {{get['company']['cep']}}</div>
+        <div>CIDADE: {{get['company']['city']}}</div>
+        <div>UF: {{get['company']['uf']}}</div>
+        <div>TELEFONE: {{get['company']['telephone_number']}}</div>
+      </mat-dialog-content>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+
+    </div>
+
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close > Enviar</button>
+    </mat-dialog-actions>
+
+  </div>
+
+
+

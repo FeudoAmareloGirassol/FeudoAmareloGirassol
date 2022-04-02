@@ -18,7 +18,7 @@ import { PayloadCustomerGuard } from './guards/payload-customer.guard';
 const routes: Routes = [
     {
       path: '',
-      component: HomeComponent
+      component: LoginComponent
     },
     {
       path: 'login',

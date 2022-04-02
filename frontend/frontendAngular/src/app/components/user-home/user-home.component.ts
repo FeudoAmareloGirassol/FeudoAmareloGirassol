@@ -19,7 +19,8 @@ export class UserHomeComponent implements OnInit {
 
     let dialogRef = this.dialog.open(DialogComponent,{
       data: { idPass: idPass },
-      width:'30%',
+      width:'800px',
+      height:'400px',
     });
 
     dialogRef.afterClosed().subscribe(result =>{

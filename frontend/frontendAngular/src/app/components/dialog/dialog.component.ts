@@ -10,7 +10,7 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 })
 export class DialogComponent implements OnInit {
 
-  get :any =[];
+  get: any;
 
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,

@@ -1,77 +1,77 @@
 <div class="col-12">
-    <div class="row justify-content-around">
-        <mat-card class="col-md-6 ml-5 mt-2">
-            <form clas="col" [formGroup]="form">
-                <mat-form-field class="col" appearance="fill">
-                    <mat-label>Nome</mat-label>
-                    <input type="text" matInput formControlName="name">
-                </mat-form-field>
+  <div class="row justify-content-around">
+    <mat-card class="col-md-6 ml-5 mt-2">
+      <form clas="col" [formGroup]="form">
+        <mat-form-field class="col" appearance="fill">
+          <mat-label>Nome</mat-label>
+          <input type="text" matInput formControlName="name">
+        </mat-form-field>
 
-                <mat-form-field class="col" appearance="fill">
-                    <mat-label>CNPJ</mat-label>
-                    <input type="text" matInput formControlName="cnpj">
-                </mat-form-field>
+        <mat-form-field class="col" appearance="fill">
+          <mat-label>CNPJ</mat-label>
+          <input type="text" matInput formControlName="cnpj">
+        </mat-form-field>
 
-                <mat-form-field class="col" appearance="fill">
-                    <mat-label>Endereço</mat-label>
-                    <input type="text" matInput formControlName="address">
-                </mat-form-field>
+        <mat-form-field class="col" appearance="fill">
+          <mat-label>Endereço</mat-label>
+          <input type="text" matInput formControlName="address">
+        </mat-form-field>
 
-                <mat-form-field class="col-6" appearance="fill">
-                    <mat-label>Categoria</mat-label>
-                    <mat-select formControlName="category" required>
-                        <mat-option *ngFor="let category of categories" [value]="category.value">
-                            {{category.viewValue}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
+        <mat-form-field class="col-6" appearance="fill">
+          <mat-label>Categoria</mat-label>
+          <mat-select formControlName="category" required>
+            <mat-option *ngFor="let category of categories" [value]="category.value">
+              {{category.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
-                <mat-form-field class="col-6" appearance="fill">
-                    <mat-label>CEP</mat-label>
-                    <input type="text" matInput formControlName="cep">
-                </mat-form-field>
+        <mat-form-field class="col-6" appearance="fill">
+          <mat-label>CEP</mat-label>
+          <input type="text" matInput formControlName="cep">
+        </mat-form-field>
 
-                <mat-form-field class="col-6" appearance="fill">
-                    <mat-label>Cidade</mat-label>
-                    <input type="text" matInput formControlName="city">
-                </mat-form-field>
+        <mat-form-field class="col-6" appearance="fill">
+          <mat-label>Cidade</mat-label>
+          <input type="text" matInput formControlName="city">
+        </mat-form-field>
 
-                <mat-form-field class="col-6" appearance="fill">
-                    <mat-label>UF</mat-label>
-                    <input type="text" matInput formControlName="uf">
-                </mat-form-field>
+        <mat-form-field class="col-6" appearance="fill">
+          <mat-label>UF</mat-label>
+          <input type="text" matInput formControlName="uf">
+        </mat-form-field>
 
-                <mat-form-field class="col-6" appearance="fill">
-                    <mat-label>Telefone</mat-label>
-                    <input type="text" matInput formControlName="telephone_number">
-                </mat-form-field>
+        <mat-form-field class="col-6" appearance="fill">
+          <mat-label>Telefone</mat-label>
+          <input type="text" matInput formControlName="telephone_number">
+        </mat-form-field>
 
-                <mat-form-field class="col-6" appearance="fill">
-                    <mat-label>Email</mat-label>
-                    <input type="email" matInput formControlName="email">
-                </mat-form-field>
+        <mat-form-field class="col-6" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput formControlName="email">
+        </mat-form-field>
 
-                <mat-form-field class="col-6" appearance="fill">
-                    <mat-label>Senha</mat-label>
-                    <input type="password" matInput formControlName="password">
-                </mat-form-field>
+        <mat-form-field class="col-6" appearance="fill">
+          <mat-label>Senha</mat-label>
+          <input type="password" matInput formControlName="password">
+        </mat-form-field>
 
-                <mat-form-field class="col-6" appearance="fill">
-                    <mat-label>Confirme sua senha</mat-label>
-                    <input type="password" matInput formControlName="confirm_password">
-                </mat-form-field>
+        <mat-form-field class="col-6" appearance="fill">
+          <mat-label>Confirme sua senha</mat-label>
+          <input type="password" matInput formControlName="confirm_password">
+        </mat-form-field>
 
-                <div class="row justify-content-around">
-                    <button class="col-4" color="primary" mat-raised-button (click)="submit()">Cadastrar</button>
-                </div>
-
-                <div class="row justify-content-around mt-3">
-                    <a routerLink="/login">Já possui uma conta?</a>
-                </div>
-            </form>
-        </mat-card>
-        <div class="m-5">
-            <img src="assets/SVGCadastroCompany.svg" alt="SVGCadastroCompany">
+        <div class="row justify-content-around">
+          <button class="col-4" color="primary" mat-raised-button (click)="submit()">Cadastrar</button>
         </div>
+
+        <div class="row justify-content-around mt-3">
+          <a routerLink="/login">Já possui uma conta?</a>
+        </div>
+      </form>
+    </mat-card>
+    <div class="m-5">
+      <img src="assets/SVGCadastroCompany.svg" alt="SVGCadastroCompany">
     </div>
+  </div>
 </div>

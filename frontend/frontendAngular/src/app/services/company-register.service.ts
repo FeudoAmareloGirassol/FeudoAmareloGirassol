@@ -10,7 +10,7 @@ const apiUrl = 'http://127.0.0.1:8000/api/auth/register/company';
 export class CompanyRegisterService {
   constructor(public http: HttpClient) { }
 
-  registerCompany(request: CompanyRequest){
+  registerCompany(request: CompanyRequest) {
     return this.http.post<CompanyModel>(`${apiUrl}`, request);
   }
 }

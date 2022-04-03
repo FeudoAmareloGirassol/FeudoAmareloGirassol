@@ -25,6 +25,7 @@
     "jquery": "^3.3.1",
     "ng2-search-filter": "^0.5.1",
     "ngx-owl-carousel-o": "^7.0.2",
+    "jwt-decode": "^3.1.2",
     "popper.js": "^1.14.3",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.1",

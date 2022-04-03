@@ -10,8 +10,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatSelectModule} from '@angular/material/select';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatSelectModule } from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +31,12 @@ import { CustomerScheduleComponent } from './components/customer-schedule/custom
 import { EditCompanyComponent } from './components/edit-company/edit-company.component';
 import { EditCustomerComponent } from './components/edit-customer/edit-customer.component';
 
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from './components/dialog/dialog.component';
+import { APIGETService } from './services/api-get.service';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +55,7 @@ import { EditCustomerComponent } from './components/edit-customer/edit-customer.
     CustomerScheduleComponent,
     EditCompanyComponent,
     EditCustomerComponent,
+    DialogComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -56,25 +63,21 @@ import { EditCustomerComponent } from './components/edit-customer/edit-customer.
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule,
     HttpClientModule,
     MatCardModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
     MatFormFieldModule,
-    FormsModule,
-    ReactiveFormsModule,
     MatInputModule,
-    MatCardModule,
     MatButtonModule,
     MatSnackBarModule,
     MatToolbarModule,
     MatIconModule,
-    MatCardModule,
     MatSelectModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
-  providers: [],
+  providers: [APIGETService, HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

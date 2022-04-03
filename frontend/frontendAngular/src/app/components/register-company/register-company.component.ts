@@ -5,6 +5,7 @@ import { CompanyModel, CompanyRequest } from '../../api/company';
 import { CompanyRegisterService } from '../../services/company-register.service';
 import { MessageService } from '../../services/message-service.service';
 import { CategoryModel } from '../../api/category';
+import { LocalStorageLoginService } from '../../services/local-storage-login.service';
 
 @Component({
   selector: 'app-register-company',
@@ -18,14 +19,14 @@ export class RegisterCompanyComponent implements OnInit {
   isLoading: boolean = false;
 
   categories: CategoryModel[] = [
-    {value: 'ADVOCACIA', viewValue: 'Advocacia'},
-    {value: 'SAUDE', viewValue: 'Saúde'},
-    {value: 'ASSISTENCIA_TECNICA', viewValue: 'Assistência Técnica'},
-    {value: 'CONSTRUCAO_CIVIL', viewValue: 'Construção Civil'},
-    {value: 'BELEZA', viewValue: 'Beleza'},
-    {value: 'EDUCACAO', viewValue: 'Educação'},
-    {value: 'SERVICOS_DOMESTICOS', viewValue: 'Serviços Domésticos'},
-    {value: 'DESIGN', viewValue: 'Design'},
+    { value: 'ADVOCACIA', viewValue: 'Advocacia' },
+    { value: 'SAUDE', viewValue: 'Saúde' },
+    { value: 'ASSISTENCIA_TECNICA', viewValue: 'Assistência Técnica' },
+    { value: 'CONSTRUCAO_CIVIL', viewValue: 'Construção Civil' },
+    { value: 'BELEZA', viewValue: 'Beleza' },
+    { value: 'EDUCACAO', viewValue: 'Educação' },
+    { value: 'SERVICOS_DOMESTICOS', viewValue: 'Serviços Domésticos' },
+    { value: 'DESIGN', viewValue: 'Design' },
   ]
 
   constructor(

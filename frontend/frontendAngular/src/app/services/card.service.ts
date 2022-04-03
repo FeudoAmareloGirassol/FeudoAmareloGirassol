@@ -17,7 +17,7 @@ export class CardService {
   constructor(
     private http: HttpClient,
     private messageService: MessageService
-    ) { }
+  ) { }
 
   getCards(): Observable<Card[]> {
     return this.http.get<Card[]>(this.cardsUrl)

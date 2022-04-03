@@ -16,9 +16,8 @@ export class CompanyHomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  logout(){
+  logout() {
     this.localStorage.remove('token');
     this.router.navigate(['/login']);
   }
-
 }

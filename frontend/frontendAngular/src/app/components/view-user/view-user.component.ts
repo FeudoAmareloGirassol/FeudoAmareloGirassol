@@ -15,17 +15,17 @@ export class ViewUserComponent implements OnInit {
   result = '';
   category = '';
   categories: CategoryModel[] = [
-    {value: 'ADVOCACIA', viewValue: 'Advocacia'},
-    {value: 'SAUDE', viewValue: 'Saúde'},
-    {value: 'ASSISTENCIA_TECNICA', viewValue: 'Assistência Técnica'},
-    {value: 'CONSTRUCAO_CIVIL', viewValue: 'Construção Civil'},
-    {value: 'BELEZA', viewValue: 'Beleza'},
-    {value: 'EDUCACAO', viewValue: 'Educação'},
-    {value: 'SERVICOS_DOMESTICOS', viewValue: 'Serviços Domésticos'},
-    {value: 'DESIGN', viewValue: 'Design'},
+    { value: 'ADVOCACIA', viewValue: 'Advocacia' },
+    { value: 'SAUDE', viewValue: 'Saúde' },
+    { value: 'ASSISTENCIA_TECNICA', viewValue: 'Assistência Técnica' },
+    { value: 'CONSTRUCAO_CIVIL', viewValue: 'Construção Civil' },
+    { value: 'BELEZA', viewValue: 'Beleza' },
+    { value: 'EDUCACAO', viewValue: 'Educação' },
+    { value: 'SERVICOS_DOMESTICOS', viewValue: 'Serviços Domésticos' },
+    { value: 'DESIGN', viewValue: 'Design' },
   ]
   cards: CompanyModel[] = [];
-  cards$!:   Observable<CompanyModel[]>;
+  cards$!: Observable<CompanyModel[]>;
   private searchTerms = new Subject<string>();
 
   constructor(
@@ -37,8 +37,8 @@ export class ViewUserComponent implements OnInit {
   ngOnInit(): void {
     this.getCards();
     this.cards$ = this.searchTerms.pipe(debounceTime(300),
-    distinctUntilChanged(),
-    switchMap((term: string) => this.searchService.search(term)),
+      distinctUntilChanged(),
+      switchMap((term: string) => this.searchService.search(term)),
     );
   }
 

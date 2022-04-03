@@ -2,12 +2,12 @@ from rest_framework.permissions import AllowAny
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import viewsets
-from .serializers import CompanySerializer, UserSerializer
+from .serializers import CompanySerializer, MyTokenObtainPairSerializer, UserSerializer
 from . import models, serializers
 from rest_framework import generics
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
-
+from rest_framework_simplejwt.views import TokenObtainPairView
 
 class RegisterCompanyView(APIView):
     permission_classes = [AllowAny]
@@ -66,3 +66,10 @@ class CompanySearchView(generics.ListAPIView):
     serializer_class = CompanySerializer
     filter_backends = [filters.SearchFilter]
     search_fields = ['category','name']
+
+class GetViewset(viewsets.ModelViewSet):
+    queryset = models.User.objects.all()
+    serializer_class = serializers.GetSerializer
+
+class MyTokenObtainPairView(TokenObtainPairView):
+    serializer_class = MyTokenObtainPairSerializer

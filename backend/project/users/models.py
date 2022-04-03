@@ -12,6 +12,8 @@ class Company(models.Model):
         ('SERVICOS_DOMESTICOS', 'Serviços Domésticos'),
         ('DESIGN', 'Design'),
     )
+    def __str__(self):
+        return self.name
     name = models.CharField(max_length=255)
     cnpj = models.CharField(max_length=18)
     address = models.CharField(max_length=255)
@@ -20,8 +22,6 @@ class Company(models.Model):
     uf = models.CharField(max_length=2)
     telephone_number = models.CharField(max_length=20)
     category = models.CharField(max_length=25, choices=CATEGORY_CHOICES)
-    def __str__(self):
-        return self.name
 
 class User(AbstractUser):
     email = models.EmailField(max_length=255, unique=True)

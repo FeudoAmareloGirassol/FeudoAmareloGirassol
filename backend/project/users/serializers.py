@@ -2,6 +2,7 @@ from importlib.machinery import SourceFileLoader
 from numpy import source
 from rest_framework import serializers
 from .models import Company, User
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -42,3 +43,15 @@ class GetFOODisplaySerializer(serializers.ModelSerializer):
     class Meta:
         model = Company
         fields = ['id', 'name', 'cnpj', 'address', 'cep', 'city', 'uf', 'telephone_number', 'category']
+
+class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+        try:
+            token['cnpj'] = user.company.cnpj
+            return token
+        except:
+            token['email'] = user.email
+            token['company'] = user.company
+            return token

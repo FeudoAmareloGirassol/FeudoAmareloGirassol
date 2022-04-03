@@ -5,7 +5,6 @@ import { LoginRequest } from '../../api/authentication';
 import { LocalStorageLoginService } from '../../services/local-storage-login.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,13 +13,13 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   form: FormGroup;
   isLoading: boolean = false;
-  
+
   constructor(
-    public fb: FormBuilder, 
-    public loginService: AuthenticationService, 
-    private localStorage: LocalStorageLoginService, 
+    public fb: FormBuilder,
+    public loginService: AuthenticationService,
+    private localStorage: LocalStorageLoginService,
     private router: Router,
-    ) {
+  ) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
@@ -30,8 +29,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submit(){
-    if (this.form.invalid){
+  submit() {
+    if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
     }
@@ -40,13 +39,14 @@ export class LoginComponent implements OnInit {
       email: this.form.controls['email'].value,
       password: this.form.controls['password'].value,
     };
-    
+
     this.isLoading = true;
 
     this.loginService.login(request).subscribe((response) => {
       this.localStorage.set("token", response.access);
       this.isLoading = false;
-      if (this.localStorage.decodePayloadJWT().cnpj != null){
+
+      if (this.localStorage.decodePayloadJWT(response.access)?.cnpj != null){
         this.router.navigate(['/company/home']);
       } else{
         this.router.navigate(['/user/home']);

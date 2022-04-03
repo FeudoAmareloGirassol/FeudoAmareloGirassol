@@ -12,32 +12,28 @@ export class APIGETService {
 
   constructor(
     private http: HttpClient,
-    private lsls:LocalStorageLoginService
-    ) { }
+    private lsls: LocalStorageLoginService
+  ) { }
 
-  public getAPI(){
+  public getAPI() {
 
     const token = this.lsls.get("token");
     const header = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
     const options = {
       headers: header,
-   };
+    };
 
-   return this.http.get('http://127.0.0.1:8000/api/auth/get/', {headers:header});
+    return this.http.get('http://127.0.0.1:8000/api/auth/get/', { headers: header });
   }
 
-  public getAPIID(id:string){
+  public getAPIID(id: string) {
 
     const token = this.lsls.get("token");
     const header = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
     const options = {
       headers: header,
-   };
+    };
 
-   return this.http.get(`http://127.0.0.1:8000/api/auth/get/${id}`, {headers:header});
+    return this.http.get(`http://127.0.0.1:8000/api/auth/get/${id}`, { headers: header });
   }
 }
-
-
-
-

@@ -12,7 +12,7 @@ export class AuthenticationService {
 
   constructor(public http: HttpClient) { }
 
-  login(request: LoginRequest){
+  login(request: LoginRequest) {
     return this.http.post<LoginResponse>(`${apiUrl}`, request)
   }
 }

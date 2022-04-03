@@ -11,12 +11,17 @@ $theme: mat-light-theme($primary, $accent, $warn);
 
 @include all-component-themes($theme);
 
-html,
-body {
-  height: 100%;
-  background-color: lightgrey;
+html, body { height: 100%; background-color: lightgrey; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.warning-snackbar {
+    background: #a09d0d;
 }
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+.error-snackbar {
+    background: #a00d0d;
+}
+
+.success-snackbar {
+    background: #0da02d;
 }

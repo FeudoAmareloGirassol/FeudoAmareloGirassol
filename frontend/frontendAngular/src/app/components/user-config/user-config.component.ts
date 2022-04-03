@@ -8,16 +8,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-config.component.scss']
 })
 export class UserConfigComponent implements OnInit {
+  get: any = [];
 
-  constructor(private localStorage: LocalStorageLoginService,
-    private router: Router,) { }
+  constructor(
+    private localStorage: LocalStorageLoginService,
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
   }
-  
-  logout(){
+
+  logout() {
     this.localStorage.remove('token');
     this.router.navigate(['/login']);
   }
-
 }

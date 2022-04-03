@@ -1,19 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { debounceTime, distinctUntilChanged, Observable, Subject, switchMap } from 'rxjs';
-import { CategoryModel } from 'src/app/api/category';
+import { Observable, Subject, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { CompanyModel } from 'src/app/api/company';
 import { CategoryFilterService } from 'src/app/services/category-filter.service';
 import { GetCompanyService } from 'src/app/services/get-companies.service';
 import { SearchService } from 'src/app/services/search.service';
-import { DialogComponent } from '../dialog/dialog.component';
+import { CategoryModel } from '../../api/category';
 
 @Component({
-  selector: 'app-user-home',
-  templateUrl: './user-home.component.html',
-  styleUrls: ['./user-home.component.scss']
+  selector: 'app-view-user',
+  templateUrl: './view-user.component.html',
+  styleUrls: ['./view-user.component.scss']
 })
-export class UserHomeComponent implements OnInit {
+export class ViewUserComponent implements OnInit {
   result = '';
   category = '';
   categories: CategoryModel[] = [
@@ -31,7 +29,6 @@ export class UserHomeComponent implements OnInit {
   private searchTerms = new Subject<string>();
 
   constructor(
-    public dialog: MatDialog,
     private getCompanyService: GetCompanyService,
     private searchService: SearchService,
     private categoryFilter: CategoryFilterService,
@@ -43,19 +40,6 @@ export class UserHomeComponent implements OnInit {
       distinctUntilChanged(),
       switchMap((term: string) => this.searchService.search(term)),
     );
-  }
-
-  OpenDialog(company: CompanyModel) {
-
-    let dialogRef = this.dialog.open(DialogComponent, {
-      data: company,
-      width: '800px',
-      height: '400px',
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`The dialog result: ${result}`);
-    })
   }
 
   getCards(): void {
@@ -75,5 +59,4 @@ export class UserHomeComponent implements OnInit {
   search(term: string): void {
     this.searchTerms.next(term);
   }
-
 }

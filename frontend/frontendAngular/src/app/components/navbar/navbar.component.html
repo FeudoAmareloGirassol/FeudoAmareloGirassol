@@ -1,7 +1,7 @@
 <p>
   <mat-toolbar color="primary">
     <span><a class="logo" (click)="direct()">Mark.it</a></span>
-    <ng-container *ngIf="!((localStorage.get('token'))==null) && this.localStorage.decodePayloadJWT().cnpj == null">
+    <ng-container *ngIf="!((localStorage.get('token'))==null) && this.localStorage.get('isCompany')">
       <span style="margin-left: 93%;">
         <mat-icon class="settings" routerLink="/user/config">settings</mat-icon>
       </span>

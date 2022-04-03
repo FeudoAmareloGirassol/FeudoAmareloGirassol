@@ -12,7 +12,7 @@ export default class UserTypeVerificationService {
 
   constructor(public http: HttpClient) { }
 
-  verification(): Observable<CompanyRequest>{
+  verification(): Observable<CompanyRequest> {
     return this.http.get<CompanyRequest>(`${apiUrl}`)
   }
 }

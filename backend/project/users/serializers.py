@@ -26,23 +26,24 @@ class UserSerializer(serializers.ModelSerializer):
         instance.save()
         return instance
 
-class CompanySerializer(serializers.ModelSerializer):
+class RegisterCompanySerializer(serializers.ModelSerializer):
     class Meta:
         model = Company
         fields = ['id', 'name', 'cnpj', 'address', 'cep', 'city', 'uf', 'telephone_number', 'category']
 
-class GetSerializer(serializers.ModelSerializer):
-    company = CompanySerializer(read_only = True)
+class GetCompanySerializer(serializers.ModelSerializer):
+    category = serializers.CharField(source='get_category_display')
+    class Meta:
+        model = Company
+        fields = ['id', 'name', 'cnpj', 'address', 'cep', 'city', 'uf', 'telephone_number', 'category']
+
+class GetUserSerializer(serializers.ModelSerializer):
+    company = GetCompanySerializer(read_only = True)
 
     class Meta:
         model = User
         fields = ('id', 'email', 'company')
 
-class GetFOODisplaySerializer(serializers.ModelSerializer):
-    category = serializers.CharField(source='get_category_display')
-    class Meta:
-        model = Company
-        fields = ['id', 'name', 'cnpj', 'address', 'cep', 'city', 'uf', 'telephone_number', 'category']
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod

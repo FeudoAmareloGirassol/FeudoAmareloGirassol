@@ -1,5 +1,3 @@
-from importlib.machinery import SourceFileLoader
-from numpy import source
 from rest_framework import serializers
 from .models import Company, User
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer

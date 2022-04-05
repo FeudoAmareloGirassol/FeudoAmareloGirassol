@@ -1,10 +1,7 @@
 from django.urls import path, include
 from .views import CompanyFilterView, CompanySearchView, RegisterCompanyView, RegisterCustomerView, MyTokenObtainPairView
+from rest_framework_simplejwt.views import TokenRefreshView
 from .router import router
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-)
 
 urlpatterns = [
     path('auth/register/customer', RegisterCustomerView.as_view()),

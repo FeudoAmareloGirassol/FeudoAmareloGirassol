@@ -72,4 +72,5 @@ class GetViewset(viewsets.ModelViewSet):
     serializer_class = serializers.GetSerializer
 
 class MyTokenObtainPairView(TokenObtainPairView):
+    permission_classes = [AllowAny]
     serializer_class = MyTokenObtainPairSerializer

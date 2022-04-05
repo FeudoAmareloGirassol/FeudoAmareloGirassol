@@ -14,5 +14,4 @@ urlpatterns = [
     path('token', MyTokenObtainPairView.as_view(), name='my_token'),
     path('register/customer', RegisterCustomerView.as_view()),
     path('register/company', RegisterCompanyView.as_view()),
-    path('get/', include(router.urls)) # METODO GET
 ]

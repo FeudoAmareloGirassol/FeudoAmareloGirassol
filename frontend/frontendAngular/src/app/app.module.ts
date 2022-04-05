@@ -23,7 +23,6 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterCompanyComponent } from './components/register-company/register-company.component';
 import { RegisterCustomerComponent } from './components/register-customer/register-customer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { HomeComponent } from './components/home/home.component';
 import { UserHomeComponent } from './components/user-home/user-home.component';
 import { CompanyHomeComponent } from './components/company-home/company-home.component';
 import { UserConfigComponent } from './components/user-config/user-config.component';
@@ -42,7 +41,6 @@ import { DialogComponent } from './components/dialog/dialog.component';
     RegisterCompanyComponent,
     RegisterCustomerComponent,
     NavbarComponent,
-    HomeComponent,
     UserHomeComponent,
     CompanyHomeComponent,
     UserConfigComponent,

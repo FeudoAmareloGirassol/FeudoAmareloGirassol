@@ -48,12 +48,9 @@ export class LoginComponent implements OnInit {
 
       if (this.localStorage.decodePayloadJWT(this.localStorage.get("token")).cnpj != null){
         this.router.navigate(['/company/home']);
-        console.log("é empresa")
       } else{
         this.router.navigate(['/user/home']);
-        console.log("não é empresa")
       }
-      console.log(this.localStorage.decodePayloadJWT(this.localStorage.get("token")).cnpj)
     }, _ => this.isLoading = false);
   }
 }

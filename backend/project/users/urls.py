@@ -7,12 +7,12 @@ from rest_framework_simplejwt.views import (
 )
 
 urlpatterns = [
-    path('auth/token/refresh', TokenRefreshView.as_view(), name='token_refresh'),
-    path('companies/search', CompanySearchView.as_view()),
-    path('companies/filter', CompanyFilterView.as_view()),
-    path('get/', include(router.urls)),
-    path('auth/login', MyTokenObtainPairView.as_view(), name='my_token'),
     path('auth/register/customer', RegisterCustomerView.as_view()),
     path('auth/register/company', RegisterCompanyView.as_view()),
+    path('auth/token/refresh', TokenRefreshView.as_view(), name='token_refresh'),
+    path('auth/login', MyTokenObtainPairView.as_view(), name='my_token'),
+    path('companies/filter', CompanyFilterView.as_view()),
+    path('companies', CompanySearchView.as_view()),
+    path('get/', include(router.urls)),
     path('get/', include(router.urls)) # METODO GET
 ]

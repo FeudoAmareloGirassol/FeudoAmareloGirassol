@@ -1,6 +1,6 @@
-from django.urls import path, include
 from .views import CompanyFilterView, CompanySearchView, RegisterCompanyView, RegisterCustomerView, MyTokenObtainPairView
 from rest_framework_simplejwt.views import TokenRefreshView
+from django.urls import path, include
 from .router import router
 
 urlpatterns = [
@@ -10,6 +10,5 @@ urlpatterns = [
     path('auth/login', MyTokenObtainPairView.as_view(), name='my_token'),
     path('companies/filter', CompanyFilterView.as_view()),
     path('companies', CompanySearchView.as_view()),
-    path('get/', include(router.urls)),
-    path('get/', include(router.urls)) # METODO GET
+    path('get/', include(router.urls))
 ]

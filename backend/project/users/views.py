@@ -64,4 +64,5 @@ class CompanySearchView(generics.ListAPIView):
     search_fields = ['name']
 
 class MyTokenObtainPairView(TokenObtainPairView):
+    permission_classes = [AllowAny]
     serializer_class = MyTokenObtainPairSerializer

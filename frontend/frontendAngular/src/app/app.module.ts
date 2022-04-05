@@ -12,15 +12,16 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MessageComponent } from './components/message/message.component';
-// import { CardsViewUserComponent } from './components/cards-view-user/cards-view-user.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterCompanyComponent } from './components/register-company/register-company.component';
 import { RegisterCustomerComponent } from './components/register-customer/register-customer.component';
-import { ViewUserComponent } from './components/view-user/view-user.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { UserHomeComponent } from './components/user-home/user-home.component';
@@ -30,22 +31,16 @@ import { CompanyScheduleComponent } from './components/company-schedule/company-
 import { CustomerScheduleComponent } from './components/customer-schedule/customer-schedule.component';
 import { EditCompanyComponent } from './components/edit-company/edit-company.component';
 import { EditCustomerComponent } from './components/edit-customer/edit-customer.component';
-
-import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './components/dialog/dialog.component';
-import { APIGETService } from './services/api-get.service';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+// import { APIGETService } from './services/api-get.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     MessageComponent,
-    // CardsViewUserComponent,
     LoginComponent,
     RegisterCompanyComponent,
     RegisterCustomerComponent,
-    ViewUserComponent,
     NavbarComponent,
     HomeComponent,
     UserHomeComponent,
@@ -77,7 +72,10 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDatepickerModule,
     MatNativeDateModule,
   ],
-  providers: [APIGETService, HttpClientModule],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
+
+  // providers: [APIGETService, HttpClientModule],
+  // bootstrap: [AppComponent]
 })
 export class AppModule { }

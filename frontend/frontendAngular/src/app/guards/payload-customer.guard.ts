@@ -16,7 +16,7 @@ export class PayloadCustomerGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.localStorage.get("isCompany")) {
+    if (this.localStorage.decodePayloadJWT(this.localStorage.get("token")).cnpj == null) {
       return true;
     } else {
       this.router.navigateByUrl('/company/home');

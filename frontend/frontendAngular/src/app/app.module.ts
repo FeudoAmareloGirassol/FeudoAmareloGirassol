@@ -31,7 +31,6 @@ import { CustomerScheduleComponent } from './components/customer-schedule/custom
 import { EditCompanyComponent } from './components/edit-company/edit-company.component';
 import { EditCustomerComponent } from './components/edit-customer/edit-customer.component';
 import { DialogComponent } from './components/dialog/dialog.component';
-// import { APIGETService } from './services/api-get.service';
 
 @NgModule({
   declarations: [
@@ -72,8 +71,5 @@ import { DialogComponent } from './components/dialog/dialog.component';
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
-
-  // providers: [APIGETService, HttpClientModule],
-  // bootstrap: [AppComponent]
 })
 export class AppModule { }

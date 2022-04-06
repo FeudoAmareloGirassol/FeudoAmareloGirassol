@@ -22,15 +22,4 @@ export class AuthenticatedGuard implements CanActivate {
       return true;
     }
   }
-
-  canActivateCompany(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.localStorage.get("isCompany")) {
-      return true;
-    } else {
-      this.router.navigateByUrl('/user/home');
-      return false;
-    }
-  }
 }

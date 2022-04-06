@@ -5,7 +5,6 @@ import { CompanyModel, CompanyRequest } from '../../api/company';
 import { CompanyRegisterService } from '../../services/company-register.service';
 import { MessageService } from '../../services/message-service.service';
 import { CategoryModel } from '../../api/category';
-import { LocalStorageLoginService } from '../../services/local-storage-login.service';
 
 @Component({
   selector: 'app-register-company',
@@ -94,7 +93,4 @@ export class RegisterCompanyComponent implements OnInit {
       this.router.navigate(['/login']);
     }, _ => this.isLoading = false);
   }
-
-
-
 }

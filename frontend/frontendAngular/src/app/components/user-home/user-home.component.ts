@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { debounceTime, distinctUntilChanged, Observable, Subject, switchMap } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map, Observable, startWith, Subject, switchMap } from 'rxjs';
 import { CategoryModel } from 'src/app/api/category';
 import { CompanyModel } from 'src/app/api/company';
 import { CategoryFilterService } from 'src/app/services/category-filter.service';
@@ -26,6 +27,7 @@ export class UserHomeComponent implements OnInit {
     { value: 'SERVICOS_DOMESTICOS', viewValue: 'Serviços Domésticos' },
     { value: 'DESIGN', viewValue: 'Design' },
   ]
+  myControl = new FormControl();
   cards: CompanyModel[] = [];
   cards$!: Observable<CompanyModel[]>;
   private searchTerms = new Subject<string>();
@@ -75,5 +77,4 @@ export class UserHomeComponent implements OnInit {
   search(term: string): void {
     this.searchTerms.next(term);
   }
-
 }

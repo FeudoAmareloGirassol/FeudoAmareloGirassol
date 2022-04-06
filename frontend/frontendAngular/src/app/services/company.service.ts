@@ -1,15 +1,17 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CompanyModel } from '../api/company';
+import { CompanyModel, CompanyRequest } from '../api/company';
 import { LocalStorageLoginService } from './local-storage-login.service';
 
-const apiUrl = 'http://127.0.0.1:8000/api/auth/get/companyfoo';
+const apiUrl = 'http://127.0.0.1:8000/api/auth'
+// const apiUrl = 'http://127.0.0.1:8000/api/auth/get/companyfoo';
+// const apiUrl2 = 'http://127.0.0.1:8000/api/auth/register/company';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GetCompanyService {
+export class CompanyService {
 
   constructor(
     public http: HttpClient,
@@ -22,7 +24,10 @@ export class GetCompanyService {
     const options = {
       headers: header,
     };
-    return this.http.get<CompanyModel[]>(`${apiUrl}`, options)
+    return this.http.get<CompanyModel[]>(`${apiUrl}/get/companyfoo`, options)
   }
 
+  registerCompany(request: CompanyRequest) {
+    return this.http.post<CompanyModel>(`${apiUrl}/register/company`, request);
+  }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MessageService } from '../../services/message-service.service';
+import { MessageService } from '../../services/message.service';
 import { CustomerModel, CustomerRequest } from '../../api/customer';
 import { CustomerRegisterService } from '../../services/customer-register.service';
 import { Router } from '@angular/router';

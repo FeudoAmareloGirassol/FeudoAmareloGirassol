@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { debounceTime, distinctUntilChanged, map, Observable, startWith, Subject, switchMap } from 'rxjs';
-import { CategoryModel } from 'src/app/api/category';
-import { CompanyModel } from 'src/app/api/company';
+import { debounceTime, distinctUntilChanged, Observable, Subject, switchMap } from 'rxjs';
+import { CategoryModel } from '../../api/category';
+import { CompanyModel } from '../../api/company';
 import { CategoryFilterService } from 'src/app/services/category-filter.service';
-import { GetCompanyService } from 'src/app/services/get-companies.service';
-import { SearchService } from 'src/app/services/search.service';
+import { CompanyService } from '../../services/company.service';
+import { SearchService } from '../../services/search.service';
 import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
@@ -34,7 +34,7 @@ export class UserHomeComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private getCompanyService: GetCompanyService,
+    private getCompanyService: CompanyService,
     private searchService: SearchService,
     private categoryFilter: CategoryFilterService,
   ) { }

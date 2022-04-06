@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CompanyModel, CompanyRequest } from '../../api/company';
-import { CompanyRegisterService } from '../../services/company-register.service';
-import { MessageService } from '../../services/message-service.service';
+import { MessageService } from '../../services/message.service';
 import { CategoryModel } from '../../api/category';
+import { CompanyService } from '../../services/company.service';
 
 @Component({
   selector: 'app-register-company',
@@ -30,7 +30,7 @@ export class RegisterCompanyComponent implements OnInit {
 
   constructor(
     public fb: FormBuilder,
-    public companyRegisterService: CompanyRegisterService,
+    public companyRegisterService: CompanyService,
     private messageService: MessageService,
     private router: Router
   ) {

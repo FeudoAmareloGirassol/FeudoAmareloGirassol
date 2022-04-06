@@ -89,14 +89,21 @@ class MyTokenObtainPairView(TokenObtainPairView):
 
 class SchedulingViewSet(APIView):
     def get(self, request):
-        scheduling = models.Scheduling.objects.all()
+        user = request.user
+        scheduling = models.Scheduling.objects
+        if user.company:
+            scheduling = scheduling.filter(company=user.company)
+        else:
+            scheduling = scheduling.filter(customer=user)
+
         serializer = serializers.SchedulingSerializer(scheduling, many=True)
         return Response(serializer.data)
 
     def post(self, request):
         serializer = serializers.SchedulingSerializer(data=request.data)
+        user = request.user
         if serializer.is_valid():
-            serializer.save()
+            serializer.create(serializer.validated_data, user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

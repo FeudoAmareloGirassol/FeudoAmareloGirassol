@@ -44,11 +44,13 @@ class User(AbstractUser):
 
 class Scheduling(models.Model):
     schedulingDate = models.DateField()
-    email = models.EmailField(max_length=256)
-    name = models.CharField(max_length=255)
-    cnpj = models.CharField(max_length=18)
-    address = models.CharField(max_length=255)
-    cep = models.CharField(max_length=10)
-    city = models.CharField(max_length=255)
-    uf = models.CharField(max_length=2)
-    telephone_number = models.CharField(max_length=20)
+
+    customer = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE
+    )
+
+    company = models.ForeignKey(
+        Company,
+        on_delete=models.CASCADE
+    )

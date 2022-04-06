@@ -69,4 +69,10 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 class SchedulingSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Scheduling
-        fields = '__all__'
+        fields = ['schedulingDate', 'company']
+
+    def create(self, validated_data, user):
+        scheduling = models.Scheduling(**validated_data)
+        scheduling.customer = user
+        scheduling.save()
+        return scheduling

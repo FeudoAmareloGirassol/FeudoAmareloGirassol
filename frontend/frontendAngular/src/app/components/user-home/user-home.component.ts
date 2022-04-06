@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { debounceTime, distinctUntilChanged, Observable, Subject, switchMap } from 'rxjs';
+import { FilterService } from 'src/app/services/filter.service';
 import { CategoryModel } from '../../api/category';
 import { CompanyModel } from '../../api/company';
-import { CategoryFilterService } from 'src/app/services/category-filter.service';
 import { CompanyService } from '../../services/company.service';
-import { SearchService } from '../../services/search.service';
 import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
@@ -35,15 +34,14 @@ export class UserHomeComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private getCompanyService: CompanyService,
-    private searchService: SearchService,
-    private categoryFilter: CategoryFilterService,
+    private filterService: FilterService,
   ) { }
 
   ngOnInit(): void {
     this.getCards();
     this.cards$ = this.searchTerms.pipe(debounceTime(300),
       distinctUntilChanged(),
-      switchMap((term: string) => this.searchService.search(term)),
+      switchMap((term: string) => this.filterService.search(term)),
     );
   }
 
@@ -65,12 +63,12 @@ export class UserHomeComponent implements OnInit {
       .subscribe(cards => this.cards = cards.slice());
   }
   updateCards(): void {
-    this.searchService.search(this.result)
+    this.filterService.search(this.result)
       .subscribe(cards => this.cards = cards.slice());
   }
 
   updateCategory(): void {
-    this.categoryFilter.filter(this.category)
+    this.filterService.filter(this.category)
       .subscribe(cards => this.cards = cards.slice());
   }
 

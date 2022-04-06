@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageService } from '../../services/message.service';
 import { CustomerModel, CustomerRequest } from '../../api/customer';
-import { CustomerRegisterService } from '../../services/customer-register.service';
+// import { CustomerRegisterService } from '../../services/customer-register.service';
 import { Router } from '@angular/router';
+import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
   selector: 'app-register-customer',
@@ -16,7 +17,7 @@ export class RegisterCustomerComponent implements OnInit {
 
   constructor(
     public fb: FormBuilder,
-    public customerRegisterService: CustomerRegisterService,
+    public customerRegisterService: CustomerService,
     private messageService: MessageService,
     private router: Router
   ) {

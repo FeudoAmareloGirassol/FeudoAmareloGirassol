@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
 import { LocalStorageLoginService } from '../../services/local-storage-login.service';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({

@@ -8,9 +8,6 @@ import { LocalStorageLoginService } from '../../services/local-storage-login.ser
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  public url1!: string;
-  name = 'Get Current Url Route Demo';
-  currentRoute!: string;
 
   constructor(
     public router: Router,

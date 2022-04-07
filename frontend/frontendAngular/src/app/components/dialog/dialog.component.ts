@@ -5,6 +5,10 @@ import { APIGETService } from 'src/app/services/api-get.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CompanyModel } from 'src/app/api/company';
 import * as moment from 'moment';
+import { Router } from '@angular/router';
+import { SchedulingRegisterServiceService } from '../../services/scheduling-register-service.service';
+import { SchedulingModel, SchedulingRequest } from '../../api/scheduling';
+import { MessageService } from 'src/app/services/message-service.service';
 
 @Component({
   selector: 'app-dialog',
@@ -12,32 +16,50 @@ import * as moment from 'moment';
   styleUrls: ['./dialog.component.scss'],
 })
 export class DialogComponent implements OnInit {
-  public SchedulingForm: FormGroup;
+  SchedulingForm: FormGroup;
+  isLoading: boolean = false;
 
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
     private APIGET: APIGETService,
     @Inject(MAT_DIALOG_DATA) public company: CompanyModel,
     private fb: FormBuilder,
+    private router: Router,
+    public schedulingRegisterService: SchedulingRegisterServiceService,
+    private messageService: MessageService,
   ) {
-  }
-
-  ngOnInit(): void {
     this.SchedulingForm = this.fb.group({
       SchedulingDate: ['', [Validators.required]],
     });
+  }
 
+  ngOnInit(): void {
   }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
-  createScheduling(){
+  submit(){
     let newDate: moment.Moment = moment.utc(this.SchedulingForm.value.SchedulingDate).local();
-    this.SchedulingForm.value.SchedulingDate = newDate.format("DD-MM-YYYY");
-    console.log(this.SchedulingForm.value);
+    this.SchedulingForm.value['SchedulingDate'] = newDate.format("YYYY-MM-DD");
+    if (this.SchedulingForm.invalid) {
+      this.SchedulingForm.markAllAsTouched();
+      return;
+    }
+
+
+    let request: SchedulingRequest = {
+      schedulingDate: this.SchedulingForm.value['SchedulingDate'],
+      company: this.company.id
+    };
+
+    this.isLoading = true;
+    this.schedulingRegisterService.registerScheduling(request).subscribe((response: SchedulingModel) => {
+      this.messageService.showSuccess("Registrado com sucesso", "Ok");
+      this.isLoading = false;
+    }, _ => this.isLoading = false);
+
   }
 
 }
-

@@ -21,4 +21,17 @@ export class SchedulingRegisterServiceService {
       headers: header,
     };
     return this.http.post<SchedulingModel>(`${apiUrl}`, request, { headers: header })};
+
+    getScheduling() {
+
+      const token = this.lsls.get("token");
+      const header = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
+      const options = {
+        headers: header,
+      };
+
+      return this.http.get(apiUrl, { headers: header });
+    }
+
   }
+

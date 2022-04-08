@@ -25,4 +25,13 @@ export class GetCompanyService {
     return this.http.get<CompanyModel[]>(`${apiUrl}`, options)
   }
 
+  getCompaniesID(id:String): Observable<CompanyModel[]> {
+    const token = this.localStorage.get("token");
+    const header = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
+    const options = {
+      headers: header,
+    };
+    return this.http.get<CompanyModel[]>(`${apiUrl}/${id}`, options)
+  }
+
 }

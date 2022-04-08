@@ -48,7 +48,6 @@ export class DialogComponent implements OnInit {
       return;
     }
 
-
     let request: SchedulingRequest = {
       schedulingDate: this.SchedulingForm.value['SchedulingDate'],
       company: this.company.id
@@ -56,7 +55,7 @@ export class DialogComponent implements OnInit {
 
     this.isLoading = true;
     this.schedulingRegisterService.registerScheduling(request).subscribe((response: SchedulingModel) => {
-      this.messageService.showSuccess("Registrado com sucesso", "Ok");
+      this.messageService.showSuccess("Agendamento feito com sucesso!", "Ok");
       this.isLoading = false;
     }, _ => this.isLoading = false);
 

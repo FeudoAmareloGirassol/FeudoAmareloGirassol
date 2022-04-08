@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SchedulingRegisterServiceService } from 'src/app/services/scheduling-register-service.service';
 
 @Component({
   selector: 'app-company-schedule',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanyScheduleComponent implements OnInit {
 
-  constructor() { }
+  schedulings : any = [];
+
+  constructor(
+    private SchedulingRegisterService: SchedulingRegisterServiceService,
+  ) { }
 
   ngOnInit(): void {
-  }
 
-}
+    this.SchedulingRegisterService.getScheduling().subscribe(
+      (data) =>{
+        this.schedulings = data;
+        console.log(data)
+      },
+      (error) => {
+        console.log(error)
+      })
+    }
+
+  }

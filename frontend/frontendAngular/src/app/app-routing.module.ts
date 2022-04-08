@@ -24,7 +24,7 @@ const routes: Routes = [
   {
     path: 'view-user',
     component: ViewUserComponent,
-    canActivate: [AuthenticatedGuard]
+    canActivate: [AuthenticatedGuard, PayloadCustomerGuard]
   },
   {
     path: '',
@@ -45,32 +45,32 @@ const routes: Routes = [
   {
     path: 'user/home',
     component: UserHomeComponent,
-    canActivate: [AuthenticatedGuard]
+    canActivate: [AuthenticatedGuard, PayloadCustomerGuard]
   },
   {
     path: 'company/home',
     component: CompanyHomeComponent,
-    canActivate: [AuthenticatedGuard, PayloadCustomerGuard]
+    canActivate: [AuthenticatedGuard, PayloadCompanyGuard]
   },
   {
     path: 'user/config',
     component: UserConfigComponent,
-    canActivate: [AuthenticatedGuard]
+    canActivate: [AuthenticatedGuard, PayloadCustomerGuard]
   },
   {
     path: 'company/schedule',
     component: CompanyScheduleComponent,
-    canActivate: [AuthenticatedGuard, PayloadCustomerGuard]
+    canActivate: [AuthenticatedGuard, PayloadCompanyGuard]
   },
   {
     path: 'customer/schedule',
     component: CustomerScheduleComponent,
-    canActivate: [AuthenticatedGuard]
+    canActivate: [AuthenticatedGuard, PayloadCustomerGuard]
   },
   {
     path: 'company/edit',
     component: EditCompanyComponent,
-    canActivate: [AuthenticatedGuard, PayloadCustomerGuard]
+    canActivate: [AuthenticatedGuard, PayloadCompanyGuard]
   },
   {
     path: 'customer/edit',

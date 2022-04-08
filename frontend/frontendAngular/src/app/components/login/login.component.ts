@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
       this.localStorage.set("token", response.access);
       this.isLoading = false;
 
-      if (this.localStorage.decodePayloadJWT(response.access)?.cnpj != null){
+      if (this.localStorage.decodePayloadJWT(this.localStorage.get("token")).cnpj != null){
         this.router.navigate(['/company/home']);
       } else{
         this.router.navigate(['/user/home']);

@@ -23,7 +23,6 @@ export class CustomerScheduleComponent implements OnInit {
         this.GetCompanyService.getCompanies().subscribe(
           (company) =>{
             this.company = company
-            console.log(company)
           },
           (error) =>{
             console.log(error)

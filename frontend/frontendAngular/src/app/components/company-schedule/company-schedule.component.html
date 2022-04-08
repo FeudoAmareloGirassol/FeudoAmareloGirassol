@@ -3,12 +3,14 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Data</th>
+      <th scope="col">Hora</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let scheduling of schedulings; let i = index">
       <th scope="row"> {{i+1}} </th>
       <td>{{scheduling['schedulingDate'] | date: 'dd/MM/yyyy' }}</td>
+      <td><strong>{{scheduling['schedulingTime']}}</strong></td>
     </tr>
   </tbody>
 </table>

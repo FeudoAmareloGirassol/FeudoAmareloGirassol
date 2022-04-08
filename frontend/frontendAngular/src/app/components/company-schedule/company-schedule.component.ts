@@ -19,7 +19,6 @@ export class CompanyScheduleComponent implements OnInit {
     this.SchedulingRegisterService.getScheduling().subscribe(
       (data) =>{
         this.schedulings = data;
-        console.log(data)
       },
       (error) => {
         console.log(error)

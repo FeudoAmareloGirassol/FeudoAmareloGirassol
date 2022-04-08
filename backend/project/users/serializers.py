@@ -69,7 +69,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 class SchedulingSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Scheduling
-        fields = ['schedulingDate', 'company']
+        fields = ['schedulingDate', 'schedulingTime', 'company']
 
     def create(self, validated_data, user):
         scheduling = models.Scheduling(**validated_data)

@@ -44,6 +44,7 @@ class User(AbstractUser):
 
 class Scheduling(models.Model):
     schedulingDate = models.DateField()
+    schedulingTime = models.TimeField()
 
     customer = models.ForeignKey(
         User,

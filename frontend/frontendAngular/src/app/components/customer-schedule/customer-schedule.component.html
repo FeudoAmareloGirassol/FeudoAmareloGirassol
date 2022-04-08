@@ -16,8 +16,8 @@
       <th scope="col">Empresa</th>
       <th scope="col">Telefone</th>
       <th scope="col">Endereço</th>
-      <th scope="col">Cidade/UF</th>
-      <th scope="col">Data</th>
+      <th scope="col">Cidade / UF</th>
+      <th scope="col">Data / Hora</th>
     </tr>
   </thead>
   <tbody>
@@ -37,10 +37,11 @@
       </ng-container>
 
       <ng-container *ngFor="let c of company">
-        <td *ngIf="scheduling['company'] == c['id']">{{c['city']}}/{{c['uf']}}</td>
+        <td *ngIf="scheduling['company'] == c['id']">{{c['city']}} / {{c['uf']}}</td>
       </ng-container>
 
-      <td> {{scheduling['schedulingDate'] | date: 'dd/MM/yyyy' }} </td>
+      <td> {{scheduling['schedulingDate'] | date: 'dd/MM/yyyy' }} / <strong>{{scheduling['schedulingTime']}}</strong>
+      </td>
     </tr>
   </tbody>
 </table>

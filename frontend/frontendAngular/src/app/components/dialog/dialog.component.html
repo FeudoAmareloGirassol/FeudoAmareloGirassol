@@ -22,6 +22,10 @@
             name='SchedulingDate'>
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width">
+          <mat-label>Horário do agendamento</mat-label>
+          <input matInput type="time" formControlName="SchedulingHour" #time>
         </mat-form-field>
       </form>
 

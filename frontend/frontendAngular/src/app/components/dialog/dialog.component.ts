@@ -30,6 +30,7 @@ export class DialogComponent implements OnInit {
   ) {
     this.SchedulingForm = this.fb.group({
       SchedulingDate: ['', [Validators.required]],
+      SchedulingHour: ['', [Validators.required]]
     });
   }
   minDate = new Date();
@@ -44,6 +45,7 @@ export class DialogComponent implements OnInit {
   submit(){
     let newDate: moment.Moment = moment.utc(this.SchedulingForm.value.SchedulingDate).local();
     this.SchedulingForm.value['SchedulingDate'] = newDate.format("YYYY-MM-DD");
+
     if (this.SchedulingForm.invalid) {
       this.SchedulingForm.markAllAsTouched();
       return;
@@ -51,6 +53,7 @@ export class DialogComponent implements OnInit {
 
     let request: SchedulingRequest = {
       schedulingDate: this.SchedulingForm.value['SchedulingDate'],
+      schedulingTime: this.SchedulingForm.value.SchedulingHour,
       company: this.company.id
     };
 
@@ -63,3 +66,5 @@ export class DialogComponent implements OnInit {
   }
 
 }
+
+

@@ -9,6 +9,10 @@ input {
   height: 67%;
 }
 
+input:focus {
+  outline: rgb(0,123,255) auto 1px;
+}
+
 .card-button {
   border-radius: 5px;
   border: none;

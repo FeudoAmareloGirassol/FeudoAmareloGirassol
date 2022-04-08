@@ -32,6 +32,7 @@ export class DialogComponent implements OnInit {
       SchedulingDate: ['', [Validators.required]],
     });
   }
+  minDate = new Date();
 
   ngOnInit(): void {
   }

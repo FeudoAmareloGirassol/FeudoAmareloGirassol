@@ -1,9 +1,6 @@
-from email.policy import default
 import django_on_heroku
 from datetime import timedelta
 from pathlib import Path
-# from environs import Env
-# from dotenv import load_dotenv
 from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -56,7 +53,8 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:4200',
-    'http://127.0.0.1:4200'
+    'http://127.0.0.1:4200',
+    'https://frontend-markit.herokuapp.com/'
 ]
 
 ROOT_URLCONF = 'project.urls'

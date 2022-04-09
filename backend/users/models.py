@@ -2,14 +2,14 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 CATEGORY_CHOICES  = [
-    ('ASSISTENCIA_TECNICA', 'Assistência Técnica'),
-    ('SERVICOS_DOMESTICOS', 'Serviços Domésticos'),
-    ('CONSTRUCAO_CIVIL', 'Construção Civil'),
-    ('ADVOCACIA', 'Advocacia'),
-    ('EDUCACAO', 'Educação'),
-    ('BELEZA', 'Beleza'),
+    ('TECHNICAL_ASSISTANCE', 'Assistência Técnica'),
+    ('DOMESTIC_SERVICES', 'Serviços Domésticos'),
+    ('CIVIL_CONSTRUCTION', 'Construção Civil'),
+    ('ADVOCACY', 'Advocacia'),
+    ('EDUCATION', 'Educação'),
+    ('BEAUTY', 'Beleza'),
     ('DESIGN', 'Design'),
-    ('SAUDE', 'Saúde'),
+    ('HEALTH', 'Saúde'),
 ]
 
 class Company(models.Model):

@@ -4,7 +4,7 @@ import { Observable, of} from 'rxjs';
 import { CompanyModel } from '../api/company';
 import { LocalStorageLoginService } from './local-storage-login.service';
 
-const apiUrl = 'http://127.0.0.1:8000/api/auth/companies';
+const apiUrl = 'https://api-mark-it.herokuapp.com/api';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +25,7 @@ export class FilterService {
     if (!term.trim()) {
       return of([]);
     }
-    return this.http.get<CompanyModel[]>(`${apiUrl}/search?search=${term}`, options)
+    return this.http.get<CompanyModel[]>(`${apiUrl}/companies?search=${term}`, options)
   }
 
   filter(term: string): Observable<CompanyModel[]> {
@@ -34,6 +34,6 @@ export class FilterService {
     const options = {
       headers: header,
     };
-    return this.http.get<CompanyModel[]>(`${apiUrl}/filter?category=${term}`, options)
+    return this.http.get<CompanyModel[]>(`${apiUrl}/companies/filter?category=${term}`, options)
   }
 }

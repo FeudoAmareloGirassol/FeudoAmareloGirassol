@@ -42,7 +42,6 @@ class GetUserSerializer(serializers.ModelSerializer):
         model = User
         fields = ('id', 'email', 'company')
 
-
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls, user):

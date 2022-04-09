@@ -90,7 +90,7 @@ class MyTokenObtainPairView(TokenObtainPairView):
 class SchedulingViewSet(APIView):
     def get(self, request):
         user = request.user
-        scheduling = models.Scheduling.objects
+        scheduling = models.Scheduling.objects.order_by('schedulingDate')
         if user.company:
             scheduling = scheduling.filter(company=user.company)
         else:

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
 import { SchedulingRegisterServiceService } from 'src/app/services/scheduling-register-service.service';
 
 @Component({
@@ -9,10 +10,16 @@ import { SchedulingRegisterServiceService } from 'src/app/services/scheduling-re
 export class CompanyScheduleComponent implements OnInit {
 
   schedulings : any = [];
+  now: String
+  hour: String
 
   constructor(
     private SchedulingRegisterService: SchedulingRegisterServiceService,
-  ) { }
+  ) {
+    let newDate: moment.Moment = moment.utc(new Date()).local();
+    this.now = newDate.format("YYYY-MM-DD");
+    this.hour = newDate.format("HH:mm");
+   }
 
   ngOnInit(): void {
 

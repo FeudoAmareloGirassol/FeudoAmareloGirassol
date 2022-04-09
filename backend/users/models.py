@@ -1,19 +1,18 @@
-from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.db import models
+
+CATEGORY_CHOICES  = [
+    ('ASSISTENCIA_TECNICA', 'Assistência Técnica'),
+    ('SERVICOS_DOMESTICOS', 'Serviços Domésticos'),
+    ('CONSTRUCAO_CIVIL', 'Construção Civil'),
+    ('ADVOCACIA', 'Advocacia'),
+    ('EDUCACAO', 'Educação'),
+    ('BELEZA', 'Beleza'),
+    ('DESIGN', 'Design'),
+    ('SAUDE', 'Saúde'),
+]
 
 class Company(models.Model):
-    CATEGORY_CHOICES  = (
-        ('ADVOCACIA', 'Advocacia'),
-        ('SAUDE', 'Saúde'),
-        ('ASSISTENCIA_TECNICA', 'Assistência Técnica'),
-        ('CONSTRUCAO_CIVIL', 'Construção Civil'),
-        ('BELEZA', 'Beleza'),
-        ('EDUCACAO', 'Educação'),
-        ('SERVICOS_DOMESTICOS', 'Serviços Domésticos'),
-        ('DESIGN', 'Design'),
-    )
-    def __str__(self):
-        return self.name
     name = models.CharField(max_length=255)
     cnpj = models.CharField(max_length=18)
     address = models.CharField(max_length=255)
@@ -22,6 +21,8 @@ class Company(models.Model):
     uf = models.CharField(max_length=2)
     telephone_number = models.CharField(max_length=20)
     category = models.CharField(max_length=25, choices=CATEGORY_CHOICES)
+    def __str__(self):
+        return self.name
 
 class User(AbstractUser):
     email = models.EmailField(max_length=255, unique=True)

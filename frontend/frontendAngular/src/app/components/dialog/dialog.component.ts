@@ -33,9 +33,13 @@ export class DialogComponent implements OnInit {
       SchedulingHour: ['', [Validators.required]]
     });
   }
+
   minDate = new Date();
+  tomorrow = new Date();
+
 
   ngOnInit(): void {
+     this.tomorrow.setDate(this.minDate.getDate() + 1);
   }
 
   onNoClick(): void {
@@ -66,5 +70,3 @@ export class DialogComponent implements OnInit {
   }
 
 }
-
-

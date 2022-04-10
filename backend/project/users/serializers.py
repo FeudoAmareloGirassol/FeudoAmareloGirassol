@@ -76,3 +76,9 @@ class SchedulingSerializer(serializers.ModelSerializer):
         scheduling.customer = user
         scheduling.save()
         return scheduling
+
+
+class SchedulingSerializerGET(serializers.ModelSerializer):
+    class Meta:
+        model = models.Scheduling
+        fields = ['customer', 'schedulingDate', 'schedulingTime', 'company']

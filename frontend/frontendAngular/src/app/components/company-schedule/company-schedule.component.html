@@ -2,6 +2,7 @@
   <thead>
     <tr>
       <th scope="col">ID</th>
+      <th scope="col">E-mail do cliente</th>
       <th scope="col">Data</th>
       <th scope="col">Hora</th>
     </tr>
@@ -11,6 +12,9 @@
       <ng-container
         *ngIf="(scheduling['schedulingDate'] == now && scheduling['schedulingTime'] >= hour) || scheduling['schedulingDate'] > now">
         <th scope="row"> {{i+1}} </th>
+        <ng-container *ngFor="let u of users">
+          <td *ngIf="u['id'] == scheduling['customer']">{{u['email']}}</td>
+        </ng-container>
         <td>{{scheduling['schedulingDate'] | date: 'dd/MM/yyyy' }}</td>
         <td><strong>{{scheduling['schedulingTime']}}</strong></td>
       </ng-container>

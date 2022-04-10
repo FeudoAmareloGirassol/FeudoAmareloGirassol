@@ -90,13 +90,14 @@ class MyTokenObtainPairView(TokenObtainPairView):
 class SchedulingViewSet(APIView):
     def get(self, request):
         user = request.user
-        scheduling = models.Scheduling.objects.order_by('schedulingDate')
+        scheduling = models.Scheduling.objects.order_by(
+            'schedulingDate')
         if user.company:
             scheduling = scheduling.filter(company=user.company)
         else:
             scheduling = scheduling.filter(customer=user)
 
-        serializer = serializers.SchedulingSerializer(scheduling, many=True)
+        serializer = serializers.SchedulingSerializerGET(scheduling, many=True)
         return Response(serializer.data)
 
     def post(self, request):

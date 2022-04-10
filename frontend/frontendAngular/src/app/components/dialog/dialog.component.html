@@ -15,20 +15,22 @@
       </mat-dialog-content>
 
       <form class="example-form" [formGroup]="SchedulingForm">
+
         <mat-form-field appearance="fill" class="mt-3">
-          <mat-label>Data do agendamento</mat-label>
+          <mat-label>Data</mat-label>
           <input matInput [matDatepicker]="picker" [min]="tomorrow" formControlName='SchedulingDate'
             name='SchedulingDate'>
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field><br>
-        <mat-form-field class="example-full-width">
-          <mat-label>Horário do agendamento</mat-label>
+        </mat-form-field> <br>
+
+        <mat-form-field appearance="fill" class="mt-3" style="width: 100%">
+          <mat-label>Horário</mat-label>
           <input matInput type="time" formControlName="SchedulingHour" #time>
         </mat-form-field>
       </form>
 
-      <mat-dialog-actions class="justify-content-center">
+      <mat-dialog-actions style="margin-left: 25%;">
         <button color="primary" mat-raised-button mat-dialog-close (click)="submit()">AGENDAR</button>
       </mat-dialog-actions>
     </div>

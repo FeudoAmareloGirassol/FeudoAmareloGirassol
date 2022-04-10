@@ -50,7 +50,7 @@ export class UserHomeComponent implements OnInit {
     let dialogRef = this.dialog.open(DialogComponent, {
       data: company,
       width: '800px',
-      height: '400px',
+      height: '500px',
     });
 
     dialogRef.afterClosed().subscribe(result => {

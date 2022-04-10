@@ -10,7 +10,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">ID</th>
       <th scope="col">Empresa</th>
       <th scope="col">Telefone</th>
       <th scope="col">Endereço</th>
@@ -19,11 +18,9 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let scheduling of schedulings; let i = index">
+    <tr *ngFor="let scheduling of schedulings">
       <ng-container
         *ngIf="(scheduling['schedulingDate'] == now && scheduling['schedulingTime'] >= hour) || scheduling['schedulingDate'] > now">
-
-        <th scope="row">{{i+1}}</th>
 
         <ng-container *ngFor="let c of company">
           <td *ngIf="scheduling['company'] == c['id']">{{c['name']}}</td>

@@ -5,7 +5,6 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import viewsets
-from rest_framework import generics
 from rest_framework import filters
 from . import models, serializers
 
@@ -32,36 +31,23 @@ class RegisterCompanyView(APIView):
 class RegisterCustomerView(APIView):
     permission_classes = [AllowAny]
     def post(self, request):
-        userSerializer = UserSerializer(data=request.data['user'])
+        userSerializer = UserSerializer(data=request.data)
         errors = {}
         if not userSerializer.is_valid():
-            errors['user'] = userSerializer.errors
+            errors = userSerializer.errors
         if errors:
             return Response(errors)
         userSerializer.save()
         return Response({
-            "User": userSerializer.data
+            userSerializer.data
         })
 
-class GetUsersViewset(viewsets.ModelViewSet):
-    queryset = models.User.objects.all()
-    serializer_class = serializers.GetUserSerializer
-
-class GetCompanyViewset(viewsets.ModelViewSet):
+class CompanyViewset(viewsets.ModelViewSet):
     queryset = models.Company.objects.all()
     serializer_class = serializers.GetCompanySerializer
-
-class CompanyFilterView(generics.ListAPIView):
-    queryset = models.Company.objects.all()
-    serializer_class = serializers.GetCompanySerializer
-    filter_backends = [DjangoFilterBackend]
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filterset_fields = ['category']
-
-class CompanySearchView(generics.ListAPIView):
-    queryset = models.Company.objects.all()
-    serializer_class = serializers.GetCompanySerializer
-    filter_backends = [filters.SearchFilter]
-    search_fields = ['name']
+    search_fields = ['name', 'city']
 
 class MyTokenObtainPairView(TokenObtainPairView):
     permission_classes = [AllowAny]

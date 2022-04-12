@@ -35,14 +35,6 @@ class GetCompanySerializer(serializers.ModelSerializer):
         model = Company
         fields = ['id', 'name', 'cnpj', 'address', 'cep', 'city', 'uf', 'telephone_number', 'category']
 
-class GetUserSerializer(serializers.ModelSerializer):
-    company = GetCompanySerializer(read_only = True)
-
-    class Meta:
-        model = User
-        fields = ('id', 'email', 'company')
-
-
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls, user):
@@ -52,5 +44,4 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
             return token
         except:
             token['email'] = user.email
-            token['company'] = user.company
             return token

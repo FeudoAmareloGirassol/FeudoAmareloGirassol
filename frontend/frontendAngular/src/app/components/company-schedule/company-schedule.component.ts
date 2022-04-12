@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
-import { SchedulingRegisterService } from 'src/app/services/scheduling-register-service.service';
-import { GetUsersService } from 'src/app/services/get-users.service';
-import { SchedulingModel} from 'src/app/api/scheduling';
-import { CompanyModel } from 'src/app/api/company';
+import { SchedulingRegisterService } from '../../services/scheduling-register-service.service';
+import { GetUsersService } from '../../services/get-users.service';
+import { SchedulingModel} from '../../api/scheduling';
+import { CompanyModel } from '../../api/company';
 
 @Component({
   selector: 'app-company-schedule',

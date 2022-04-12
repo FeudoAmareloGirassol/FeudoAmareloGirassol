@@ -1,7 +1,7 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { APIGETService } from 'src/app/services/api-get.service';
+import { APIGETService } from '../../services/api-get.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CompanyModel } from 'src/app/api/company';
 import * as moment from 'moment';

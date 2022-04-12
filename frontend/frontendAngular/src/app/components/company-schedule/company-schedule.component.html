@@ -9,7 +9,7 @@
   <tbody>
     <tr *ngFor="let scheduling of schedulings; let i = index">
       <ng-container
-        *ngIf="(scheduling['schedulingDate'] == now && scheduling['schedulingTime'] >= hour) || scheduling['schedulingDate'] > now">
+        *ngIf=" compararHoras(scheduling['schedulingDate'], now, scheduling['schedulingTime'], hour)  || compararDatas(scheduling['schedulingDate'], now)  ">
         <ng-container *ngFor="let u of users">
           <td *ngIf="u['id'] == scheduling['customer']">{{u['email']}}</td>
         </ng-container>

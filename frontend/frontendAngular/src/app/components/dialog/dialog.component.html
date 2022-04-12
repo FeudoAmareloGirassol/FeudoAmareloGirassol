@@ -14,7 +14,7 @@
         <div>TELEFONE: {{company.telephone_number}}</div>
       </mat-dialog-content>
 
-      <form class="example-form" [formGroup]="SchedulingForm">
+      <form [formGroup]="SchedulingForm">
 
         <mat-form-field appearance="fill" class="mt-3">
           <mat-label>Data</mat-label>
@@ -26,11 +26,11 @@
 
         <mat-form-field appearance="fill" class="mt-3" style="width: 100%">
           <mat-label>Horário</mat-label>
-          <input matInput class="a" type="time" formControlName="SchedulingHour" #time>
+          <input matInput class="iconWatch" type="time" formControlName="SchedulingHour" #time>
         </mat-form-field>
       </form>
 
-      <mat-dialog-actions style="margin-left: 25%;">
+      <mat-dialog-actions class="justify-content-center">
         <button color="primary" mat-raised-button mat-dialog-close (click)="submit()">AGENDAR</button>
       </mat-dialog-actions>
     </div>

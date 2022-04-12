@@ -8,7 +8,7 @@ const apiUrl = 'http://127.0.0.1:8000/api/auth/scheduling';
 @Injectable({
   providedIn: 'root'
 })
-export class SchedulingRegisterServiceService {
+export class SchedulingRegisterService {
   constructor(
     public http: HttpClient,
     private localStorage: LocalStorageLoginService

@@ -20,7 +20,7 @@
   <tbody>
     <tr *ngFor="let scheduling of schedulings">
       <ng-container
-        *ngIf="(scheduling['schedulingDate'] == now && scheduling['schedulingTime'] >= hour) || scheduling['schedulingDate'] > now">
+        *ngIf=" compararHoras(scheduling['schedulingDate'], now, scheduling['schedulingTime'], hour)  || compararDatas(scheduling['schedulingDate'], now) ">
 
         <ng-container *ngFor="let c of company">
           <td *ngIf="scheduling['company'] == c['id']">{{c['name']}}</td>

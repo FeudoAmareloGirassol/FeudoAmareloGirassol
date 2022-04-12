@@ -6,7 +6,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CompanyModel } from 'src/app/api/company';
 import * as moment from 'moment';
 import { Router } from '@angular/router';
-import { SchedulingRegisterServiceService } from '../../services/scheduling-register-service.service';
+import { SchedulingRegisterService } from '../../services/scheduling-register-service.service';
 import { SchedulingModel, SchedulingRequest } from '../../api/scheduling';
 import { MessageService } from 'src/app/services/message-service.service';
 
@@ -25,7 +25,7 @@ export class DialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public company: CompanyModel,
     private fb: FormBuilder,
     private router: Router,
-    public schedulingRegisterService: SchedulingRegisterServiceService,
+    public schedulingRegisterService: SchedulingRegisterService,
     private messageService: MessageService,
   ) {
     this.SchedulingForm = this.fb.group({
@@ -40,10 +40,6 @@ export class DialogComponent implements OnInit {
 
   ngOnInit(): void {
      this.tomorrow.setDate(this.minDate.getDate() + 1);
-  }
-
-  onNoClick(): void {
-    this.dialogRef.close();
   }
 
   submit(){

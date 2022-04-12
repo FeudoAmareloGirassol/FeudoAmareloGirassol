@@ -11,11 +11,11 @@ const apiUrl = 'http://127.0.0.1:8000/api/auth/scheduling';
 export class SchedulingRegisterServiceService {
   constructor(
     public http: HttpClient,
-    private lsls: LocalStorageLoginService
+    private localStorage: LocalStorageLoginService
     ) { }
 
   registerScheduling(request: SchedulingRequest) {
-    const token = this.lsls.get("token");
+    const token = this.localStorage.get("token");
     const header = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
     const options = {
       headers: header,
@@ -24,7 +24,7 @@ export class SchedulingRegisterServiceService {
 
     getScheduling() {
 
-      const token = this.lsls.get("token");
+      const token = this.localStorage.get("token");
       const header = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
       const options = {
         headers: header,

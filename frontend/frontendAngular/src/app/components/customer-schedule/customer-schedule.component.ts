@@ -41,14 +41,18 @@ export class CustomerScheduleComponent implements OnInit {
   compararDatas(date1: Date, date2: Date){
     date1 = this.convertDateToUTC(new Date(date1))
     if(date1.getFullYear() >= date2.getFullYear()){
-      if(date1.getMonth() >= date2.getMonth()){
-        if(date1.getDate() > date2.getDate()){
-          return true;
-        }else{
+      if(date1.getFullYear() > date2.getFullYear()){
+        return true
+      }else{
+        if(date1.getMonth() >= date2.getMonth()){
+          if(date1.getDate() > date2.getDate()){
+            return true;
+          }else{
+            return false;
+          }
+        } else{
           return false;
         }
-      } else{
-        return false;
       }
     } else{
       return false;

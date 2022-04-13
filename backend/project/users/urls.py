@@ -15,5 +15,5 @@ urlpatterns = [
     path('register/customer', RegisterCustomerView.as_view()),
     path('register/company', RegisterCompanyView.as_view()),
     path('get/', include(router.urls)),  # METODO GET
-    path('scheduling', SchedulingViewSet.as_view())
+    path('scheduling', SchedulingViewSet.as_view())  # GET SCHEDULE
 ]

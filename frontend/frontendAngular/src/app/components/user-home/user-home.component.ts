@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { debounceTime, distinctUntilChanged, Observable, Subject, switchMap } from 'rxjs';
-import { FilterService } from 'src/app/services/filter.service';
+import { FilterService } from '../../services/filter.service';
 import { CategoryModel } from '../../api/category';
 import { CompanyModel } from '../../api/company';
 import { CompanyService } from '../../services/company.service';

@@ -5,8 +5,6 @@ import { CompanyModel, CompanyRequest } from '../api/company';
 import { LocalStorageLoginService } from './local-storage-login.service';
 
 const apiUrl = 'http://127.0.0.1:8000/api/auth'
-// const apiUrl = 'http://127.0.0.1:8000/api/auth/get/companyfoo';
-// const apiUrl2 = 'http://127.0.0.1:8000/api/auth/register/company';
 
 @Injectable({
   providedIn: 'root'

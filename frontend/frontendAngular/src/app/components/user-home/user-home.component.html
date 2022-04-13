@@ -4,13 +4,13 @@
 
     <div class="d-flex col-5 ml-4">
       <input #searchBox [(ngModel)]="result" (input)="search(searchBox.value)" placeholder="Pesquisar" [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let card of cards$ | async" [value]="card.name">
-            {{card.name}}
-          </mat-option>
-        </mat-autocomplete>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let card of cards$ | async" [value]="card.name">
+          {{card.name}}
+        </mat-option>
+      </mat-autocomplete>
         <button id="search" mat-raised-button color="primary" (click)="updateCards()">
-           <mat-icon>search</mat-icon>
+          <mat-icon>search</mat-icon>
         </button>
     </div>
 

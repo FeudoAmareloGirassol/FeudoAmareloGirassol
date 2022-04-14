@@ -38,9 +38,7 @@ class RegisterCustomerView(APIView):
         if errors:
             return Response(errors)
         userSerializer.save()
-        return Response({
-            userSerializer.data
-        })
+        return Response(userSerializer.data)
 
 class CompanyViewset(viewsets.ModelViewSet):
     queryset = models.Company.objects.all()

@@ -1,21 +1,20 @@
-from django import views
-from rest_framework.permissions import AllowAny
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import viewsets
-from .serializers import CompanySerializer, MyTokenObtainPairSerializer, UserSerializer, SchedulingSerializer
-from . import models, serializers
-from rest_framework import generics, status
-from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import filters
+from .serializers import RegisterCompanySerializer, MyTokenObtainPairSerializer, UserSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.permissions import AllowAny
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework import viewsets
+from rest_framework import filters
+from . import models, serializers
 
 
 class RegisterCompanyView(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request):
-        companySerializer = CompanySerializer(data=request.data['company'])
+        companySerializer = RegisterCompanySerializer(
+            data=request.data['company'])
         userSerializer = UserSerializer(data=request.data['user'])
         errors = {}
         if not userSerializer.is_valid():
@@ -37,50 +36,22 @@ class RegisterCustomerView(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request):
-        userSerializer = UserSerializer(data=request.data['user'])
+        userSerializer = UserSerializer(data=request.data)
         errors = {}
         if not userSerializer.is_valid():
-            errors['user'] = userSerializer.errors
+            errors = userSerializer.errors
         if errors:
             return Response(errors)
         userSerializer.save()
-        return Response({
-            "User": userSerializer.data
-        })
+        return Response(userSerializer.data)
 
 
-class GetUsersViewset(viewsets.ModelViewSet):
-    queryset = models.User.objects.all()
-    serializer_class = serializers.GetSerializer
-
-
-class GetCompanyViewset(viewsets.ModelViewSet):
+class CompanyViewset(viewsets.ModelViewSet):
     queryset = models.Company.objects.all()
-    serializer_class = serializers.CompanySerializer
-
-
-class GetCompanyFOOViewset(viewsets.ModelViewSet):
-    queryset = models.Company.objects.all()
-    serializer_class = serializers.GetFOODisplaySerializer
-
-
-class CompanyFilterView(generics.ListAPIView):
-    queryset = models.Company.objects.all()
-    serializer_class = CompanySerializer
-    filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['cnpj', 'address', 'category', 'uf']
-
-
-class CompanySearchView(generics.ListAPIView):
-    queryset = models.Company.objects.all()
-    serializer_class = CompanySerializer
-    filter_backends = [filters.SearchFilter]
-    search_fields = ['category', 'name']
-
-
-class GetViewset(viewsets.ModelViewSet):
-    queryset = models.User.objects.all()
-    serializer_class = serializers.GetSerializer
+    serializer_class = serializers.GetCompanySerializer
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter]
+    filterset_fields = ['category']
+    search_fields = ['name', 'city']
 
 
 class MyTokenObtainPairView(TokenObtainPairView):
@@ -106,6 +77,6 @@ class SchedulingViewSet(APIView):
         user = request.user
         if serializer.is_valid():
             serializer.create(serializer.validated_data, user)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response(serializer.data)
         else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.errors)

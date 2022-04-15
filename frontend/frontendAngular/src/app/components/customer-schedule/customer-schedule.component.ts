@@ -38,7 +38,7 @@ export class CustomerScheduleComponent implements OnInit {
       })
     }
 
-  compararDatas(date1: Date, date2: Date){
+  compareDates(date1: Date, date2: Date){
     date1 = this.convertDateToUTC(new Date(date1))
     if(date1.getFullYear() >= date2.getFullYear()){
       if(date1.getFullYear() > date2.getFullYear()){
@@ -59,7 +59,7 @@ export class CustomerScheduleComponent implements OnInit {
     }
   }
 
-  compararHoras(date1: Date, date2: Date, hora1: Date, hora2: String){
+  compareHour(date1: Date, date2: Date, hora1: Date, hora2: String){
     let hora1Convert = hora1.toString();
     let Hora1Hora = hora1Convert.slice(0,2)
     let Hora1Minuto = hora1Convert.slice(3,5)

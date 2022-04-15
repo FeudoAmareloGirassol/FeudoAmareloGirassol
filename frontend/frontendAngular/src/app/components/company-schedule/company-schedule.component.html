@@ -1,1 +1,21 @@
-<p>company-schedule works!</p>
+<table id="table" class="table table-striped table-sm">
+  <thead>
+    <tr>
+      <th scope="col">E-mail do cliente</th>
+      <th scope="col">Data</th>
+      <th scope="col">Hora</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let scheduling of schedulings; let i = index">
+      <ng-container
+        *ngIf=" CompareHour(scheduling['schedulingDate'], now, scheduling['schedulingTime'], hour)  || compareDate(scheduling['schedulingDate'], now)  ">
+        <ng-container *ngFor="let u of users">
+          <td *ngIf="u['id'] == scheduling['customer']">{{u['email']}}</td>
+        </ng-container>
+        <td>{{scheduling['schedulingDate'] | date: 'dd/MM/yyyy' }}</td>
+        <td><strong>{{scheduling['schedulingTime']}}</strong></td>
+      </ng-container>
+    </tr>
+  </tbody>
+</table>

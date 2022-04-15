@@ -1,0 +1,13 @@
+::ng-deep .mat-dialog-container {
+  overflow-y: hidden !important;
+}
+
+.iconWatch {
+  position: relative;
+  // height: 68px;
+  }
+  .iconWatch::-webkit-calendar-picker-indicator {
+      width: 17px;
+      height: 17px;
+      margin-right: 6px;
+    }

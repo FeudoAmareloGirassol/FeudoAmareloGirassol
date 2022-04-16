@@ -13,6 +13,36 @@ CATEGORY_CHOICES = [
     ('HEALTH', 'Saúde'),
 ]
 
+STATES_CHOICES = [
+    ( 'AC', 'ac'),
+    ( 'AL', 'al'),
+    ( 'AM', 'am'),
+    ( 'AP', 'ap'),
+    ( 'BA', 'ba'),
+    ( 'CE', 'ce'),
+    ( 'DF', 'df'),
+    ( 'ES', 'es'),
+    ( 'GO', 'go'),
+    ( 'MA', 'ma'),
+    ( 'MG', 'mg'),
+    ( 'MS', 'ms'),
+    ( 'MT', 'mt'),
+    ( 'PA', 'pa'),
+    ( 'PB', 'pb'),
+    ( 'PE', 'pe'),
+    ( 'PI', 'pi'),
+    ( 'PR', 'pr'),
+    ( 'RJ', 'rj'),
+    ( 'RN', 'rn'),
+    ( 'RO', 'ro'),
+    ( 'RR', 'rr'),
+    ( 'RS', 'rs'),
+    ( 'SC', 'sc'),
+    ( 'SE', 'se'),
+    ( 'SP', 'sp'),
+    ( 'TO', 'to'),
+]
+
 
 class Company(models.Model):
     name = models.CharField(max_length=50)
@@ -20,7 +50,7 @@ class Company(models.Model):
     address = models.CharField(max_length=150)
     cep = models.CharField(max_length=9)
     city = models.CharField(max_length=255)
-    uf = models.CharField(max_length=2)
+    uf = models.CharField(max_length=2, choices=STATES_CHOICES)
     telephone_number = models.CharField(max_length=16)
     category = models.CharField(max_length=25, choices=CATEGORY_CHOICES)
 

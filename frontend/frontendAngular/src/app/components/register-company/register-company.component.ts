@@ -21,7 +21,7 @@ export class RegisterCompanyComponent implements OnInit {
     { value: 'ADVOCACY', viewValue: 'Advocacia' },
     { value: 'HEALTH', viewValue: 'Saúde' },
     { value: 'TECHNICAL_ASSISTANCE', viewValue: 'Assistência Técnica' },
-    { value: 'CONSTRUCAO_CIVIL', viewValue: 'Construção Civil' },
+    { value: 'CIVIL_CONSTRUCTION', viewValue: 'Construção Civil' },
     { value: 'BEAUTY', viewValue: 'Beleza' },
     { value: 'EDUCATION', viewValue: 'Educação' },
     { value: 'DOMESTIC_SERVICES', viewValue: 'Serviços Domésticos' },

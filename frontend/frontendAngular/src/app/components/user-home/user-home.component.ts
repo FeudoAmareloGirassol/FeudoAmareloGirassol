@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { debounceTime, distinctUntilChanged, Observable, Subject, switchMap } from 'rxjs';
-import { FilterService } from '../../services/filter.service';
 import { CategoryModel } from '../../api/category';
 import { CompanyModel } from '../../api/company';
 import { CompanyService } from '../../services/company.service';
@@ -20,7 +19,7 @@ export class UserHomeComponent implements OnInit {
     { value: 'ADVOCACY', viewValue: 'Advocacia' },
     { value: 'HEALTH', viewValue: 'Saúde' },
     { value: 'TECHNICAL_ASSISTANCE', viewValue: 'Assistência Técnica' },
-    { value: 'CONSTRUCAO_CIVIL', viewValue: 'Construção Civil' },
+    { value: 'CIVIL_CONSTRUCTION', viewValue: 'Construção Civil' },
     { value: 'BEAUTY', viewValue: 'Beleza' },
     { value: 'EDUCATION', viewValue: 'Educação' },
     { value: 'DOMESTIC_SERVICES', viewValue: 'Serviços Domésticos' },
@@ -33,15 +32,14 @@ export class UserHomeComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private getCompanyService: CompanyService,
-    private filterService: FilterService,
+    private companyService: CompanyService,
   ) { }
 
   ngOnInit(): void {
     this.getCards();
     this.cards$ = this.searchTerms.pipe(debounceTime(300),
       distinctUntilChanged(),
-      switchMap((term: string) => this.filterService.search(term)),
+      switchMap((term: string) => this.companyService.search(term)),
     );
   }
 
@@ -59,16 +57,16 @@ export class UserHomeComponent implements OnInit {
   }
 
   getCards(): void {
-    this.getCompanyService.getCompanies()
+    this.companyService.getCompanies()
       .subscribe(cards => this.cards = cards.slice());
   }
   updateCards(): void {
-    this.filterService.search(this.result)
+    this.companyService.search(this.result)
       .subscribe(cards => this.cards = cards.slice());
   }
 
   updateCategory(): void {
-    this.filterService.filter(this.category)
+    this.companyService.filter(this.category)
       .subscribe(cards => this.cards = cards.slice());
   }
 

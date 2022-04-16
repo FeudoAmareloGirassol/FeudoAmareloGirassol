@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { CompanyModel, CompanyRequest } from '../api/company';
 import { SchedulingModel, SchedulingRequest } from '../api/scheduling';
 import { LocalStorageLoginService } from './local-storage-login.service';
@@ -38,14 +38,35 @@ export class CompanyService {
     };
     return this.http.post<SchedulingModel>(`${apiUrl}/scheduling`, request, options)};
 
-    getScheduling() {
+  getScheduling() {
 
-      const token = this.localStorage.get("token");
-      const header = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
-      const options = {
-        headers: header,
-      };
+    const token = this.localStorage.get("token");
+    const header = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
+    const options = {
+      headers: header,
+    };
 
-      return this.http.get(`${apiUrl}/scheduling`, options);
+    return this.http.get(`${apiUrl}/scheduling`, options);
+  }
+
+  search(term: string): Observable<CompanyModel[]> {
+    const token = this.localStorage.get("token");
+    const header = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
+    const options = {
+      headers: header,
+    };
+    if (!term.trim()) {
+      return of([]);
     }
+    return this.http.get<CompanyModel[]>(`${apiUrl}/companies?search=${term}`, options)
+  }
+
+  filter(term: string): Observable<CompanyModel[]> {
+    const token = this.localStorage.get("token");
+    const header = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
+    const options = {
+      headers: header,
+    };
+    return this.http.get<CompanyModel[]>(`${apiUrl}/companies?category=${term}`, options)
+  }
 }

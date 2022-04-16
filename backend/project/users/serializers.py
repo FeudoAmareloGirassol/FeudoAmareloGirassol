@@ -70,3 +70,9 @@ class SchedulingSerializerGET(serializers.ModelSerializer):
     class Meta:
         model = models.Scheduling
         fields = ['customer', 'schedulingDate', 'schedulingTime', 'company']
+
+
+class GetUsersSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.User
+        fields = ('id', 'email')

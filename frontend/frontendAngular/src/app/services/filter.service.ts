@@ -1,37 +1,39 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of} from 'rxjs';
 import { CompanyModel } from '../api/company';
 import { LocalStorageLoginService } from './local-storage-login.service';
 
-const apiUrl = 'http://127.0.0.1:8000/api/auth/get/companyfoo';
+const apiUrl = 'http://127.0.0.1:8000/api/companies';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GetCompanyService {
+export class FilterService {
 
   constructor(
-    public http: HttpClient,
-    public localStorage: LocalStorageLoginService
+    private http: HttpClient,
+    public localStorage: LocalStorageLoginService,
   ) { }
 
-  getCompanies(): Observable<CompanyModel[]> {
+  search(term: string): Observable<CompanyModel[]> {
     const token = this.localStorage.get("token");
     const header = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
     const options = {
       headers: header,
     };
-    return this.http.get<CompanyModel[]>(`${apiUrl}`, options)
+    if (!term.trim()) {
+      return of([]);
+    }
+    return this.http.get<CompanyModel[]>(`${apiUrl}?search=${term}`, options)
   }
 
-  getCompaniesID(id:String): Observable<CompanyModel[]> {
+  filter(term: string): Observable<CompanyModel[]> {
     const token = this.localStorage.get("token");
     const header = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
     const options = {
       headers: header,
     };
-    return this.http.get<CompanyModel[]>(`${apiUrl}/${id}`, options)
+    return this.http.get<CompanyModel[]>(`${apiUrl}?category=${term}`, options)
   }
-
 }

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
+import { CompanyService } from '../../services/company.service';
 import { CompanyModel } from '../../api/company';
 import { SchedulingModel } from '../../api/scheduling';
-import { SchedulingRegisterService } from '../../services/scheduling-register-service.service';
-import { GetCompanyService } from '../../services/get-companies.service'
+
 
 @Component({
   selector: 'app-customer-schedule',
@@ -19,8 +19,8 @@ export class CustomerScheduleComponent implements OnInit {
   hour: String
 
   constructor(
-    private schedulingRegisterService: SchedulingRegisterService,
-    private getCompanyService: GetCompanyService,
+    private schedulingRegisterService: CompanyService,
+    private companyService: CompanyService,
     ) {
       let newDate: moment.Moment = moment.utc(new Date()).local();
       this.now = new Date();
@@ -30,7 +30,7 @@ export class CustomerScheduleComponent implements OnInit {
   ngOnInit(): void {
     this.schedulingRegisterService.getScheduling().subscribe(
       (data: SchedulingModel[]) =>{
-        this.getCompanyService.getCompanies().subscribe(
+        this.companyService.getCompanies().subscribe(
           (company) =>{
             this.company = company
           })

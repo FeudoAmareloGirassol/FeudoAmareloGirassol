@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CompanyModel, CompanyRequest } from '../../api/company';
-import { CompanyRegisterService } from '../../services/company-register.service';
-import { MessageService } from '../../services/message-service.service';
+import { MessageService } from '../../services/message.service';
 import { CategoryModel } from '../../api/category';
-import { LocalStorageLoginService } from '../../services/local-storage-login.service';
+import { CompanyService } from '../../services/company.service';
 
 @Component({
   selector: 'app-register-company',
@@ -19,19 +18,19 @@ export class RegisterCompanyComponent implements OnInit {
   isLoading: boolean = false;
 
   categories: CategoryModel[] = [
-    { value: 'ADVOCACIA', viewValue: 'Advocacia' },
-    { value: 'SAUDE', viewValue: 'Saúde' },
-    { value: 'ASSISTENCIA_TECNICA', viewValue: 'Assistência Técnica' },
-    { value: 'CONSTRUCAO_CIVIL', viewValue: 'Construção Civil' },
-    { value: 'BELEZA', viewValue: 'Beleza' },
-    { value: 'EDUCACAO', viewValue: 'Educação' },
-    { value: 'SERVICOS_DOMESTICOS', viewValue: 'Serviços Domésticos' },
+    { value: 'ADVOCACY', viewValue: 'Advocacia' },
+    { value: 'HEALTH', viewValue: 'Saúde' },
+    { value: 'TECHNICAL_ASSISTANCE', viewValue: 'Assistência Técnica' },
+    { value: 'CIVIL_CONSTRUCTION', viewValue: 'Construção Civil' },
+    { value: 'BEAUTY', viewValue: 'Beleza' },
+    { value: 'EDUCATION', viewValue: 'Educação' },
+    { value: 'DOMESTIC_SERVICES', viewValue: 'Serviços Domésticos' },
     { value: 'DESIGN', viewValue: 'Design' },
   ]
 
   constructor(
     public fb: FormBuilder,
-    public companyRegisterService: CompanyRegisterService,
+    public companyRegisterService: CompanyService,
     private messageService: MessageService,
     private router: Router
   ) {
@@ -94,7 +93,4 @@ export class RegisterCompanyComponent implements OnInit {
       this.router.navigate(['/login']);
     }, _ => this.isLoading = false);
   }
-
-
-
 }

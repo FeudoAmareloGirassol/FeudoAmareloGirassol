@@ -1,25 +1,20 @@
 <div class="col-12">
-  <div class="row justify-content-between my-5 mx-5">
-    <div class="row justify-content-start ml-3">
-      <div class="col-10">
-        <input #searchBox [(ngModel)]="result" (input)="search(searchBox.value)" placeholder="Pesquisar">
-        <ul class="search-result">
-          <li *ngFor="let card of cards$ | async">
-            <a routerLink="/detail/{{card.id}}">
-              {{card.name}}
-            </a>
-          </li>
-        </ul>
-      </div>
 
-      <div class="col-2">
-        <button id="search" mat-icon-button class="search-button" (click)="updateCards()">
+  <div class="row justify-content-between mt-5 ml-5">
+
+    <div class="d-flex col-5 ml-4">
+      <input #searchBox [(ngModel)]="result" (input)="search(searchBox.value)" placeholder="Pesquisar" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let card of cards$ | async" [value]="card.name">
+          {{card.name}}
+        </mat-option>
+      </mat-autocomplete>
+        <button id="search" mat-raised-button color="primary" (click)="updateCards()">
           <mat-icon>search</mat-icon>
         </button>
-      </div>
     </div>
 
-    <div class="justify-content-end mr-5">
+    <div class="col-5">
       <mat-form-field appearance="fill">
         <mat-label>Categorias</mat-label>
         <mat-select [(ngModel)]="category">
@@ -30,13 +25,14 @@
         </mat-select>
       </mat-form-field>
     </div>
+
   </div>
 
   <div class="col-11">
     <div class="row justify-content-around">
       <div class="col-6 my-3" *ngFor="let card of cards">
         <button class="col-12 ml-5 card-button" (click)="OpenDialog(card)">
-          <img src="assets/SVGEmpresa_1.svg">
+          <img class="mt-2" src="assets/SVGCompany_1.svg">
           <h2>{{card.name}}</h2>
           <h3>Serviço: {{card.category}}</h3>
           <p>

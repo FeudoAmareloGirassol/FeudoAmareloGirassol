@@ -1,16 +1,31 @@
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MessageService {
-  messages: string[] = [];
 
-  add(message: string) {
-    this.messages.push(message);
+  constructor(private _snackBar: MatSnackBar) { }
+
+  showError(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+      panelClass: ["error-snackbar"]
+    });
   }
 
-  clear() {
-    this.messages = [];
+  showSuccess(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+      panelClass: ['success-snackbar']
+    });
+  }
+
+  showWarning(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+      panelClass: ['warning-snackbar']
+    });
   }
 }

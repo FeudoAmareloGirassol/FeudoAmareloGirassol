@@ -80,3 +80,8 @@ class SchedulingViewSet(APIView):
             return Response(serializer.data)
         else:
             return Response(serializer.errors)
+
+
+class UsersViewset(viewsets.ModelViewSet):
+    queryset = models.User.objects.all()
+    serializer_class = serializers.GetUsersSerializer

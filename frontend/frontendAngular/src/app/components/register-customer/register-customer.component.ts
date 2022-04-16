@@ -1,10 +1,9 @@
-
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MessageService } from '../../services/message-service.service';
+import { MessageService } from '../../services/message.service';
 import { CustomerModel, CustomerRequest } from '../../api/customer';
-import { CustomerRegisterService } from '../../services/customer-register.service';
 import { Router } from '@angular/router';
+import { CustomerService } from '../../services/customer.service';
 
 @Component({
   selector: 'app-register-customer',
@@ -17,7 +16,7 @@ export class RegisterCustomerComponent implements OnInit {
 
   constructor(
     public fb: FormBuilder,
-    public customerRegisterService: CustomerRegisterService,
+    public customerRegisterService: CustomerService,
     private messageService: MessageService,
     private router: Router
   ) {
@@ -50,10 +49,8 @@ export class RegisterCustomerComponent implements OnInit {
     }
 
     let request: CustomerRequest = {
-      user: {
         email: this.form.controls['email'].value,
         password: this.form.controls['password'].value
-      }
     };
 
     this.isLoading = true;

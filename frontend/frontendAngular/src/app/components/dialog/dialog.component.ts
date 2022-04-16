@@ -1,14 +1,12 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { APIGETService } from '../../services/api-get.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CompanyModel } from 'src/app/api/company';
 import * as moment from 'moment';
-import { Router } from '@angular/router';
-import { SchedulingRegisterService } from '../../services/scheduling-register-service.service';
 import { SchedulingModel, SchedulingRequest } from '../../api/scheduling';
-import { MessageService } from 'src/app/services/message-service.service';
+import { MessageService } from '../../services/message.service';
+import { CompanyService } from 'src/app/services/company.service';
 
 @Component({
   selector: 'app-dialog',
@@ -21,11 +19,9 @@ export class DialogComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
-    private APIGET: APIGETService,
     @Inject(MAT_DIALOG_DATA) public company: CompanyModel,
     private fb: FormBuilder,
-    private router: Router,
-    public schedulingRegisterService: SchedulingRegisterService,
+    public schedulingRegisterService: CompanyService,
     private messageService: MessageService,
   ) {
     this.SchedulingForm = this.fb.group({
@@ -62,7 +58,5 @@ export class DialogComponent implements OnInit {
       this.messageService.showSuccess("Agendamento feito com sucesso!", "Ok");
       this.isLoading = false;
     }, _ => this.isLoading = false);
-
   }
-
 }

@@ -19,12 +19,11 @@
   </thead>
   <tbody>
     <tr *ngFor="let scheduling of schedulings">
-      <ng-container
-        *ngIf=" compareHour(scheduling['schedulingDate'], now, scheduling['schedulingTime'], hour)  || compareDates(scheduling['schedulingDate'], now) ">
+      <ng-container *ngIf=" compareHour(scheduling['schedulingDate'], now,
+        scheduling['schedulingTime'], hour)  || compareDates(scheduling['schedulingDate'], now)">
 
         <ng-container *ngFor="let c of company">
           <td *ngIf="scheduling['company'] == c['id']">{{c['name']}}</td>
-
         </ng-container>
 
         <ng-container *ngFor="let c of company">
@@ -39,8 +38,9 @@
           <td *ngIf="scheduling['company'] == c['id']">{{c['city']}} / {{c['uf']}}</td>
         </ng-container>
 
-        <td> {{scheduling['schedulingDate'] | date: 'dd/MM/yyyy' }} / <strong>{{scheduling['schedulingTime']}}</strong>
-
+        <td>
+          {{scheduling['schedulingDate'] | date: 'dd/MM/yyyy' }} /
+          <strong>{{scheduling['schedulingTime']}}</strong>
         </td>
       </ng-container>
     </tr>

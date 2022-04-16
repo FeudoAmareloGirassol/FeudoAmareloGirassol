@@ -1,55 +1,20 @@
 #search {
-  float: right;
+  border-radius: 1px;
+  height:66%;
+  width: 20%;
 }
 
 input {
-  padding: .5rem;
   width: 100%;
-  max-width: 600px;
-  box-sizing: border-box;
-  display: block;
-}
-
-.search-button {
-  margin-right: 0px;
-  margin-left: 0px;
-  left: auto;
-  right: 10px;
+  height: 67%;
 }
 
 input:focus {
-  outline: #336699 auto 1px;
-}
-
-.search-result li a {
-  border-bottom: 1px solid gray;
-  border-left: 1px solid gray;
-  border-right: 1px solid gray;
-  display: inline-block;
-  width: 100%;
-  max-width: 600px;
-  padding: .5rem;
-  box-sizing: border-box;
-  text-decoration: none;
-  color: black;
-}
-
-.search-result li a:hover {
-  background-color: #435A60;
-  color: white;
-}
-
-ul.search-result {
-  margin-top: 0;
-  padding-left: 0;
-}
-
-li {
-  list-style-type: none;
+  outline: #0A6ABF auto 1px;
 }
 
 .card-button {
-  border-radius: 25px;
+  border-radius: 5px;
   border: none;
   background-color: #0A6ABF;
   color: white;
@@ -59,24 +24,6 @@ li {
   background-color: #0b5596;
 }
 
-.search-button {
-  border-radius: 1px;
-  border: none;
-  background-color: #0A6ABF;
-  color: white;
-}
-
-.search-button:hover {
-  background-color: #0b5596;
-}
-
-img {
-  transition: 1s;
-  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
-  margin-top: 1.1em;
-}
-
-img:hover {
-  transform: scale(1.06);
-  cursor: pointer;
+mat-form-field{
+  width: 60%;
 }

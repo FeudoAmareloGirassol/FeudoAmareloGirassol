@@ -1,8 +1,8 @@
+import { LocalStorageLoginService } from '../../services/local-storage-login.service';
 import { AuthenticationService } from './../../services/authentication.service';
-import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginRequest } from '../../api/authentication';
-import { LocalStorageLoginService } from '../../services/local-storage-login.service';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({

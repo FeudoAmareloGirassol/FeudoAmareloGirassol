@@ -17,13 +17,13 @@ export class UserHomeComponent implements OnInit {
   result = '';
   category = '';
   categories: CategoryModel[] = [
-    { value: 'ADVOCACIA', viewValue: 'Advocacia' },
-    { value: 'SAUDE', viewValue: 'Saúde' },
-    { value: 'ASSISTENCIA_TECNICA', viewValue: 'Assistência Técnica' },
+    { value: 'ADVOCACY', viewValue: 'Advocacia' },
+    { value: 'HEALTH', viewValue: 'Saúde' },
+    { value: 'TECHNICAL_ASSISTANCE', viewValue: 'Assistência Técnica' },
     { value: 'CONSTRUCAO_CIVIL', viewValue: 'Construção Civil' },
-    { value: 'BELEZA', viewValue: 'Beleza' },
-    { value: 'EDUCACAO', viewValue: 'Educação' },
-    { value: 'SERVICOS_DOMESTICOS', viewValue: 'Serviços Domésticos' },
+    { value: 'BEAUTY', viewValue: 'Beleza' },
+    { value: 'EDUCATION', viewValue: 'Educação' },
+    { value: 'DOMESTIC_SERVICES', viewValue: 'Serviços Domésticos' },
     { value: 'DESIGN', viewValue: 'Design' },
   ]
   myControl = new FormControl();
@@ -50,7 +50,7 @@ export class UserHomeComponent implements OnInit {
     let dialogRef = this.dialog.open(DialogComponent, {
       data: company,
       width: '800px',
-      height: '400px',
+      height: '500px',
     });
 
     dialogRef.afterClosed().subscribe(result => {

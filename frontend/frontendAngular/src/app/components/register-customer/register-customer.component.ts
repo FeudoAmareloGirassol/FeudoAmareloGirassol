@@ -49,10 +49,8 @@ export class RegisterCustomerComponent implements OnInit {
     }
 
     let request: CustomerRequest = {
-      user: {
         email: this.form.controls['email'].value,
         password: this.form.controls['password'].value
-      }
     };
 
     this.isLoading = true;

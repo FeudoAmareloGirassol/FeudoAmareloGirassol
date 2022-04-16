@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CompanyModel, CompanyRequest } from '../../api/company';
+import { CompanyModel, CompanyRequest, StateModel } from '../../api/company';
 import { MessageService } from '../../services/message.service';
 import { CategoryModel } from '../../api/category';
 import { CompanyService } from '../../services/company.service';
@@ -26,6 +26,36 @@ export class RegisterCompanyComponent implements OnInit {
     { value: 'EDUCATION', viewValue: 'Educação' },
     { value: 'DOMESTIC_SERVICES', viewValue: 'Serviços Domésticos' },
     { value: 'DESIGN', viewValue: 'Design' },
+  ]
+
+  states: StateModel[] = [
+    { value: 'AC'},
+    { value: 'AL'},
+    { value: 'AM'},
+    { value: 'AP'},
+    { value: 'BA'},
+    { value: 'CE'},
+    { value: 'DF'},
+    { value: 'ES'},
+    { value: 'GO'},
+    { value: 'MA'},
+    { value: 'MG'},
+    { value: 'MS'},
+    { value: 'MT'},
+    { value: 'PA'},
+    { value: 'PB'},
+    { value: 'PE'},
+    { value: 'PI'},
+    { value: 'PR'},
+    { value: 'RJ'},
+    { value: 'RN'},
+    { value: 'RO'},
+    { value: 'RR'},
+    { value: 'RS'},
+    { value: 'SC'},
+    { value: 'SE'},
+    { value: 'SP'},
+    { value: 'TO'},
   ]
 
   constructor(

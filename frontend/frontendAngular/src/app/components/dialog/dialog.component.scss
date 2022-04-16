@@ -4,10 +4,14 @@
 
 .iconWatch {
   position: relative;
-  // height: 68px;
-  }
-  .iconWatch::-webkit-calendar-picker-indicator {
-      width: 17px;
-      height: 17px;
-      margin-right: 6px;
-    }
+}
+
+.iconWatch::-webkit-calendar-picker-indicator {
+  width: 17px;
+  height: 17px;
+  margin-right: 6px;
+}
+
+mat-form-field{
+  width: 15em;
+}

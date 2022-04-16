@@ -4,17 +4,17 @@
       <form clas="col" [formGroup]="form">
         <mat-form-field class="col" appearance="fill">
           <mat-label>Nome</mat-label>
-          <input type="text" matInput formControlName="name">
+          <input type="text" matInput formControlName="name" maxlength="50">
         </mat-form-field>
 
         <mat-form-field class="col" appearance="fill">
           <mat-label>CNPJ</mat-label>
-          <input type="text" matInput formControlName="cnpj">
-        </mat-form-field>
+          <input type="text" placeholder="00.000.000/0000-00" matInput formControlName="cnpj" mask="00.000.000/0000-00">
+         </mat-form-field>
 
         <mat-form-field class="col" appearance="fill">
           <mat-label>Endereço</mat-label>
-          <input type="text" matInput formControlName="address">
+          <input maxlength="150" type="text" matInput formControlName="address">
         </mat-form-field>
 
         <mat-form-field class="col-6" appearance="fill">
@@ -28,22 +28,26 @@
 
         <mat-form-field class="col-6" appearance="fill">
           <mat-label>CEP</mat-label>
-          <input type="text" matInput formControlName="cep">
+          <input placeholder="00000-000" type="text" matInput formControlName="cep" mask="00000-000">
         </mat-form-field>
 
         <mat-form-field class="col-6" appearance="fill">
           <mat-label>Cidade</mat-label>
-          <input type="text" matInput formControlName="city">
+          <input maxlength="30" type="text" matInput formControlName="city">
         </mat-form-field>
 
         <mat-form-field class="col-6" appearance="fill">
           <mat-label>UF</mat-label>
-          <input type="text" matInput formControlName="uf">
+          <mat-select formControlName="uf" required>
+            <mat-option *ngFor="let state of states" [value]="state.value">
+              {{state.value}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
 
         <mat-form-field class="col-6" appearance="fill">
           <mat-label>Telefone</mat-label>
-          <input type="text" matInput formControlName="telephone_number">
+          <input type="text" placeholder="(00) 0 0000-0000" matInput formControlName="telephone_number" mask="(00) 0 0000-0000">
         </mat-form-field>
 
         <mat-form-field class="col-6" appearance="fill">

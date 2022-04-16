@@ -29,6 +29,10 @@ import { CompanyScheduleComponent } from './components/company-schedule/company-
 import { CustomerScheduleComponent } from './components/customer-schedule/customer-schedule.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,6 +66,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    NgxMaskModule.forRoot({dropSpecialCharacters: false}),
   ],
   providers: [HttpClientModule, { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }],
   bootstrap: [AppComponent]

@@ -19,3 +19,7 @@ export interface CompanyBase {
   uf: string;
   telephone_number: string;
 }
+
+export interface StateModel {
+  value: string;
+}

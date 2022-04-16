@@ -1,3 +1,5 @@
+from datetime import date
+import datetime
 from .serializers import RegisterCompanySerializer, MyTokenObtainPairSerializer, UserSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from django_filters.rest_framework import DjangoFilterBackend
@@ -73,11 +75,16 @@ class SchedulingViewSet(APIView):
         return Response(serializer.data)
 
     def post(self, request):
+
         serializer = serializers.SchedulingSerializer(data=request.data)
+        dataCompare = datetime.datetime.strptime(request.data['schedulingDate'], '%Y-%m-%d').date()
         user = request.user
         if serializer.is_valid():
-            serializer.create(serializer.validated_data, user)
-            return Response(serializer.data)
+            if dataCompare > date.today():
+                serializer.create(serializer.validated_data, user)
+                return Response(serializer.data)
+            else:
+                return Response('Schedule date is invalid!')
         else:
             return Response(serializer.errors)
 

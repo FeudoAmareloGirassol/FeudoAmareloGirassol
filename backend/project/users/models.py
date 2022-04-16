@@ -15,13 +15,13 @@ CATEGORY_CHOICES = [
 
 
 class Company(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=50)
     cnpj = models.CharField(max_length=18)
-    address = models.CharField(max_length=255)
-    cep = models.CharField(max_length=10)
+    address = models.CharField(max_length=150)
+    cep = models.CharField(max_length=9)
     city = models.CharField(max_length=255)
     uf = models.CharField(max_length=2)
-    telephone_number = models.CharField(max_length=20)
+    telephone_number = models.CharField(max_length=16)
     category = models.CharField(max_length=25, choices=CATEGORY_CHOICES)
 
     def __str__(self):

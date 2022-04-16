@@ -4,9 +4,9 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CompanyModel } from 'src/app/api/company';
 import * as moment from 'moment';
-import { SchedulingRegisterService } from '../../services/scheduling-register-service.service';
 import { SchedulingModel, SchedulingRequest } from '../../api/scheduling';
 import { MessageService } from '../../services/message.service';
+import { CompanyService } from 'src/app/services/company.service';
 
 @Component({
   selector: 'app-dialog',
@@ -21,7 +21,7 @@ export class DialogComponent implements OnInit {
     public dialogRef: MatDialogRef<DialogComponent>,
     @Inject(MAT_DIALOG_DATA) public company: CompanyModel,
     private fb: FormBuilder,
-    public schedulingRegisterService: SchedulingRegisterService,
+    public schedulingRegisterService: CompanyService,
     private messageService: MessageService,
   ) {
     this.SchedulingForm = this.fb.group({

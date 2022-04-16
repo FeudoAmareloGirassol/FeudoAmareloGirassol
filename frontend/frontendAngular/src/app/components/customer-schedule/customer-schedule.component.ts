@@ -3,7 +3,6 @@ import * as moment from 'moment';
 import { CompanyService } from '../../services/company.service';
 import { CompanyModel } from '../../api/company';
 import { SchedulingModel } from '../../api/scheduling';
-import { SchedulingRegisterService } from '../../services/scheduling-register-service.service';
 
 
 @Component({
@@ -20,7 +19,7 @@ export class CustomerScheduleComponent implements OnInit {
   hour: String
 
   constructor(
-    private schedulingRegisterService: SchedulingRegisterService,
+    private schedulingRegisterService: CompanyService,
     private companyService: CompanyService,
     ) {
       let newDate: moment.Moment = moment.utc(new Date()).local();

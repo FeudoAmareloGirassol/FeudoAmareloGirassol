@@ -3,8 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { CompanyHomeComponent } from './components/company-home/company-home.component';
 import { CompanyScheduleComponent } from './components/company-schedule/company-schedule.component';
 import { CustomerScheduleComponent } from './components/customer-schedule/customer-schedule.component';
-import { EditCompanyComponent } from './components/edit-company/edit-company.component';
-import { EditCustomerComponent } from './components/edit-customer/edit-customer.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterCompanyComponent } from './components/register-company/register-company.component';
 import { RegisterCustomerComponent } from './components/register-customer/register-customer.component';
@@ -49,16 +47,6 @@ const routes: Routes = [
   {
     path: 'customer/schedule',
     component: CustomerScheduleComponent,
-    canActivate: [AuthenticatedGuard, PayloadCustomerGuard]
-  },
-  {
-    path: 'company/edit',
-    component: EditCompanyComponent,
-    canActivate: [AuthenticatedGuard, PayloadCompanyGuard]
-  },
-  {
-    path: 'customer/edit',
-    component: EditCustomerComponent,
     canActivate: [AuthenticatedGuard, PayloadCustomerGuard]
   },
   {

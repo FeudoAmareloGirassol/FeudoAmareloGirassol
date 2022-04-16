@@ -27,8 +27,6 @@ import { CompanyHomeComponent } from './components/company-home/company-home.com
 import { UserConfigComponent } from './components/user-config/user-config.component';
 import { CompanyScheduleComponent } from './components/company-schedule/company-schedule.component';
 import { CustomerScheduleComponent } from './components/customer-schedule/customer-schedule.component';
-import { EditCompanyComponent } from './components/edit-company/edit-company.component';
-import { EditCustomerComponent } from './components/edit-customer/edit-customer.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
@@ -43,8 +41,6 @@ import { DialogComponent } from './components/dialog/dialog.component';
     UserConfigComponent,
     CompanyScheduleComponent,
     CustomerScheduleComponent,
-    EditCompanyComponent,
-    EditCustomerComponent,
     DialogComponent,
   ],
   imports: [

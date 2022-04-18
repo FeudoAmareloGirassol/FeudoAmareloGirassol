@@ -77,7 +77,8 @@ class SchedulingViewSet(APIView):
     def post(self, request):
 
         serializer = serializers.SchedulingSerializer(data=request.data)
-        dataCompare = datetime.datetime.strptime(request.data['schedulingDate'], '%Y-%m-%d').date()
+        dataCompare = datetime.datetime.strptime(
+            request.data['schedulingDate'], '%Y-%m-%d').date()
         user = request.user
         if serializer.is_valid():
             if dataCompare > date.today():

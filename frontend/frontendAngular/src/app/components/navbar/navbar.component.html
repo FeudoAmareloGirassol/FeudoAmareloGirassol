@@ -8,7 +8,7 @@
     </span>
     <ng-container
       *ngIf="!((localStorage.get('token'))==null) && this.localStorage.decodePayloadJWT(this.localStorage.get('token')).cnpj == null">
-      <span style="margin-left: 90%;">
+      <span class="icon">
         <mat-icon class="settings" routerLink="/user/config">settings</mat-icon>
       </span>
     </ng-container>

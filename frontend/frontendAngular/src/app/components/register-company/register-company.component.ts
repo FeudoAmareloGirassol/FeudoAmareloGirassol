@@ -126,6 +126,16 @@ export class RegisterCompanyComponent implements OnInit {
       this.messageService.showSuccess("Registrado com sucesso", "Ok");
       this.isLoading = false;
       this.router.navigate(['/login']);
-    }, _ => this.isLoading = false);
+    },(error) => {
+      if(error['error']['company'] && error['error']['user']){
+        this.messageService.showError("E-mail e CNPJ já cadastrado!", "Ok");
+      } else if(error['error']['user']){
+        this.messageService.showError("E-mail já cadastrado!", "Ok");
+      } else if(error['error']['company']){
+        this.messageService.showError("CNPJ já cadastrado!", "Ok");
+      }
+
+      this.isLoading = false;
+    })
   }
 }

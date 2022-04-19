@@ -58,7 +58,10 @@ export class RegisterCustomerComponent implements OnInit {
       this.messageService.showSuccess("Registrado com sucesso", "Ok");
       this.isLoading = false;
       this.router.navigate(['/login']);
-    }, _ => this.isLoading = false);
+    },() => {
+      this.messageService.showError("E-mail já existente!", "Ok");
+      this.isLoading = false;
+    })
   }
 
 }

@@ -9,6 +9,7 @@ from rest_framework.views import APIView
 from rest_framework import viewsets
 from rest_framework import filters
 from . import models, serializers
+from rest_framework import status
 import re
 
 
@@ -27,7 +28,7 @@ class RegisterCompanyView(APIView):
         if not companySerializer.is_valid():
             errors['company'] = companySerializer.errors
         if errors:
-            return Response(errors)
+            return Response(errors, status=status.HTTP_400_BAD_REQUEST)
         companySerializer.save()
         userSerializer.create(userSerializer.validated_data,
                               companySerializer.instance)
@@ -46,7 +47,7 @@ class RegisterCustomerView(APIView):
         if not userSerializer.is_valid():
             errors = userSerializer.errors
         if errors:
-            return Response(errors)
+            return Response(errors, status=status.HTTP_400_BAD_REQUEST)
         userSerializer.save()
         return Response(userSerializer.data)
 

@@ -2,6 +2,7 @@
   <div class="row justify-content-around">
     <mat-card class="mx-5 my-5">
       <form [formGroup]="form">
+        <br>
         <mat-form-field class="col mt-5" appearance="fill">
           <mat-label>Email</mat-label>
           <input type="email" matInput formControlName="email">
@@ -21,18 +22,15 @@
           </button>
         </div>
 
-        <div class="row justify-content-around my-2">
-          <a routerLink="">Esqueceu a senha?</a>
-        </div>
-
         <div class="row justify-content-around m-3">
           <button routerLink="/register/customer" color="primary" mat-raised-button>
-            Criar conta
+            Cadastrar Usuário
           </button>
           <button routerLink="/register/company" color="primary" mat-raised-button>
-            Criar conta empresarial
+            Cadastrar Empresa
           </button>
         </div>
+
       </form>
     </mat-card>
     <div>

@@ -5,7 +5,7 @@ import { CompanyModel, CompanyRequest, StateModel } from '../../api/company';
 import { MessageService } from '../../services/message.service';
 import { CategoryModel } from '../../api/category';
 import { CompanyService } from '../../services/company.service';
-
+import { cnpj } from 'cpf-cnpj-validator';
 @Component({
   selector: 'app-register-company',
   templateUrl: './register-company.component.html',
@@ -96,6 +96,11 @@ export class RegisterCompanyComponent implements OnInit {
       return;
     } else if (password1.length < 5 && password2.length < 5) {
       this.messageService.showWarning("Senhas muito curtas!", "Ok");
+      return;
+    }
+
+    if(cnpj.isValid(this.form.controls['cnpj'].value) == false){
+      this.messageService.showError("CNPJ INVÁLIDO!", "Ok");
       return;
     }
 

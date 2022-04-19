@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginRequest } from '../../api/authentication';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MessageService } from 'src/app/services/message.service';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
     public fb: FormBuilder,
     public loginService: AuthenticationService,
     private localStorage: LocalStorageLoginService,
+    private messageService: MessageService,
     private router: Router,
   ) {
     this.form = this.fb.group({
@@ -51,6 +53,9 @@ export class LoginComponent implements OnInit {
       } else{
         this.router.navigate(['/user/home']);
       }
-    }, _ => this.isLoading = false);
+    },() => {
+      this.messageService.showError("Usuario ou senha incorretos!", "Ok");
+      this.isLoading = false;
+    })
   }
 }

@@ -32,7 +32,6 @@ export class CompanyScheduleComponent implements OnInit {
         this.customerService.GetUsers().subscribe(
           (users) =>{
             this.users = users
-            console.log(users)
           })
         this.schedulings = data;
       });

@@ -46,7 +46,7 @@ STATES_CHOICES = [
 
 class Company(models.Model):
     name = models.CharField(max_length=50)
-    cnpj = models.CharField(max_length=18)
+    cnpj = models.CharField(max_length=18, unique=True)
     address = models.CharField(max_length=150)
     cep = models.CharField(max_length=9)
     city = models.CharField(max_length=255)

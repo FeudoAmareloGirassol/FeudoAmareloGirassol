@@ -2,6 +2,9 @@
 @import "~@angular/material/theming";
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @include mat-core();
+@import '~animate.css/animate.min.css';
+
+
 
 $primary: mat-palette($mat-blue, 700);
 $accent: mat-palette($mat-blue-grey, 500);
